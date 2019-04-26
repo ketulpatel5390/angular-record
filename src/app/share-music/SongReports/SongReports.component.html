@@ -1,0 +1,157 @@
+<div class="container song-reports " >
+  <div id="exportreports">
+		<div class="row">
+				<div class="header-text col-md-12">
+            <h3 class="text-center">Record Drop Account Activity Report</h3> 
+        </div>
+    </div>
+    <div class="row">
+        <div class="header-text col-md-12">
+            <h4 class="text-left song_info_report">Song Information</h4>
+            <button *ngIf="inpromember" matButton  class="btn btn-success pdf_btn" (click)="exportdatahtmltopdf()"><i class="fa fa-file-pdf-o" aria-hidden="true"></i></button> 
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <p><span>Song Title :</span> {{ songtitle }} </p>
+        </div>
+        <div class="col-md-4">
+
+            <p><span>Album Name :</span> {{ albumName }} </p>
+        </div>
+        <div class="col-md-4">
+            <p><span>Artist Name :</span> {{ artistname }}</p>
+        </div>
+        
+    </div>
+
+    <div class="row song-reports-count">
+        <div class="col-md-12">
+            <h4 class="text-left">Number of Users who have reviewed the song 
+              <span>{{ songreviewedcount }}</span>
+              <div class="clearfix"></div>
+            </h4> 
+        </div>
+        <div class="col-md-12">
+            <h4 class="text-left">Number of Users who have added the song to their Crate 
+              <span>{{ songcrateaddedcount }}</span>
+              <div class="clearfix"></div>
+            </h4> 
+        </div>
+        <div class="col-md-12">
+            <h4 class="text-left">Number of users who have added the artist as a Favorite 
+              <span>{{ songfavouriteaddedcount }}</span>
+              <div class="clearfix"></div>
+            </h4> 
+        </div>
+        <div class="col-md-12">
+            <h4 class="text-left">Average Rating  
+              <span>{{ songAvgrating }}</span>
+              <div class="clearfix"></div>
+            </h4> 
+        </div>
+        <!-- <div class="col-md-12">
+            <h4 class="text-left">Number of distributions 
+              <span>{{ songdestributioncount }}</span>
+              <div class="clearfix"></div>
+            </h4> 
+        </div> -->
+    </div>
+
+    <div class="row song-reports-table">
+      <div class="col-md-12">
+        <div class="table-responsive">          
+        <table class="table" width="100%">
+          <thead>
+            <tr>
+             <!--  <th width="10%">User Id</th> -->
+              <th width="10%" *ngIf="inpromember">Country</th>
+              <th width="10%" *ngIf="inpromember">State</th>
+              <th width="10%" *ngIf="inpromember">City</th>
+              <th width="10%">User Name</th>
+              <th width="10%">Star Rating</th>
+              <th width="10%">Comments</th>
+              
+              <th width="10%" *ngIf="inpromember" class="messsagenone">Message</th>
+              <th  width="10%" *ngIf="inpromember" class="groupnone"> 
+                <button *ngIf="inpromember" matButton  class="btn btn-success" (click)="SendGroupMesage()">Group Message</button>
+
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let song of pagedSongs">
+              <!-- <td>{{ song.UserId }}</td> -->
+              <td *ngIf="inpromember">{{ song.Country }}</td>
+              <td *ngIf="inpromember">{{ song.StateOrProvince }}</td>
+              <td *ngIf="inpromember">{{ song.City }}</td>
+              <td>{{ song.Username }}</td>
+              <td>
+                <img *ngIf="song.OverallRating == 0" [src]="rating0"  class="img-responsive" alt="">
+                <img *ngIf="song.OverallRating == 1" [src]="rating1"  class="img-responsive" alt="">
+                <img *ngIf="song.OverallRating == 2" [src]="rating2"  class="img-responsive" alt="">
+                <img *ngIf="song.OverallRating == 3" [src]="rating3"  class="img-responsive" alt="">
+                <img *ngIf="song.OverallRating == 4" [src]="rating4"  class="img-responsive" alt="">
+                <img *ngIf="song.OverallRating == 5" [src]="rating5"  class="img-responsive" alt="">
+                <!-- <star-rating-comp class="rating-star-new" [readOnly]="true" [starType]="'svg'" [rating]="song.OverallRating" ></star-rating-comp> -->
+
+              </td>
+              <td>{{ song.Comment }}</td>
+              
+              <td *ngIf="inpromember"  class="messsagenone"> <button *ngIf="inpromember" matButton  class="btn btn-success" (click)="SendMesageToIndividual(song.UserId)"><i class="fa fa-envelope" aria-hidden="true"></i></button></td>
+              <td *ngIf="inpromember" class="groupnone checkbox" >
+                <input type="checkbox"
+                           name="options"
+                           value="{{ song.UserId }}"
+                           [checked]="pagedSongs.indexOf(song.UserId) >= 0"
+                           (change)="updateCheckedOptions(song.UserId, $event)"/>
+              </td>
+
+              
+              
+
+              
+            </tr>
+            <tr *ngIf="inpromember">
+              <td colspan="4" class="text-center"></td>
+              <td colspan="4" class="text-center">
+                <button *ngIf="inpromember" matButton  class="btn btn-success" (click)="SendgeographicalMesage()">Send  Message Based On Geographical Location</button>
+              </td>
+            </tr>
+          </tbody>
+          
+         <!--  <thead>
+            <tr>
+              <th>User Id</th>
+              <th>User Name</th>
+              <th>Star Rating</th>
+              <th>Comments</th>
+              <th *ngIf="inpromember">Country</th>
+              <th *ngIf="inpromember">City State</th>
+              <th *ngIf="inpromember">Town</th>
+              <th *ngIf="inpromember">Message</th>
+              <th *ngIf="inpromember"> 
+                <button *ngIf="inpromember" matButton  class="btn btn-success" (click)="SendGroupMesage()">Group Message</button>
+              </th>
+            </tr>
+          </thead> -->
+          <!-- <tbody>
+            <tr *ngIf="inpromember">
+              <td colspan="4" class="text-center"></td>
+              <td colspan="5" class="text-center">
+                <button *ngIf="inpromember" matButton  class="btn btn-success" (click)="SendgeographicalMesage()">Send  Message Based On Geographical Location</button>
+              </td>
+            </tr>
+          </tbody> -->
+        </table>
+        </div>
+      </div>
+     <!--  <div class="row">
+    <div class="col-md-12">
+      <app-pager class="custom_pager" #pagerCtrl [pager]="pager" (onLoadPage)="onLoadPageHandler()"></app-pager>
+    </div>
+  </div> -->
+    </div>
+</div>
+</div>

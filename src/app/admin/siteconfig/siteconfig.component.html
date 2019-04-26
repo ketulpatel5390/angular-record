@@ -1,0 +1,87 @@
+
+     <div class="container" *ngIf="siteconfigaccess">
+      
+      <div class="row">
+      <div class="header-text col-md-12">
+          <h3 class="text-center">Site Setting</h3> 
+      </div>
+    </div>
+     <div class="row my_profile">
+      	<div class="col-md-12">
+	        <div class="profile_box">
+	          <h4>ALBUM SETTING</h4>
+	          <ul class="list-unstyled" *ngIf="siteconfig">
+	            <li>EP LIMIT<span>{{siteconfig.ep_limit}}</span></li>
+	            <li>ALBUM LIMIT<span>{{siteconfig.album_limit}}</span></li>
+              <li>FILE UPLOAD SIZE<span>{{siteconfig.fileuploadsize}} MB</span></li>
+	           </ul> 
+	         </div>
+    	</div>
+      <div class="col-md-12">
+          <div class="profile_box">
+            <h4>Listening Room Configuration</h4>
+            <ul class="list-unstyled" *ngIf="siteconfig">
+              <li>Listening Room Config<span>{{siteconfig.listeningroomconfig}} Days</span></li>
+              <li>Distibution Limit Config<span>{{siteconfig.set_distibution}} Times</span></li>
+             
+            </ul> 
+           </div>
+      </div>
+    	<div class="col-md-12">
+	        <div class="profile_box">
+	          <h4>IDLE SETTING</h4>
+	          <ul class="list-unstyled" *ngIf="siteconfig">
+	            <li>IDLETIME<span>{{siteconfig.ideltime}}  Seconds</span></li>
+	           
+	          </ul> 
+	         </div>
+    	</div>
+      <div class="col-md-12">
+          <div class="profile_box">
+            <h4>PACKAGE AND REVIEW LIMIT SETTING</h4>
+            <ul class="list-unstyled" *ngIf="siteconfig">
+              <li>PACKAGE ID<span>{{siteconfig.defaultpackage}}</span></li>
+              <li>SongREVIEW LIMIT<span>{{siteconfig.defaultreviewlimit}}</span></li>
+             
+            </ul> 
+           </div>
+      </div>
+      <div class="col-md-12">
+          <div class="profile_box">
+            <h4>PAYPAL SETTING</h4>
+            <ul class="list-unstyled" *ngIf="siteconfig">
+              <li>ENV<span>{{siteconfig.paypal_env}}</span></li>
+              <li>CLIENT_ID<span>{{siteconfig.paypal_key}}</span></li>
+             
+            </ul> 
+           </div>
+      </div>
+      <div class="col-md-12">
+          <div class="profile_box">
+            <h4>Tire SETTING</h4>
+            <ul class="list-unstyled" *ngIf="siteconfig">
+              <li>Tire2 Percentage<span>{{siteconfig.tire2_per}}</span></li>
+              <li>Tire2 Rating<span>{{siteconfig.tire2_ret}}</span></li>
+              <li>Tire3 Percentage<span>{{siteconfig.tire3_per}}</span></li>
+              <li>Tire3 Rating<span>{{siteconfig.tire3_ret}}</span></li>
+              <li>Tire4 Percentage<span>{{siteconfig.tire4_per}}</span></li>
+              <li>Tire4 Rating<span>{{siteconfig.tire4_ret}}</span></li>
+             
+            </ul> 
+           </div>
+      </div>
+
+    	<div class="col-md-12 text-center">
+	         <button *ngIf="siteconfig" [routerLink]="['/admin/editsiteconfig',siteconfig.id]" >EDIT SITECONFIG</button>
+    	</div>
+     </div>
+
+  
+</div>
+ <div class="container" *ngIf="!siteconfigaccess">
+
+  <div class="alert alert-danger">
+    <p>You are not authorized for this page. </p>
+  </div>
+ 
+</div>

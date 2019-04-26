@@ -1,0 +1,17 @@
+<div class="login-form-popup Song_Crate_popup">
+
+  <h2 mat-dialog-title>Share my Song Crate</h2>
+   
+   <div *ngIf="error"> <div class="alert alert-danger">{{ error }}</div> </div>
+   <div *ngIf="successerror"> <div class="alert alert-success">{{ successerror }}</div> </div>
+   <form>
+    <div class="form-group">
+      <label for="username">Username</label>
+    <input type="text" class="form-control" #myInput  name="searchitem" placeholder="Enter User Name">
+    </div>
+    <div class="btn-animate">
+    <button class="btn-signin" type="button" (click)="sharemycrate(myInput.value)" >Share Song Crate</button>
+    <button class="btn-signin" type="button" (click)="cancelDialog()" >Close</button>
+  </div>
+  </form> 
+</div>

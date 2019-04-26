@@ -1,0 +1,47 @@
+<div class="col-md-3 col-sm-6 customwidth_responsive">
+    <div class="list-img-detail new-list-img-thumb">
+        <div class="list-img-play-time">
+             <span  class="lisnig_chechbox" *ngIf="!inyourcrate && !inyourroom && !availableisChecked">
+                    <input type="checkbox" style="display: block;" value="song.SongId" [(ngModel)]="isChecked" (change)="onFilterChange($event)" > 
+            </span>
+            <span  class="lisnig_chechbox" *ngIf="availableisChecked && !inyourcrate && !inyourroom">
+                    <input type="checkbox" style="display: block;" value="song.SongId" [(ngModel)]="isChecked" (change)="onFilterChange($event)" > 
+            </span>
+        <img [src]="imageSource" alt="" class="img-responsive">
+        </div>
+        <div class="thumbnail-disc">
+            <span class="btn_span">
+                <aside  class="song_action">
+                <button class="songplay_" id="songplay_{{song.SongId}}" (click)="onPlayHandler()"><i class="fa fa-play-circle-o" aria-hidden="true"></i></button>
+                <button style="display: none;" class="songpause_" id="songpause_{{song.SongId}}" (click)="onStopHandler()"><i class="fa fa-pause-circle-o" aria-hidden="true"></i></button>
+                </aside>
+            <span class="website" >
+                <a href="{{song.Website}}" target="_blank">
+                <i class="fa fa-globe"></i></a>
+            </span>
+            <aside class="song_time">{{song.Duration}}</aside>
+            <div class="clearfix"></div>
+            </span>
+            <span class="title" title="{{song.SongTitle }}" >{{ song.SongTitle.substring(0, 45) }} </span>
+            
+            <span class="artist"title="{{song.ArtistName }}" >{{song.ArtistName.substring(0, 25) }}</span>
+            
+            <span class="song-label" *ngIf="song.Label" title="{{song.Label }}">Label: {{song.Label.substring(0, 25)}}</span>
+            <span class="song-label" *ngIf="!song.Label">&nbsp;</span>
+             <span class="song-user" >Uploaded By: <a [routerLink]="['/PublicProfile',song.UserId]" title="{{song.Username }}">{{song.Username }}</a></span>
+            <span class="genre"><span>{{song.Genre}}</span><!-- <span *ngIf="song.SubGenre">{{song.SubGenre}}</span> --></span>
+
+            <!-- <button *ngIf="inyourcrate" class="add_room_list" matButton [routerLink]="['/mysongcrate/songinmycrate']" >AllReady In Your Crate</button> -->
+            <button *ngIf="inyourcrate && ( inyourcratecount == '1' ||  inyourcratecount == '2')" class="add_room_list" matButton >Already In Your Crate</button>
+            <button *ngIf="inyourcrate && inyourcratecount == '3'" class="add_room_list" matButton >Already Reviewed</button>
+            <!-- <div class="rating-star-button" *ngIf="inyourcrate">
+                <star-rating-comp class="rating-star-new" [readOnly]="true" [starType]="'svg'" [rating]="song.OverallRating" ></star-rating-comp> 
+            </div> -->
+            <button class="add_room_list" *ngIf="inyourroom && !inyourcrate">
+              Already In Your Room
+            </button>
+            <button *ngIf="!inyourcrate && !inyourroom" class="add_room_list" matButton (click)="addtolisteningroom()">Add To Listening Room</button>
+            
+        </div>
+    </div>
+</div>

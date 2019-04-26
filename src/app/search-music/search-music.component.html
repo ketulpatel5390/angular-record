@@ -1,0 +1,57 @@
+<!-- <app-header></app-header> -->
+<app-front-header></app-front-header>
+   <section class="search-upload">
+    
+    
+      <div class="container">
+      
+      <div class="row">
+        
+        <div class="col-md-offset-1 col-md-7 col-sm-7">
+        
+          <div class="input-group">
+      <input type="text" class="form-control" #myInput  name="searchitem" placeholder="Search for artists, bands, tracks, podcasts" value="{{search}}">
+      
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button" (click)="searchitemss(myInput.value)" ><i class="fa fa-search" aria-hidden="true"></i></button>
+      </span>
+        
+        </div>
+        
+        
+        </div>
+        
+        
+        <div class="col-md-1 col-sm-1 text-center"><p>or</p></div>
+        
+        
+        <div class="col-md-3 col-sm-4">
+        
+          <button class="main-btn" (click)="userlogin()">
+          Upload Your Own
+          
+          </button>
+        
+        </div>
+      
+      </div>
+      </div>
+    
+    
+    </section>
+
+<section>
+    <div class="container">
+        <div class="row">
+            <app-home-song-card  *ngFor="let song of pagedSongs" [song]="song"></app-home-song-card>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <app-pager class="custom_pager" #pagerCtrl [pager]="pager" (onLoadPage)="onLoadPageHandler()"></app-pager>
+          </div>
+        </div>
+    </div>
+</section>
+
+    
+    

@@ -1,0 +1,31 @@
+<!--  <section class="inner-list"> -->
+       
+		<div class="container">
+		  
+			
+      
+    
+    <div class="row">
+      <div class="col-md-12">
+        <ul class="list-unstyled gener_list_display2">
+        <li  *ngFor="let gener of generslist;">
+          <strong *ngIf="gener.isLabel">{{  gener.name  }}</strong>
+          <app-genres-card   [generid]="gener.id"></app-genres-card>
+          
+        </li> 
+        </ul>
+      <!-- <div  *ngFor="let gener of generslist" class="gener_list_display">
+        <span>{{ gener.name }}</span>
+      </div> -->
+      </div>
+
+   <!--  <app-browsesearch-song-card  *ngFor="let song of pagedSongs" [song]="song"></app-browsesearch-song-card> -->
+    </div>
+<!--   <div class="row">
+  	<div class="col-md-12">
+    <app-pager class="custom_pager" #pagerCtrl [pager]="pager" (onLoadPage)="onLoadPageHandler(searchname)"></app-pager>
+  	</div>
+  </div> -->
+  
+</div>
+<!-- </section> -->

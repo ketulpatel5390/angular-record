@@ -1,0 +1,27 @@
+<!--  <section class="inner-list"> -->
+       
+		<div class="container">
+		  
+			
+      <div class="addto-listen-mybtn">
+        <h3 class="serch_result_title">Search Result : {{searchname}}</h3>
+      <button class="mat-tab-link" matButton (click)="clearallselection()">Clear all selections</button>
+      <button class="mat-tab-link" matButton (click)="browssongclass()">Add To Listening Room</button>
+      <a [routerLink]="['/getMusic/reviewMusic']" class="mat-tab-link">Back</a>
+      <div class="clearfix"></div>
+      </div>
+    
+    <div class="row" *ngIf="pagedSongs?.length > 0">
+    <app-browsesearch-song-card  *ngFor="let song of pagedSongs" [song]="song" (onLoadPage)="onLoadPageHandler(searchname)"></app-browsesearch-song-card>
+    </div>
+    <div class="row no_records" *ngIf="pagedSongs?.length <= 0">
+      <h2 class="text-center">No Records Found</h2>
+    </div>
+  <div class="row">
+  	<div class="col-md-12">
+    <app-pager class="custom_pager" #pagerCtrl [pager]="pager" (onLoadPage)="onLoadPageHandler(searchname)"></app-pager>
+  	</div>
+  </div>
+  
+</div>
+<!-- </section> -->

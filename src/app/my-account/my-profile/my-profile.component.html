@@ -1,0 +1,108 @@
+ <section class="inner-list" *ngIf="app">
+       
+    <div class="container">
+      
+      <div class="row">
+      <div class="header-text col-md-12">
+          <h3 class="text-center">My Profile</h3> 
+      </div>    
+      <div *ngIf="error"> <div class="alert alert-success">{{ error }}</div> </div>
+    </div>
+
+  <div class="row my_profile">
+      <div class="col-md-12"  *ngIf="app.AppConfirmed == '0'">
+        <div class="alert alert-warning">Please Varify Your E-mail Address.please verify it by clicking the
+         <a  (click)="varificationemail()"> activation link </a> that has been send to your email</div>
+      </div>
+      <div class="col-md-6">
+        <div class="profile_box">
+          <h4>General</h4>
+          <ul class="list-unstyled">
+            <li>Name<span>{{app.LastName}}, {{app.FirstName}}</span></li>
+            <li>DOB<span>{{app.DOB}}</span></li>
+            <li>Email<span>{{app.Email}}</span></li>
+            <li>Region<span>{{app.Country}}</span></li>
+            <li>State Province<span>{{app.StateOrProvince}}</span></li>
+            <!-- <li>Facebook<span class="custom_social_link">{{app.facebook}}</span></li>
+            <li>Twitter<span class="custom_social_link">{{app.twitter}}</span></li>
+            <li>Instagram<span class="custom_social_link">{{app.instagram}}</span></li>
+            <li>Youtube<span class="custom_social_link">{{app.youtube}}</span></li> -->
+            <li *ngIf="inpromember">Facebook<span class="custom_social_link">
+              <a href="{{ app.facebook }}" title="{{ app.facebook }}" target="_blank"><i class="fa fa-facebook-square"></i></a></span></li>
+            <li *ngIf="inpromember">Twitter<span class="custom_social_link">
+              <a href="{{ app.twitter }}" title="{{ app.twitter }}" target="_blank"><i class="fa fa-twitter-square"></i></a></span></li>
+            <li *ngIf="inpromember">Instagram<span class="custom_social_link">
+              <a href="{{ app.instagram }}" title="{{ app.instagram }}" target="_blank"><i class="fa fa-instagram"></i></a></span></li>
+            <li *ngIf="inpromember">Youtube<span class="custom_social_link">
+             <a href="{{ app.youtube }}" title="{{ app.youtube }}" target="_blank"><i class="fa fa-youtube"></i></a></span></li>
+            <li>Profile Picture<span *ngIf="avtar"> <img [src]="avtar" style="height: 100px;"></span><span *ngIf="!avtar">None</span></li>
+          </ul> 
+          <button matButton (click)="editprofile(app.AppId)">Edit</button>
+          <button matButton (click)="changepass(app.AppId)">Change Password</button>
+      </div>
+    </div>
+      
+      <div class="col-md-6">
+        <div class="profile_box">
+        <h4>Get Music</h4>
+       <ul class="list-unstyled">
+            <li>Song Review Limit<span>{{app.SongsReview}}</span></li>
+            <li>Genres<span><a  (click)="showMusicServed(app.MusicServed)"> {{app.MusicServed.substring(0, 45) }} ...</a> </span></li>
+            <!-- <li>Genres<span>{{app.MusicServed}}</span></li> -->
+           
+        </ul>
+          <button matButton (click)="editsongreview(app.AppId)" >Edit</button>
+        </div>
+      </div>
+
+      <div class="clearfix"></div>
+
+      <div class="col-md-6">
+        <div class="profile_box">
+        <h4>Share Music</h4>
+        <ul class="list-unstyled" *ngIf="pacdetail" ng-app>
+            <li *ngIf="isuploads == 'Yes'" >Uploads Remaining: <span  *ngIf="!totalsongcount">0</span>
+                                   <span  *ngIf="totalsongcount">{{ totalsongcount }}</span>
+            </li>
+             <li *ngIf="isuploads == 'No'" >Please Upgrade Your Subscription Plan For Share Music.
+            </li>
+            
+        </ul>
+         <!--  <button matButton (click)="uploadmusics()">Upload Music</button> -->
+          <button *ngIf="isuploads == 'Yes'"  matButton (click)="yourportfoliyo()">Portfolio</button>
+        </div>
+      </div>
+
+
+      <div class="col-md-6">
+        <div class="profile_box" *ngIf="pacdetail">
+        <h4> Subscription</h4>
+        <ul class="list-unstyled" >
+            <li>Package<span>{{pacdetail.PkgDetail}}</span></li>
+            <li>Price<span>${{pacdetail.Price}}</span></li>
+            <li>Upload Limit<span>{{pacdetail.Songs}} MB</span></li>
+            <!-- <li>Expiration Date<span>{{pacdetail.SongsReview}}</span></li> -->
+           
+        </ul>
+              <button matButton *ngIf="largestpackageid != pacdetail.PkgId" (click)="RenewPackage()" >Upgrade Subscription</button>
+              <!-- <button matButton>Extend</button> -->
+              <button matButton>Cancel</button>
+      </div>
+      </div>
+
+      
+  </div>  
+
+</div>
+</section>
+<section class="inner-list" *ngIf="!app">
+  <div class="container">
+      
+      <div class="row">
+      <div class="header-text col-md-12">
+          <h3 class="text-center">My Profile</h3> 
+      </div>    
+      
+    </div>
+  </div>
+</section>

@@ -1,0 +1,44 @@
+
+     <div class="container">
+      
+      <!-- <div class="row">
+      <div class="header-text col-md-12">
+          <h3 class="text-center">My Song Crate Pending Requests</h3> 
+      </div>
+    </div> -->
+    <div class="row">
+
+      <!-- <h2 class="text-center"><strong>Comming Soon......</strong></h2> -->
+      <table class="table table-striped portfolio-list-top">
+    	<tr>
+    		<th>Username</th>
+    		<th>Requested Date </th>
+    		<th>Status</th>
+        <th class="text-center">Actions</th>
+    	</tr>
+    	<tr *ngFor="let cratefriendsinfo of Songcratefriendsinfo"  >
+    		<td>{{ cratefriendsinfo.Username }}</td>
+    		<td>{{ cratefriendsinfo.created_date }}</td>
+    		<td *ngIf="cratefriendsinfo.block_status == 'Block'">{{ cratefriendsinfo.status }} - {{ cratefriendsinfo.block_status }}</td>
+        <td *ngIf="cratefriendsinfo.block_status != 'Block'">{{ cratefriendsinfo.status }}</td>
+
+        <td  class="text-center"> 
+            <button class="btn btn-primary" type="button" (click)="approved(cratefriendsinfo.crate_id,cratefriendsinfo.UserId)" >Approve</button>
+            <button class="btn btn-primary" type="button" (click)="denied(cratefriendsinfo.crate_id,cratefriendsinfo.UserId)" >Deny</button>
+
+            
+            <button *ngIf="cratefriendsinfo.block_status != 'Block'" class="btn btn-primary" type="button" (click)="block(cratefriendsinfo.crate_id,cratefriendsinfo.UserId)" >Block</button>
+            
+            <button *ngIf="cratefriendsinfo.block_status == 'Block'"  class="btn btn-primary" type="button" (click)="unBlock(cratefriendsinfo.crate_id,cratefriendsinfo.UserId)" >UnBlock</button>
+        </td>
+    	</tr>
+
+    </table>
+     </div>
+      <div class="row">
+    <div class="col-md-12">
+  <app-pager class="custom_pager" #pagerCtrl [pager]="pager" (onLoadPage)="onLoadPageHandler()"></app-pager>
+    </div>
+  </div>
+  
+</div>

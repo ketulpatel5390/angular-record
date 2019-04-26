@@ -1,0 +1,39 @@
+<!--  <section class="inner-list"> -->
+       
+    <div class="container">
+      
+      <div class="row">
+       <!--  <div class="header-text col-md-12">
+          <h3 class="text-center">Review Needed</h3> 
+      </div> -->
+      <div class="col-md-12">
+        <p>Welcome to your Listening Room. The Listening Room is where you receive new music that you can listen to, give feedback on, and add to your crate to download.</p>
+      </div>
+      <div class="slide_song custom_slide_song" *ngFor="let song of newsong">
+
+
+
+        <div class="col-md-12"><h3><b>{{ song.GenreName }} </b></h3><hr></div>
+        <div id="listioningroom_{{song.GenerId}}">
+        
+           <owl-carousel    
+     [options]="sliderOptions"
+     [carouselClasses]="['owl-theme']">
+
+    <div class="item" *ngFor="let item of song.data"><app-song-card   [song]="item"  (onLoadPage)="onLoadPageHandler()"></app-song-card></div>
+     
+   <!--     -->
+   
+    
+ </owl-carousel>
+        <!--  -->
+  </div>
+
+
+</div>
+
+
+<!-- </section> -->
+
+
+

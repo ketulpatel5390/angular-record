@@ -1,0 +1,73 @@
+<!-- <mat-card [hidden]="!song">
+    <mat-card-header *ngIf="song">
+      <img mat-card-avatar [src]="imageSource">
+      <mat-card-title>{{song.SongTitle}} ({{song.Duration}})</mat-card-title>
+      <mat-card-subtitle>{{song.ArtistName}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content >
+        <audio #audioCtrl controls width="300" height="90" align="middle" (play)="onPlayHandler()"
+        autobuffer="autobuffer"
+        type="audio/mpeg">
+      </audio>
+    </mat-card-content>
+  </mat-card> -->
+
+
+
+   
+<div class="music-player" [hidden]="!song" >
+     
+      <div *ngIf="playershow;" class="custom_music_control">
+        <div class="player_s_h_div">
+        <i *ngIf="playershow;" class="fa fa-angle-up" (click)="playershows()" aria-hidden="true"></i>
+        </div>
+        <button (click)="backward()"><i class="fa fa-step-backward" aria-hidden="true"></i></button>
+        <button (click)="playAudio()" *ngIf="onplaysong"> <i class="fa fa-play" aria-hidden="true"></i></button>
+        <button (click)="pauseAudio()" *ngIf="onpausesong"> <i class="fa fa-pause" aria-hidden="true"></i></button>
+        <button (click)="forward()"><i class="fa fa-step-forward" aria-hidden="true"></i></button>
+      </div>
+        <div class="container music_show_hode" style="display: none;">
+          <div class="player_s_h_div">
+        <i *ngIf="playerhide;" class="fa fa-angle-down"  (click)="playerhides()" aria-hidden="true"></i>   
+      </div>
+       
+            <div class="row" >
+
+            <div class="col-md-3 col-sm-3">
+
+                <div class="thumb-play-name-pic" *ngIf="song">
+
+                    <img class="player-img" [src]="imageSource" alt="">
+
+                   
+                    <span>{{song.ArtistName}}</span>
+                </div>
+
+            </div>
+
+            <div class="col-md-9 col-sm-9 text-left">
+                <div *ngIf="song">
+                 <p>{{song.SongTitle}} <span *ngIf="songinlibrary">( {{ songplayindex }} of {{ totallist }} )</span></p>
+               </div>
+               <div *ngIf="!audioSource">Song Url Not Found</div>
+                <div class="player-detail-number">
+                    <div class="player-icon">
+                    <button (click)="backward()"><i class="fa fa-step-backward" aria-hidden="true"></i></button>
+                    <button (click)="forward()"><i class="fa fa-step-forward" aria-hidden="true"></i></button>
+                    <audio class="audio-player-dist" #audioCtrl controls  align="middle" (play)="onPlayHandler()"
+                  		autobuffer="autobuffer" preload="none" type="audio/mpeg" controlsList="nodownload">
+                    </audio>
+           
+           			</div>
+           			<a [routerLink]="['/playlist']" id="register_scroll"><i class="fa fa-list" aria-hidden="true"></i></a>
+           
+                </div>
+
+            </div>
+           
+      </div>
+
+  </div>
+</div> 
+
+

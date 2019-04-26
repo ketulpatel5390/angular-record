@@ -1,0 +1,36 @@
+<!-- <div class="container">
+  <mat-card>
+    <mat-card-title>Song Upload Form</mat-card-title>
+    <mat-card-content>
+      <button matButton (click)="uploadMusic()">Upload Songs</button>
+    </mat-card-content>
+  </mat-card>
+</div> -->
+ <div class="SONG_UPLOAD">
+       
+		<div class="container">
+		  
+			<div class="row">
+      <div class="header-text col-md-12">
+          <h3 class="text-center">Song Upload</h3> 
+      </div>
+   <!--  <app-song-card  *ngFor="let song of pagedSongs" [song]="song"></app-song-card> -->
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <p><strong>Your Song Uploads Limit Remaining: <span  *ngIf="!totalsongcount" class="error">0</span>
+                           <span  *ngIf="totalsongcount">{{ totalsongcount }}</span></strong></p>
+      </div>
+    </div>
+  <div class="row">
+
+  	<mat-card  *ngIf="totalsongcount">
+    <mat-card-title>Song Upload Form</mat-card-title>
+    <mat-card-content>
+      <button matButton (click)="uploadMusic()">Upload Songs</button>
+    </mat-card-content>
+  </mat-card>
+  </div>
+  
+</div>
+</div>

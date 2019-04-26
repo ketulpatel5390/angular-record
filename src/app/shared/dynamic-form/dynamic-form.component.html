@@ -1,0 +1,28 @@
+<div class="full-height">
+  <form class="full-height" (ngSubmit)="onSubmitHandler()" [formGroup]="form">
+    <!-- <mat-grid-list class="full-height" [cols]="numColumns" [rowHeight]="rowHeight" > -->
+      <div class="row">
+      <div class="col-md-4 form-field-heights" *ngFor="let question of questions">
+        <app-dynamic-form-question [question]="question" [form]="form"
+          (onChangeLog)="onChangeLogHandler($event)" class="form-inputdiv-width">
+        </app-dynamic-form-question>
+      </div>
+      </div>
+      
+      <!-- <mat-grid-tile *ngIf="submitIsVisible"> -->
+        <div class="row">
+           <div class="col-md-12 text-center">
+            <button [disabled]="!form.valid" class="form-submit-button">
+              Submit
+            </button>
+            </div>
+        </div>
+      <!-- </mat-grid-tile> -->
+     
+    <!-- </mat-grid-list> -->
+  </form>
+
+  <!-- <div *ngIf="payLoad" style="word-wrap:break-word">
+    <strong>Saved the following values</strong><br>{{payLoad}}
+  </div> -->
+</div>

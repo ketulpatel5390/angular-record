@@ -1,0 +1,62 @@
+<header class="inner-without-login" [ngStyle]="{ 'background-image': 'url(' + bgimageName + ')'}">
+  <!-- [ngStyle]="{ 'background-image': 'url(' + bgimageName + ')'}" -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="logo"><a [routerLink]="['/home']"><img [src]="imageName" alt=""></a></div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12 pull-right">
+    
+                <!-- <div class="login" >
+                   
+                     <a  (click)="userlogin()">Sign in</a>
+                    <a [routerLink]="['/register']" id="register_scroll">Sign Up</a>
+                   
+                </div> -->
+              </div>
+          
+        </div>
+
+        </div>
+    </header>
+
+
+<alert></alert>
+<section class="registration-secton-form" id="register_scroller">
+<div class="container">
+	<div class="row">
+    <div *ngIf="msgstatus;" class="alert alert-success">
+      <p>{{ msgstatus }}</p>
+    </div>
+    <div *ngIf="error;" class="alert alert-danger">
+      <p>{{ error }}</p>
+    </div>
+		<div class="col-md-8 col-md-offset-2">
+
+     <form [formGroup] = "verifylinkform" (ngSubmit)="onSubmitHandler()" class="form-horizontal" >
+      <input type="hidden" class="form-control" name = "userid" formControlName = "userid">
+      <input type="hidden" class="form-control" name = "username" formControlName = "username">
+
+           <div class="row">
+            <div class="col-md-12 text-left">
+
+            
+            <p><b>Dear {{username}},</b></p>
+            </div>
+           <div class="col-md-12">
+            <p class="text-left">Its seems like you have not verify your email yet. Please verify your email by link given in your email. Please check both your inbox and Junk for email.</p>
+            
+            <p class="text-left">
+              If you have not get email please click below to send verification link again.
+            </p>
+            <p class="text-center"><button class="btn btn-primary"> Send verification email </button></p>
+            </div>
+        </div>
+
+     
+   </form> 
+
+		</div>
+	</div>
+</div>
+</section>

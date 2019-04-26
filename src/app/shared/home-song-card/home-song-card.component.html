@@ -1,0 +1,60 @@
+<div class="col-md-3 col-sm-6">
+   <div class="list-img-detail new-list-img-thumb">
+
+<div class="">
+  
+
+
+      <img [src]="imageSource" alt="" class="img-responsive">
+
+        <div class="list-song-duration">{{song.Duration}}</div>
+
+      </div>
+
+
+
+      <div class="thumbnail-disc">
+
+       <span class="artist">{{song.ArtistName.substring(0, 30) }}</span>
+          <span class="title">{{ song.SongTitle.substring(0, 50) }} </span>
+         
+          <span class="genre"><span>{{song.Genre}}</span><!-- <span *ngIf="song.SubGenre">{{song.SubGenre}}</span> --></span>
+          <span class="song-label">{{song.Label}}</span>
+          
+            
+
+</div>
+
+    </div>
+</div>
+
+<!-- <div class="col-md-3">
+<mat-card>
+  <mat-card-header>
+    <img mat-card-avatar [src]="imageSource">
+    <mat-card-title>{{song.SongTitle}} ({{song.Duration}})</mat-card-title>
+    <mat-card-subtitle>{{song.ArtistName}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content fxLayout="row wrap" fxLayout.lt-md="column">
+    <div fxFlex="100%">
+      <span>Genre: </span>{{song.Genre}} - {{song.SubGenre}}<br>
+      <span>Label: </span>{{song.Label}}<br>
+      <span>Website: </span>{{song.Website}}
+    </div>
+   
+    <app-star-rater (onSubmit)="onSubmitHandler($event)"
+      [overallRating]="song.OverallRating"></app-star-rater>
+  </mat-card-content>
+  <mat-card-actions>
+      <button matButton *ngIf="canPlay" (click)="onPlayHandler()">Play</button>
+      <button matButton *ngIf="canPause" (click)="onPauseHandler()">Pause</button>
+      <button matButton *ngIf="canStop" (click)="onStopHandler()">Stop</button>
+      <button matButton *ngIf="canSkip" (click)="onSkipHandler()">Skip</button>
+      <button matButton *ngIf="canQueue" (click)="onQueueHandler()">Queue</button>
+      <button matButton *ngIf="canDequeue" (click)="onDequeueHandler()">Dequeue</button>
+      <button matButton *ngIf="canMute" (click)="onMuteHandler()">Mute</button>
+      <button matButton *ngIf="canLoop" (click)="onLoopHandler()">Loop</button>
+  </mat-card-actions>
+  
+</mat-card>
+</div> -->

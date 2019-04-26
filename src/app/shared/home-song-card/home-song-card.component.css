@@ -1,0 +1,118 @@
+
+.inner-list {
+	
+}
+
+
+.list-img-detail {
+	background: #eaeaea;
+	margin-bottom: 30px;
+	position: relative;
+}
+
+
+.list-img-detail span {
+	padding: 10px 10px 0;
+	color: #666;
+	display: block;
+	
+}
+
+.list-img-detail p {
+	padding: 0 10px 10px;
+	font-size: 18px;
+	font-weight: 400;
+	color: #3a3a3a;
+	
+	
+	
+}
+
+
+.new-list-img-thumb img {
+	width: 284px;
+	height: 284px;
+}
+
+.new-list-img-thumb .list-song-duration {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    width: 50px;
+    background: rgb(217,3,4); /* Old browsers */
+	background: -moz-linear-gradient(left, rgba(217,3,4,1) 0%, rgba(248,0,144,1) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(left, rgba(217,3,4,1) 0%, rgba(248,0,144,1) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to right, rgba(217,3,4,1) 0%, rgba(248,0,144,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d90304', endColorstr='#f80090', GradientType=1 ); /* IE6-9 */
+	-moz-transition: all 0ms ease-in-out;
+	-webkit-transition: all 0ms ease-in-out;
+	transition: all 0ms ease-in-out;
+    text-align: center;
+    color: #fff;
+}
+
+.new-list-img-thumb span.artist {
+	    font-size: 13px;
+    color: #999;
+}
+
+
+.new-list-img-thumb span.title {
+    font-size: 18px;
+    color: #333;
+    margin-top: 0;
+    padding-top: 5px;
+    display: block;
+  
+    padding-bottom: 5px;
+        height: 60px;
+    display: table-cell;
+    vertical-align: middle;
+    width: 100%;
+}
+
+.new-list-img-thumb span.genre {
+	  border-top: 1px solid #ccc;
+}
+
+
+.new-list-img-thumb span.genre span {
+	    display: inline-block ;
+    background: #d90304;
+    color: #fff ;
+    padding: 3px 10px ;
+    margin-right: 8px;
+    border-radius: 20px;
+    font-size: 13px;
+    margin-bottom: 8px;
+
+	}
+
+	.new-list-img-thumb span.song-label {
+		font-size: 13px;
+	}
+
+
+
+.new-list-img-thumb .thumbnail-disc {
+	min-height: 220px;
+	overflow: hidden;
+
+}
+
+	.new-list-img-thumb span.website {
+
+    position: absolute;
+    top: 10px;
+    left: 0;
+    text-shadow: 0 0 1px #000;
+    background: rgba(0,0,0,0.6);
+    padding: 6px 10px !important;
+    border-radius: 0 10px 10px 0;
+
+    }
+
+	.new-list-img-thumb span.website a img{
+		height: auto;
+		width: 22px;
+	}

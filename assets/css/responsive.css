@@ -1,0 +1,881 @@
+
+@media only screen and (min-width:1600px) and (max-width:1900px) {
+}
+
+@media only screen and (min-width:1401px) and (max-width:1599px) {
+}
+
+@media only screen and (min-width:1300px) and (max-width:1400px) { 
+header .banner-caption {
+    margin: 70px auto;
+}
+.inner-list .mat-tab-nav-bar {
+    margin: 0px auto 10px auto;
+    width: 1050px;
+}
+.inner-list .container{
+    width:1050px;
+}
+
+
+}
+@media only screen and (min-width:1200px) and (max-width:1280px) {
+
+.inner-list .container{
+    width:1000px;
+}
+.inner-list .mat-tab-nav-bar {
+    margin: 0 auto 50px auto;
+    width: 1000px;
+}
+.new-list-img-thumb span.title{
+    font-size: 14px;
+}
+
+}
+
+@media only screen and (min-width:1025px) and (max-width:1160px) {
+    .search_box {
+        width: 450px;
+    }
+    .new-list-img-thumb .rating-star-button button {
+        margin-right: 0;
+    }
+}
+
+
+@media screen and (max-width: 1024px) {
+header .banner-caption {
+    margin: 100px auto;
+}
+header .banner-caption p {
+    font-size: 40px;
+}
+header ul.numbers li {
+    width: 30%;
+}
+.features-list li {
+    width: 42%;
+}
+.features-list li span {
+    font-size: 12px;
+}
+.features h1 {
+    font-size: 30px;
+}
+.search_box {
+    width: 390px;
+    margin: 0 auto;
+    position: relative;
+}
+.menu_bar_btn{
+  display: block;
+  font-size: 24px;
+position: absolute;
+left: 15px;
+top: 25px;
+cursor: pointer;
+}
+.fix_topheader,
+section.inner-list{
+    width: 100%;
+}
+.fix_menu{
+    display: none;
+    width: 250px;
+}
+.menu_close_btn{
+    display: block;
+    position: absolute;
+right: 0;
+font-size: 24px;
+}
+.logo {
+    position: absolute;
+    top: 7px;
+    left: 50px;
+}
+.body-push-menu section.inner-list {
+    width: 100%;
+    float: right;
+    transition: all 300ms ease-in-out;
+}
+.inner-list .mat-tab-nav-bar {
+    margin: 0 auto 50px auto;
+    width: 970px;
+}
+.new-list-img-thumb .rating-star-button button{
+    margin-right: 0;
+}
+.fix_menu-new {
+    display: none;
+    top: 80px;
+} 
+
+}
+
+@media screen and (max-width: 991px) {
+.usr_link {
+    padding: 7px 7px;
+}
+button.owl-prev{
+    top: 38%;
+    left: 0;
+    bottom: auto;
+}
+button.owl-next{
+    right: 0;
+    top: 38%;
+    bottom: auto;
+}
+   /* .new-tab-hide {
+        display: none;
+    }
+
+    .new-tab-user {
+  display: block;
+}*/
+.fix_topheader .open > .dropdown-menu {
+    display: block;
+    position: initial;
+    background-color: #585565 !important;
+    width: 100%;
+    border-radius: 0;
+    padding: 0;
+}
+.dropdown-menu > li > a {
+    text-align: center;
+    cursor: pointer;
+}
+ .new-tab-user .menu_bar_btn{
+    bottom: initial
+ }
+    .dropdown_div {
+    padding: 3px;
+    border-radius: 50%;
+    z-index: 1111;
+    cursor: pointer;
+    width: auto;
+    margin-right: 10px;
+    background: none;
+}
+
+.dropdown_div img {
+    margin-left:0;
+}
+
+.dropdown.dropdown_div span {
+    display: none;
+}
+
+.cdk-overlay-container ::-webkit-scrollbar {
+   -webkit-appearance: none;
+}
+
+.cdk-overlay-container ::-webkit-scrollbar:vertical {
+   width: 10px;
+}
+
+.cdk-overlay-container ::-webkit-scrollbar:horizontal {
+   height: 10px;
+}
+
+.cdk-overlay-container ::-webkit-scrollbar-thumb {
+   background-color: #ccc;
+   border-radius: 10px;
+   border: 2px solid #eee;
+}
+
+.cdk-overlay-container ::-webkit-scrollbar-track { 
+   background-color: #eee; 
+}
+header .banner-caption {
+    width: 90%;
+}
+section {
+    padding:80px 0 40px 0;
+}
+.features-list {
+    text-align: center;
+}
+footer {
+    padding: 40px 0px;
+}
+.music-play .video-player {
+    width: 90%;
+    height: 435px;
+    margin: 0 auto;
+}
+.navbar-default .navbar-nav>li>a {
+    color: #fff;
+    font-size: 14px;
+    padding: 15px 10px;
+    position: relative;
+}
+
+.search_box {
+    width:40%;
+    position: relative;
+    clear: both;
+    margin-top: 5px;
+    display: inline-block;
+    /* float: right; */
+    margin-right: 15px;
+}
+.mar_bottom select {
+    width: 65%; 
+}
+.logo {
+    position: initial;
+    float: left;
+    margin-left: 33px;
+}
+
+.fix_menu {
+    top: 168px;
+}
+.menu_bar_btn {
+    top: auto;
+    bottom: 30px;
+}
+.cdk-overlay-container {
+    position: absolute;
+    width: 100%;
+    top: 10%;
+}
+.inner-list .mat-tab-nav-bar {
+    margin: 0 auto 50px auto;
+    width: 100%;
+}
+section.inner-list {
+    padding-top: 80px;
+}
+.fix_menu-new {
+    display: none;
+    top: 80px;
+}
+.registration-form-app,
+header {
+    height: auto;
+}
+.new-list-img-thumb img {
+  width: 100%;
+}
+.mat-tab-nav-bar {
+    border-bottom: none;
+}
+.audio-player-dist {
+    width: 300px;
+   
+}
+aside.song_action {
+    height: auto;
+}
+.song_action .Username {
+    display: block;
+    margin-top: 20px;
+}
+p.two_row span {
+    margin: 0;
+    display: inline-block;
+}
+p.two_row button.add_room_list{
+        float: none;
+        display: block;
+}
+.crate_close_btn{
+        position: relative;
+    z-index: 1;
+}
+}
+
+@media screen and (max-width: 767px) {
+
+        .new-tab-user {
+  display: none;
+}
+
+
+
+.search_box {
+    width: 100%;
+
+}
+
+.inner-list .mat-tab-link,.my-song-create-frds .mat-tab-link {
+    position: relative;
+    overflow: visible;
+    width: 90%;
+    margin: 0 auto 10px;
+    display: block;
+    line-height: 48px;
+}
+
+
+    section.inner-list {
+    padding-top: 20px;
+}
+.fix_menu-new {
+    display: none;
+      top:50px;
+}
+
+.logo img {
+    margin: 0 auto;
+        width: 50%;
+}
+.logo {
+    display: block;
+    float: none;
+    margin-left: 0px;
+}
+.mob_logout {
+    position: absolute;
+    top:50px;
+    background: #ededed;
+    z-index: 1;
+    min-width: 150px;
+    text-align: center;
+    right: 15px;
+    box-shadow: 0 0 5px #ddd;
+    padding: 5px;
+    font-size: 18px;
+    display: none;
+}
+.mob_logout a {
+    display: block;
+}
+header .login {
+    text-align: center;
+    margin-top: 10px
+}
+header .banner-caption {
+    margin: 20px auto;
+}
+header .banner-caption p {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+header .banner-caption span {
+    font-size: 16px;
+    letter-spacing: 4px;
+    display: block;
+    padding: 0 5px;
+    line-height: 20px;
+}
+header .banner-caption .social-header-button {
+    margin-top: 20px;
+}
+header .banner-caption .social-header-button button {
+    border-radius: 30px;
+    margin-left: 5px;
+    padding: 10px 5px;
+    box-shadow: none;
+    border: none;
+    color: #fff;
+    font-size: 14px;
+    letter-spacing: 4px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+.navbar-header {
+    display: inline-block;
+    float: right;
+}
+.navbar-toggle .icon-bar {
+    background: #fff;
+}
+/*.main-btn {
+    width: 100%;
+}*/
+.features-list li {
+    width: 44%;
+}
+.music-play .video-player {
+    width: 100%;
+    height: auto;
+}
+.features h1 {
+    font-size: 24px;
+}
+.play-title h2 {
+    font-size: 28px;
+}
+.listening h3 {
+    font-size: 24px;
+}
+.listening p {
+    font-size: 16px;
+}
+footer ul li::after {
+    display: none;
+}
+footer ul li {
+    display: inline-block;
+    font-size: 16px;
+    margin-right: 0;
+    position: relative;
+    width: 100%;
+    margin-bottom: 10px;
+}
+.frame, #fadeandscale_wrapper, #fadeandscale_background, #fadeandscale {
+    display: none !important;
+}
+.nav_div .login {
+    float: left;
+    margin-top: -35px;
+}
+/*.dropdown_div {
+    padding: 0 0 0 20px;
+    background-color: #585565;
+    border-radius: 25px;
+    position: inherit;
+    z-index: 1111;
+    cursor: pointer;
+    float: right;
+    margin-top: 25px;
+
+
+}*/
+.dropdown_div .dropdown-menu {
+    left: auto;
+    right: 0;
+}
+.dropdown_div .dropdown-menu {
+    border: none;
+    padding: 0;
+    border-radius: 0;
+    top: 100%;
+}
+.dropdown_div .dropdown-menu li a {
+    padding: 10px 40px;
+    color: #fff;
+}
+.dropdown_div img {
+    margin: 0;
+}
+.dropdown_div .dropdown-menu>li:first-child {
+    border: none;
+}
+.navbar-default .navbar-nav>li>a {
+    padding: 15px 0;
+}
+.navbar-default .navbar-nav>li>a:after {
+    display: none;
+}
+.navbar-default .navbar-nav .open .dropdown-menu>li>a {
+    color: #ccc;
+}
+.navbar-default .navbar-nav .open .dropdown-menu>li>a:focus, .navbar-default .navbar-nav .open .dropdown-menu>li>a:hover {
+    color: #f4f4f4;
+    background-color: transparent;
+}
+.navbar-nav .open .dropdown-menu>li>a {
+    padding: 10px 20px;
+}
+.navbar-nav>li>.dropdown-menu:before {
+    display: none;
+}
+.navbar-nav .open .dropdown-menu {
+    background-color: #585565;
+}
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+    border: none;
+    box-shadow: none;
+}
+.collapse {
+    display: block;
+}
+.menu_bar_btn {
+    position: initial;
+        float: left;
+}
+.dropdown_div {
+    padding: 0 0 0 20px;
+    background-color: #585565;
+    border-radius: 25px;
+    position: initial;
+    z-index: 1111;
+    cursor: pointer;
+    float: right;
+    margin-top: 0;
+    width: auto;
+    padding: 2px;
+}
+.nav_div{
+    position: relative;
+    background: none !important;
+    padding: 15px;
+}
+.fix_topheader {
+    position: initial;
+    background: none;
+    padding: 0;
+}
+
+.fix_menu {
+   top: 140px;
+}
+section {
+    padding: 40px 0;
+}
+.my_profile {
+    padding:15px 0;
+}
+
+.cdk-overlay-container {
+    position: absolute;
+    width: 100%;
+    top: 10px;
+}
+.login-form-popup form button {
+    width: 100px;
+    margin-right: 0;
+    display: inline-block;
+}
+.customwidth_responsive {
+    width: 50%;
+    float: left;
+    padding: 0 3px;
+}
+
+
+.audio-player-dist {
+    width: 450px; 
+}
+ul.grid_view li {
+   width: 100%;
+    margin-bottom: 15px;
+}
+.app_emai_mobile{
+    width: 190px;
+    overflow: hidden;
+    display: inline-block;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    position: relative;
+    top: 7px;
+}
+.sort_res_center{
+    text-align: center;
+    margin: 10px 0;
+}
+.profile_box .custom_social_link{
+    width: 70%;
+}
+.cdk-overlay-container {
+    width: 100% !important;
+    position:absolute !important;
+}
+.new-list-img-thumb .rating-star-button button {
+    margin-right: 0px;
+}
+.cdk-global-overlay-wrapper {
+    width: 600px;
+    top: 10px;
+    position: relative;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    width: 100% !important;
+}
+.inner-list .header-text {
+    margin-bottom: 0;
+    margin-top: 0;
+}
+.slide_song h3 {
+    margin: 0 auto;
+    display: table;
+}
+.slide_song .owl-nav{
+    position: absolute;
+    left: 0;
+    width: 100%;
+    top: -35px;
+}
+.custom_slide_song button.owl-next {
+    right: 0;
+}
+.custom_slide_song button.owl-prev {
+    left: 0;
+}
+.custom_slide_song .owl-carousel .owl-nav button {
+    height: 40px;
+    width: 40px;
+    line-height: 40px;
+    color: #fff;
+    background: #d90304;
+    font-size: 40px;
+}
+.custom_slide_song .owl-carousel .owl-nav button span {
+    top: 0;
+}
+
+.new-list-img-thumb .rating-star-new {
+    margin-left: 0;
+}
+.new-list-img-thumb img {
+    width: 100%;
+    height: 250px;
+}
+button.add_room_list,
+.View-album-list {
+    padding: 10px 3px;
+    font-size: 13px;
+    text-transform: capitalize;
+}
+.inner-list .addto-listen-mybtn .mat-tab-link{
+    width: auto;
+}
+.inner-list .mat-tab-nav-bar {
+    margin: 0 auto 10px auto;
+}
+.mar_bottom select {
+    width: 70%;
+    float: right;
+    margin-bottom: 15px;
+}
+.slide_song .customwidth_responsive {
+    width: 100%;
+    float: none;
+}
+
+.lib_song_cls  .new-list-img-thumb .rating-star-button,
+ .new-list-img-thumb .rating-star-button{
+    padding: 10px 3px;
+}
+.login-form-popup h2{
+    font-size: 20px;
+}
+p.two_row span {
+    margin: 0px 0;
+    display: block;
+}
+p.two_row button.add_room_list,
+.song_action span{
+    float: none;
+    display: block;
+}
+.song_action span.title {
+    display: inline-block;
+}
+.custom_carasol .new-list-img-thumb .thumbnail-disc {
+    min-height: 188px;
+   }
+
+.album-music-review-info img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    margin: 0 auto;
+    display: block;
+}
+.album-songs-list p {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+}
+.album-songs-list .album-songs-list-btn button {
+    padding: 2px 10px;
+    font-size: 12px;
+}
+#accordionExample .collapse.in {
+    display: block;
+}
+#accordionExample .collapse {
+    display: none;
+}
+aside.song_action {
+    height: auto;
+}
+}
+
+
+@media screen and (max-width:480px) {
+
+.nav_div .login a:after {
+    display: none;
+}
+.nav_div .login {
+    float: none;
+    margin-top: 0;
+    text-align: center;
+    padding: 0 5px;
+}
+.dropdown_div {
+    padding: 4px 4px 4px 10px;
+}
+.dropdown_div .dropdown-toggle {
+    font-size: 14px;
+}
+.logo img {
+    margin: 0 auto;
+    width: 70%;
+}
+
+.dropdown_div {
+    padding: 4px;
+}
+.dropdown_div img {
+    margin-left: 0;
+}
+.nav_div .login a {
+    margin-left: 0;
+    padding: 0 2px;
+}
+.dropdown_div img {
+    width: 40px;
+    height: 40px;
+}
+.nav_div .login {
+    float: left;
+    margin-top: 0;
+}
+.new-list-img-thumb span.artist,
+.new-list-img-thumb span.title{
+     width: 190px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.mar_bottom select {
+    width: 100%;
+    float: none;
+    margin-bottom: 15px;
+}
+.sort_res_center {
+    text-align: left;
+    margin: 10px 0;
+}
+.usr_link{
+    margin-right: 0;
+}
+.mar_bottom {
+    margin-bottom: 0px;
+}
+span.sort-by-app {
+    font-size: 13px;
+    margin-right:0px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+}
+
+@media screen and (max-width:420px) {
+.new-list-img-thumb img {
+    width: 100%;
+    height: 150px;
+}
+.audio-player-dist {
+    width: 340px; 
+}
+.my_profile button {
+    margin: 0 auto 5px auto;
+}
+.my_profile li span {
+    font-size: 15px;
+}
+.song_action button i {
+    font-size: 24px;
+}
+.lib_song_cls .new-list-img-thumb .thumbnail-disc {
+    min-height: 290px;
+}
+
+}
+@media screen and (max-width:360px) {
+.nav_div .login {
+    padding: 0 0;
+}
+.nav_div .login a {
+    font-size: 14px;
+}
+.nav_div .login a {
+    margin-left: 0;
+    font-size: 14px;
+    padding: 0;
+}
+.navbar-toggle {
+    padding: 0 10px;
+    margin-top: 18px;
+    margin-right: 15px;
+    margin-bottom: 0;
+}
+.checkout_payment li span, .my_profile li span {
+    float: right;
+    font-weight: bold;
+    font-size: 14px;
+}
+.menu_bar_btn {
+    top:100px;
+    bottom: auto;
+}
+.new-list-img-thumb span.artist,
+.new-list-img-thumb span.title,
+.custom_carasol .new-list-img-thumb span.title{
+     width: 130px;
+    padding: 5px 7px;
+    font-size: 14px;
+    text-transform: capitalize;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    height: auto;
+    display: inherit;
+}
+.new-list-img-thumb span.genre span {
+    display: block;
+    padding: 3px 5px;
+    margin-right: 0;
+    border-radius: 20px;
+    font-size: 13px;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.new-list-img-thumb .thumbnail-disc {
+    min-height: 265px;
+}
+.custom_carasol .new-list-img-thumb .thumbnail-disc {
+    min-height: 210px;
+}
+app-browsesearch-song-card .new-list-img-thumb span.genre {
+    margin-top: 25px;
+}
+.thumbnail_disc .social_icon a i,
+.thumbnail_disc .custom_icons_button button {
+    font-size: 14px;
+}
+.thumbnail_disc .social_icon a{
+    margin: 0;
+}
+
+}
+
+
+
+
+/* Landscape*/
+
+    @media only screen and (min-device-width: 1025px) and (max-device-width: 1365px) and (-webkit-min-device-pixel-ratio: 2)  and (orientation: landscape)  
+    {
+        /*.fix_menu-new {
+            display: none;
+            top: 80px;
+        } */
+    }
+
+    /* Portrait*/
+    @media only screen and (min-device-width: 1024px) and (max-device-width: 1365px) and (-webkit-min-device-pixel-ratio: 2)  and (orientation: portrait)  
+    {
+         .fix_menu-new {
+            display: none;
+            top: 80px;
+        }   
+        .search_box {
+            width: 350px;
+        }
+
+
+    }

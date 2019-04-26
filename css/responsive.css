@@ -1,0 +1,283 @@
+
+@media only screen and (min-width:1600px) and (max-width:1900px) {
+}
+
+@media only screen and (min-width:1401px) and (max-width:1599px) {
+}
+
+@media only screen and (min-width:1300px) and (max-width:1400px) {
+header .banner-caption {
+	margin: 100px auto;
+}
+}
+
+@media only screen and (min-width:1200px) and (max-width:1280px) {
+}
+
+@media screen and (max-width: 1024px) {
+header .banner-caption {
+	margin: 100px auto;
+}
+header .banner-caption p {
+	font-size: 40px;
+}
+header ul.numbers li {
+	width: 30%;
+}
+.features-list li {
+	width: 42%;
+}
+.features-list li span {
+	font-size: 12px;
+}
+.features h1 {
+	font-size: 30px;
+}
+}
+
+@media screen and (max-width: 991px) {
+header .banner-caption {
+	width: 90%;
+}
+section {
+	padding: 40px 0;
+}
+.features-list {
+	text-align: center;
+}
+footer {
+	padding: 40px 0px;
+}
+.music-play .video-player {
+	width: 90%;
+	height: 435px;
+	margin: 0 auto;
+}
+.navbar-default .navbar-nav>li>a {
+	color: #fff;
+	font-size: 14px;
+	padding: 15px 10px;
+	position: relative;
+}
+.dropdown_div {
+	padding: 0 0 0 15px;
+	margin-left: 8px;
+}
+}
+
+@media screen and (max-width: 767px) {
+.logo img {
+	margin: 0 auto;
+	width: 170px;
+	display: inline-block;
+}
+.logo {
+	display: inline-block;
+}
+header .login {
+	text-align: center;
+	margin-top: 10px
+}
+header .banner-caption {
+	margin: 20px auto;
+}
+header .banner-caption p {
+	font-size: 30px;
+	margin-bottom: 10px;
+}
+header .banner-caption span {
+	font-size: 16px;
+	letter-spacing: 4px;
+	display: block;
+	padding: 0 5px;
+	line-height: 20px;
+}
+header .banner-caption .social-header-button {
+	margin-top: 20px;
+}
+header .banner-caption .social-header-button button {
+	border-radius: 30px;
+	margin-left: 5px;
+	padding: 10px 5px;
+	box-shadow: none;
+	border: none;
+	color: #fff;
+	font-size: 14px;
+	letter-spacing: 4px;
+	width: 100%;
+	margin-bottom: 10px;
+}
+.navbar-header {
+	display: inline-block;
+	float: right;
+}
+.navbar-toggle .icon-bar {
+	background: #fff;
+}
+.main-btn {
+	width: 100%;
+}
+.features-list li {
+	width: 44%;
+}
+.music-play .video-player {
+	width: 100%;
+	height: auto;
+}
+.features h1 {
+	font-size: 24px;
+}
+.play-title h2 {
+	font-size: 28px;
+}
+.listening h3 {
+	font-size: 24px;
+}
+.listening p {
+	font-size: 16px;
+}
+footer ul li::after {
+	display: none;
+}
+footer ul li {
+	display: inline-block;
+	font-size: 16px;
+	margin-right: 0;
+	position: relative;
+	width: 100%;
+	margin-bottom: 10px;
+}
+.frame, #fadeandscale_wrapper, #fadeandscale_background, #fadeandscale {
+	display: none !important;
+}
+.nav_div .login {
+	float: left;
+	margin-top: -35px;
+}
+.dropdown_div {
+	margin-left: 0px;
+	padding: 0;
+}
+.dropdown_div .dropdown-menu {
+	left: auto;
+	right: 0;
+}
+.dropdown_div .dropdown-menu {
+	border: none;
+	padding: 0;
+	border-radius: 0;
+	top: 100%;
+}
+.dropdown_div .dropdown-menu li a {
+	padding: 10px 40px;
+	color: #fff;
+}
+.dropdown_div img {
+	margin: 0;
+}
+.dropdown_div .dropdown-menu>li:first-child {
+	border: none;
+}
+.navbar-default .navbar-nav>li>a {
+	padding: 15px 0;
+}
+.navbar-default .navbar-nav>li>a:after {
+	display: none;
+}
+.navbar-default .navbar-nav .open .dropdown-menu>li>a {
+	color: #ccc;
+}
+.navbar-default .navbar-nav .open .dropdown-menu>li>a:focus, .navbar-default .navbar-nav .open .dropdown-menu>li>a:hover {
+	color: #f4f4f4;
+	background-color: transparent;
+}
+.navbar-nav .open .dropdown-menu>li>a {
+	padding: 10px 20px;
+}
+.navbar-nav>li>.dropdown-menu:before {
+	display: none;
+}
+.navbar-nav .open .dropdown-menu {
+	background-color: #585565;
+}
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+	border: none;
+	box-shadow: none;
+}
+}
+
+@media screen and (max-width:480px) {
+.logo {
+	margin-bottom: 20px;
+}
+.nav_div .login a:after {
+	display: none;
+}
+.nav_div .login {
+	float: none;
+	margin-top: 0;
+	text-align: center;
+	padding: 0 5px;
+}
+.dropdown_div {
+	padding: 4px 4px 4px 10px;
+}
+.dropdown_div .dropdown-toggle {
+	font-size: 14px;
+}
+.logo img {
+	margin: 0 auto;
+	width: 100%;
+	display: inline-block;
+}
+.logo {
+	display: inline-block;
+	width: 60%;
+	margin-bottom: 0px;
+}
+.dropdown_div {
+	padding: 4px;
+}
+.dropdown_div img {
+	margin-left: 0;
+}
+.logo {
+	display: inline-block;
+}
+.nav_div .login a {
+	margin-left: 0;
+	padding: 0 2px;
+}
+.dropdown_div img {
+	width: 40px;
+	height: 40px;
+}
+.nav_div .login {
+	float: left;
+	margin-top: 0;
+}
+}
+
+@media screen and (max-width:360px) {
+.nav_div .login {
+	padding: 0 0;
+}
+.nav_div .login a {
+	font-size: 14px;
+}
+.nav_div .login a {
+	margin-left: 0;
+	font-size: 14px;
+	padding: 0;
+}
+.logo {
+	display: inline-block;
+	width: 53%;
+}
+.navbar-toggle {
+	padding: 0 10px;
+	margin-top: 18px;
+	margin-right: 15px;
+	margin-bottom: 0;
+}
+}

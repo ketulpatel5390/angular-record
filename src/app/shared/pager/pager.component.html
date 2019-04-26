@@ -1,0 +1,17 @@
+<ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+  <li [ngClass]="{disabled:pager.currentPage === 1}" class="hidden-xs">
+      <a (click)="setPage(1)">First</a>
+  </li>
+  <li [ngClass]="{disabled:pager.currentPage === 1}">
+      <a (click)="setPage(pager.currentPage - 1)"><i class="fa fa-angle-double-left" aria-hidden="true"></i></a>
+  </li>
+  <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+      <a (click)="setPage(page)">{{page}}</a>
+  </li>
+  <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+      <a (click)="setPage(pager.currentPage + 1)"><i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+  </li>
+  <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}" class="hidden-xs">
+      <a (click)="setPage(pager.totalPages)">Last</a>
+  </li>
+</ul>

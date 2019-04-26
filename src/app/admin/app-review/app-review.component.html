@@ -1,0 +1,202 @@
+<!-- <div class="container">
+<mat-grid-list class="full-height" [cols]="numColumns" [rowHeight]="rowHeight">
+    <mat-grid-tile *ngFor="let application of pagedApplications">
+    <div class="row">
+      <app-application-card   *ngFor="let application of pagedApplications" [application]="application"></app-application-card>
+     </div>
+    </mat-grid-tile>
+    <div class="row">
+    	<div class="col-md-12">
+    <app-pager class="custom_pager" #pagerCtrl [pager]="pager" (onLoadPage)="onLoadPageHandler()"></app-pager>
+    </div>
+	</div>
+  </mat-grid-list>
+</div> -->
+
+
+       
+    <div class="container" *ngIf="applicationaccess">
+      
+      <div class="row">
+      <div class="header-text col-md-12">
+          <h3 class="text-center">Applications</h3> 
+      </div>
+      
+    </div>
+
+<div class="row">
+  <div class="col-md-6">
+   <input #myInput placeholder="Search by UserId,UserName,Email Address,FirstName,LastName..." [(ngModel)]="searchitems" class="form-control" (input)="filterItem(myInput.value)">
+          
+  </div>
+  <div class="col-md-4">
+    <div class="sort_res_center">
+      <span class="sort-by-app">Sort By </span>
+      <a class="usr_link" (click)="sort('Username')">Username
+        <i class="fa " *ngIf="key =='Username'" [ngClass]="{'fa-arrow-up':reverse,'fa-arrow-down':!reverse}"></i>
+      </a>
+      <a  class="usr_link" (click)="sort('AppDate')">Date
+      <i class="fa " *ngIf="key =='AppDate'" [ngClass]="{'fa-arrow-up':reverse,'fa-arrow-down':!reverse}"></i>
+      </a>
+    </div>
+  </div>
+  <div class="col-md-2 hidden-xs">
+    <div class="list_grid_btn">
+     <a class="grid_btn_show active" (click)="gridshows()">  <i class="fa fa-th" ></i></a>
+     <a class="list_btn_show" (click)="gridhides()"><i class="fa fa-list" ></i></a>
+  </div>
+  </div>
+</div>
+
+    <div class="row my_application" *ngIf="displayMode === 1">
+        <!-- <app-application-card   *ngFor="let application of pagedApplications" [application]="application">
+        </app-application-card>  -->
+        <ul class="list-unstyled grid_view">
+        <li  class="app-card-grid" *ngFor="let application of pagedApplications" >
+        <div class="application_box">
+          <h4>{{application.FirstName}} {{application.LastName}} <span>({{application.UserId}})</span> </h4>
+          <ul class="list-unstyled">
+            <li>Status: <span *ngIf="application.Approval_Status == 'P'"> Pending </span>
+                        <span *ngIf="application.Approval_Status == 'A'"> Approved </span>
+                        <span *ngIf="application.Approval_Status == 'D'"> Marked for Deletion </span>
+                        <span *ngIf="application.Approval_Status == 'C'"> Closed </span>
+                      </li>
+            <li>Date: <span>{{application.AppDate}}</span></li>
+            <li>Confirmed: <span>{{application.AppConfirmed == '1' ? 'Yes' : 'No'}}</span> 
+              <span class="app-confirm-text" *ngIf="application.AppConfirmed == '1'"><i class="fa fa-check" ></i></span>
+              <span class="app-confirm-text" *ngIf="application.AppConfirmed == '0'"><i class="fa fa-times"></i></span>
+          </li>
+            <li>Email: <span class="app_emai_mobile">{{application.Email}}</span></li>
+            <li>Username: <span>{{application.Username}}</span></li>
+          </ul> 
+          <div *ngIf="application.Approval_Status == 'P'">
+            <!-- <button class="apr_bg" matButton (click)="approveApplication(application.AppId)">Approve</button> -->
+            <button *ngIf="application.AppConfirmed == '1'" class="apr_bg" matButton (click)="approveApplication(application.AppId)">Approve</button>
+            <button *ngIf="application.AppConfirmed == '0'" class="apr_bg" matButton (click)="verificationemail(application.UserId)">Email Verify</button>
+            <button class="rgt_bg" matButton (click)="rejectApplication(application.AppId)">Reject</button>
+            <button  class="rset_bg" matButton (click)="resetpassword(application.Username,application.Email)">Reset Password</button>
+          </div>
+          <div *ngIf="application.Approval_Status == 'A'">
+            <button *ngIf="application.AppConfirmed == '0'" class="apr_bg" matButton (click)="verificationemail(application.UserId)">Email Verify</button>
+              <button class="clg_bg" matButton (click)="closeApplication(application.AppId)">Close</button>
+              <button class="rset_bg" matButton (click)="resetpassword(application.Username,application.Email)">Reset Password</button>
+          </div>
+          <div *ngIf="application.Approval_Status == 'D'">
+              <button class="apr_bg" matButton (click)="undoApplication(application.AppId)">Undo</button>
+              <button class="clg_bg"  matButton (click)="deleteApplication(application.AppId,application.closedate)">Delete</button>
+              
+          </div>
+          <div *ngIf="application.Approval_Status == 'C'">
+              <button class="ropn_bg" matButton (click)="reopenApplication(application.AppId)">Reopen</button>
+               <button class="clg_bg" matButton (click)="deleteApplication(application.AppId,application.closedate)">Delete</button>
+              
+          </div>
+      </div>
+    </li>
+  </ul>
+    </div>   
+
+
+
+    <div class="row my_application" *ngIf="displayMode === 2"> 
+        <!-- <app-list-application-card   *ngFor="let application of pagedApplications" [application]="application">
+        </app-list-application-card>  -->
+        <ul class="list-unstyled list_view">
+        <li  class="app-card-grid" *ngFor="let application of pagedApplications">                   
+            <div class="application_box">
+              <h4>{{application.FirstName}} {{application.LastName}} <span>({{application.UserId}})</span></h4>
+              <ul class="list-unstyled">
+                <li>Status: <span *ngIf="application.Approval_Status == 'P'"> Pending </span>
+                        <span *ngIf="application.Approval_Status == 'A'"> Approved </span>
+                        <span *ngIf="application.Approval_Status == 'D'"> Marked for Deletion </span>
+                        <span *ngIf="application.Approval_Status == 'C'"> Closed </span></li>
+                <li>Date: <span>{{application.AppDate}}</span></li>
+                <li>Confirmed: <span>{{application.AppConfirmed == '1' ? 'Yes' : 'No'}}</span>
+                  <span  class="app-confirm-text"  *ngIf="application.AppConfirmed == '1'"><i class="fa fa-check"></i></span>
+              		<span class="app-confirm-text" *ngIf="application.AppConfirmed == '0'"><i class="fa fa-times"></i></span>
+          		</li>
+                <li>Email: <span>{{application.Email}}</span></li>
+                <li>Username: <span>{{application.Username}}</span></li>
+              </ul> 
+              <div *ngIf="application.Approval_Status == 'P'">
+                <!-- <button matButton (click)="approveApplication()">Approve</button>
+                <button matButton (click)="rejectApplication(application.AppId)">Reject</button>
+                <button matButton (click)="resetpassword(application.Username,application.Email)">Reset Password</button> -->
+
+                <!-- <button class="apr_bg" matButton (click)="approveApplication(application.AppId)">Approve</button> -->
+                 <button *ngIf="application.AppConfirmed == '1'" class="apr_bg" matButton (click)="approveApplication(application.AppId)">Approve</button>
+            <button *ngIf="application.AppConfirmed == '0'" class="apr_bg" matButton (click)="verificationemail(application.UserId)">Email Verify</button>
+            <button class="rgt_bg" matButton (click)="rejectApplication(application.AppId)">Reject</button>
+            <button  class="rset_bg" matButton (click)="resetpassword(application.Username,application.Email)">Reset Password</button>
+              </div>
+              <div *ngIf="application.Approval_Status == 'A'">
+                 <!--  <button matButton (click)="closeApplication(application.AppId)">Close</button>
+                   <button matButton (click)="resetpassword(application.Username,application.Email)">Reset Password</button> -->
+                    <button *ngIf="application.AppConfirmed == '0'" class="apr_bg" matButton (click)="verificationemail(application.UserId)">Email Verify</button>
+                   <button class="clg_bg" matButton (click)="closeApplication(application.AppId)">Close</button>
+              <button class="rset_bg" matButton (click)="resetpassword(application.Username,application.Email)">Reset Password</button>
+              </div>
+              <div *ngIf="application.Approval_Status == 'D'">
+                  <!-- <button matButton (click)="undoApplication(application.AppId)">Undo</button>
+                  <button matButton (click)="deleteApplication(application.AppId)">Delete</button>
+                   <button matButton (click)="resetpassword(application.Username,application.Email)">Reset Password</button> -->
+                    <button class="apr_bg" matButton (click)="undoApplication(application.AppId)">Undo</button>
+              <button class="clg_bg"  matButton (click)="deleteApplication(application.AppId)">Delete</button>
+              
+              </div>
+              <div *ngIf="application.Approval_Status == 'C'">
+                  <!-- <button matButton (click)="reopenApplication(application.AppId)">Reopen</button>
+                   <button matButton (click)="resetpassword(application.Username,application.Email)">Reset Password</button> -->
+                   <button class="ropn_bg" matButton (click)="reopenApplication(application.AppId)">Reopen</button>
+                   <button class="clg_bg"  matButton (click)="deleteApplication(application.AppId)">Delete</button>
+              
+              </div>
+          </div>
+        </li>
+    </ul>
+    </div>  
+
+
+        <!-- <div  class="app-card-grid col-md-4" *ngFor="let application of pagedApplications" >
+        <div class="application_box">
+          <h4>{{application.FirstName}} {{application.LastName}} <span>({{application.UserId}})</span></h4>
+          <ul class="list-unstyled">
+            <li>Status: <span>{{application.Approval_Status}}</span></li>
+            <li>Date: <span>{{application.AppDate}}</span></li>
+            <li>Confirmed: <span>{{application.AppConfirmed == '1' ? 'Yes' : 'No'}}</span></li>
+            <li>Email: <span>{{application.Email}}</span></li>
+            <li>Username: <span>{{application.Username}}</span></li>
+          </ul> 
+          <div *ngIf="application.Approval_Status == 'P'">
+            <button matButton (click)="approveApplication()">Approve</button>
+            <button matButton (click)="rejectApplication(application.AppId)">Reject</button>
+          </div>
+          <div *ngIf="application.Approval_Status == 'A'">
+              <button matButton (click)="closeApplication(application.AppId)">Close</button>
+          </div>
+          <div *ngIf="application.Approval_Status == 'D'">
+              <button matButton (click)="undoApplication(application.AppId)">Undo</button>
+          </div>
+          <div *ngIf="application.Approval_Status == 'C'">
+              <button matButton (click)="reopenApplication(application.AppId)">Reopen</button>
+          </div>
+      </div>
+    </div> -->
+
+    
+      
+      
+
+  <div class="row">
+    <div class="col-md-12">
+   <app-pager class="custom_pager" #pagerCtrl [pager]="pager" (onLoadPage)="onLoadPageHandler(searchby,sortkey,sortreverse)"></app-pager>
+    </div>
+  </div>
+</div>
+ <div class="container" *ngIf="!applicationaccess">
+
+  <div class="alert alert-danger">
+    <p>You are not authorized for this page. </p>
+  </div>
+ 
+</div>

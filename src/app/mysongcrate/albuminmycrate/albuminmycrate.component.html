@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="row lib_song_cls" >
+        <!-- <div class="header-text col-md-12">
+        <h3 class="text-center">All Songs in my Crate</h3> 
+        </div> -->
+        <div class="col-md-12 ">
+        <div *ngIf="error"> <div class="alert alert-danger">{{ error }}</div> </div>
+        <div *ngIf="successerror"> <div class="alert alert-success">{{ successerror }}</div> </div>
+        </div>
+        <app-album-library-song-card  *ngFor="let song of pagedSongs" [song]="song" [inpromember]="inpromember" #pagerCtrl (onLoadPage)="onLoadPageHandler()"></app-album-library-song-card>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <app-pager class="custom_pager" #pagerCtrl [pager]="pager" (onLoadPage)="onLoadPageHandler()"></app-pager>
+        </div>
+    </div>
+</div>
+

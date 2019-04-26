@@ -1,0 +1,190 @@
+
+<div class="edit-song-form-popup">
+
+<h2>Edit Song</h2>
+<div *ngIf="error"> <div class="alert alert-danger">{{ error }}</div> </div> 
+    <form [formGroup] = "formdata" (ngSubmit)="closeDialog()"   class="form-horizontal" >
+     
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>Song Title <span class="error">*</span></label>
+                <input type="text" class="form-control" name = "title" placeholder = "Enter Title" formControlName = "title">
+                <span class="error" *ngIf="!formdata.controls['title'].valid && (formdata.controls['title']?.touched || submitted )">Please Enter Title.</span>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>Artist Name <span class="error">*</span></label>
+                <input type="text" class="form-control" name = "artistName" placeholder = "Enter Artist Name" formControlName = "artistName">
+                <span class="error" *ngIf="!formdata.controls['artistName'].valid && (formdata.controls['artistName']?.touched || submitted )">Please Artist Name.</span>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>Album Name</label>
+                <input type="text" class="form-control" name = "albumName" placeholder = "Enter Album Name" formControlName = "albumName">
+
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                 <label>Copyright Owner</label>
+                <input type="text" class="form-control" name = "copyrightOwner" placeholder = "Enter Copyright Owner" formControlName = "copyrightOwner">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                 <label>Copyright Year</label>
+                <input type="text" class="form-control" name = "copyrightYear" placeholder = "Enter Copyright Year" formControlName = "copyrightYear">
+              </div>
+            </div>
+             <div class="col-md-4">
+              <div class="form-group">
+                 <label>Label <span class="error">*</span></label>
+                <input type="text" class="form-control" name = "label" placeholder = "Enter Label" formControlName = "label">
+                <span class="error" *ngIf="!formdata.controls['label'].valid && (formdata.controls['label']?.touched || submitted )">Please Enter Label.</span>
+              </div>
+            </div>
+            
+          </div>
+
+          <div class="row">
+          <div class="col-md-12">
+              <div class="form-group">
+                 <label>Genre <span class="error">*</span></label>
+               <!--  <select id="genre" formControlName="genre" class="form-control">
+                    <option *ngFor="let g of generslist" [ngValue]="g.key">{{ g.value }}</option>
+                </select> -->
+                <ss-multiselect-dropdown class="miltiseletct-gener"  required  [options]="generslist" [settings]="mySettings" formControlName="genre" ></ss-multiselect-dropdown>
+                <span class="error" *ngIf="!formdata.controls['genre'].valid && (formdata.controls['genre']?.touched || submitted )">Please Select Genre.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+           
+            
+            <div class="col-md-4">
+              <div class="form-group">
+                 <label>Country <span class="error">*</span></label>
+                <select id="artistCountry" formControlName="artistCountry" class="form-control">
+                    <option *ngFor="let c of countrylist" [ngValue]="c.key">{{ c.value }}</option>
+                </select> 
+                <span class="error" *ngIf="!formdata.controls['artistCountry'].valid && (formdata.controls['artistCountry']?.touched || submitted )">Please Select Country.</span>
+                </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                 <label>Artist City <span class="error">*</span></label>
+                <input type="text" class="form-control" name = "artistCity" placeholder = "Enter Artist City" formControlName = "artistCity">
+                <span class="error" *ngIf="!formdata.controls['artistCity'].valid && (formdata.controls['artistCity']?.touched || submitted )">Please Enter Artist City.</span>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                 <label>Artist State <span class="error">*</span></label>
+                <!-- <input type="text" class="form-control" name = "artistCityState" placeholder = "Enter Artist City/State" formControlName = "artistCityState"> -->
+                 <select formControlName="artistCityState" name = "artistCityState"  class="form-control" >
+                  <option *ngFor="let opt of statelist" [value]="opt.key">{{opt.value}}</option>
+                </select>
+                <span class="error" *ngIf="!formdata.controls['artistCityState'].valid && (formdata.controls['artistCityState']?.touched || submitted )">Please Select Artist State.</span>
+              </div>
+            </div>
+            
+          </div>
+           <div class="row">
+            
+            
+            
+            <div class="col-md-6">
+              <div class="form-group">
+                 <label>Website</label>
+                <input type="text" class="form-control" name = "website" placeholder = "Enter Website" formControlName = "website">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                 <label> Where To Buy</label>
+                <input type="text" class="form-control" name = "whereToBuy" placeholder = "Enter Where To Buy" formControlName = "whereToBuy">
+              </div>
+            </div>
+            
+             
+            
+          </div>
+          
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Song Image <!-- <span class="error">*</span> --></label>
+                <input type="file" class="form-control" name ="avatar"  formControlName = "avatar" (change)="onFileChanged($event)" #fileInput>
+                
+                 <input type="hidden" name="imageInput" formControlName="imageInput"/>
+                <!--  <span class="error" *ngIf="!formdata.controls['imageInput'].valid && formdata.controls['imageInput']?.touched">Please Upload Song Image.</span> -->
+                 <img src="" id="picture">
+
+              </div>
+            </div>
+            <div class="col-md-6" *ngIf="inpromember">
+              <div class="form-group">
+                <label for="chkPassport">
+                Use Social link of Your Profile? 
+               </label> 
+                <label class="radio-inline" style="padding-top: 0;" >
+                  <input type="radio" name="sociallink" (click)="ShowSociallink('Y')"  formControlName="sociallink" value="Y" checked="checked"/> &nbsp;&nbsp;  Yes
+                </label>
+                <label class="radio-inline" style="padding-top: 0;">
+                  <input type="radio" name="sociallink" (click)="ShowSociallink('N')" formControlName="sociallink" value="N" /> &nbsp;&nbsp;  No
+                </label>  
+            </div>
+          </div>
+          </div>
+        <div *ngIf="IsVisible && inpromember">
+            <div class="row">
+            <div class="col-md-6">
+              <div class="form-group"> <label>Facebook </label>
+                <input class="form-control" type="text" placeholder = "Facebook link" name = "Facebook_link" formControlName = "Facebook_link" />
+              </div>
+            </div> 
+            <div class="col-md-6">
+              <div class="form-group"> <label>Twitter </label>
+                <input class="form-control" type="text" placeholder = "Twitter link" name = "Twitter_link" formControlName = "Twitter_link" />
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group"> <label>Youtube </label>
+                <input class="form-control" type="text" placeholder = "Youtube link" name = "Spotify_link" formControlName = "Spotify_link" />
+              </div>
+            </div>
+            <div class="col-md-6"> <label>Instagram </label>
+              <div class="form-group">
+                <input class="form-control" type="text" placeholder = "Instagram link" name = "iTunes_link" formControlName = "iTunes_link" />
+              </div>
+            </div> 
+        </div>
+          </div>
+         
+          <div class="row">
+            <div class="col-md-12 text-center">
+               <!-- <input type = "submit" [disabled] = "!formdata.valid" class = "forsubmit" value = "Update Song"> -->
+               <button    class = "forsubmit">Update Song</button>
+               <button class = "forsubmit" (click)="cancelDialog()" >Cancel</button>
+            </div>
+          </div>
+      
+     
+   </form>
+<!-- 	 <mat-card class="registration-form-app" >
+    <mat-dialog-content class="full-height">
+      <app-dynamic-form #form [questions]="questions" 
+        [submitIsVisible]="false">
+      </app-dynamic-form>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+      <button mat-button (click)="closeDialog()">Ok</button>
+    </mat-dialog-actions>
+</mat-card> -->
+</div>

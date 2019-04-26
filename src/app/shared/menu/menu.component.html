@@ -1,0 +1,14 @@
+  <nav  mat-tab-nav-bar  class="md-no-animation">
+  <ng-template ngFor let-link [ngForOf]="navLinks">
+      <a mat-tab-link *ngIf="link.isVisible"      
+      [routerLink]="link.path"
+      routerLinkActive #rla="routerLinkActive"
+      [active]="rla.isActive"  [disableRipple]="true" (click)="menus()">
+      {{link.label}}
+      <span *ngIf="link.counts  && link.counts != 0">{{link.counts}}</span>
+    </a>
+  </ng-template>
+</nav> 
+
+
+

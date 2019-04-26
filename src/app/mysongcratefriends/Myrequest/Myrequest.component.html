@@ -1,0 +1,36 @@
+
+     <div class="container">
+      
+      <!-- <div class="row">
+      <div class="header-text col-md-12">
+          <h3 class="text-center">My Request</h3> 
+      </div>
+    </div> -->
+    <div class="row">
+<div class="table-responsive">
+           <table class="table table-striped portfolio-list-top">
+    	<tr>
+    		<th>Username</th>
+    		<th>Requested Date </th>
+    		
+    		<th>Status</th>
+        <th class="text-center">Actions</th>
+    	</tr>
+    	<tr *ngFor="let cratefriendsinfo of Songcratefriendsinfo"  >
+    		<td>{{ cratefriendsinfo.Username }}</td>
+    		<td>{{ cratefriendsinfo.created_date }}</td>
+    		<td>{{ cratefriendsinfo.status }}</td>
+        <td> <button class="btn btn-danger" (click)="delete(cratefriendsinfo.crate_id)"><i _ngcontent-c21="" aria-hidden="true" class="fa fa-trash-o"></i></button></td>
+    	</tr>
+
+    </table>
+  </div>
+     </div>
+      <div class="row">
+  	<div class="col-md-12">
+  <app-pager class="custom_pager" #pagerCtrl [pager]="pager" (onLoadPage)="onLoadPageHandler()"></app-pager>
+  	</div>
+  </div>
+
+  
+</div>

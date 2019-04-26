@@ -1,0 +1,28 @@
+<div class="container">
+      
+      <div class="row">
+      <div class="header-text col-md-12">
+          <h3 class="text-center">Message</h3> 
+      </div>    
+      </div>
+      <div class="row">
+        <div class="text-right col-md-12">
+          <button class="main-btn" [routerLink]="['/messages/messageslist']" >Back</button>
+        </div>
+      </div>
+     <div class="row">
+    	<div class="col-md-12">
+	        <ul class="list-unstyled gener_list_display2">
+		        <!-- <li  *ngFor="let message of messagelist;"> -->
+		        <li *ngIf="messagelists">
+		          <strong >{{ messagelists.SongTitle }}</strong>
+		           <app-message-list   [song_id]="song_id"></app-message-list> 
+		          <a *ngIf="messagelists.messagestatus === 'sender'" (click)="sendmesage(messagelists.from_id)" title="Send Message">Reply</a>
+		          <a *ngIf="messagelists.messagestatus === 'receiver'" (click)="sendmesage(messagelists.to_id)" title="Send Message">Reply</a>
+		        </li> 
+	        </ul>
+      	</div>
+	</div> 
+</div>
+
+

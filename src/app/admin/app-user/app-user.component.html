@@ -1,0 +1,77 @@
+<!-- <div class="container">
+<mat-grid-list class="full-height" [cols]="numColumns" [rowHeight]="rowHeight">
+    <mat-grid-tile *ngFor="let application of pagedApplications">
+    <div class="row">
+      <app-application-card   *ngFor="let application of pagedApplications" [application]="application"></app-application-card>
+     </div>
+    </mat-grid-tile>
+    <div class="row">
+    	<div class="col-md-12">
+    <app-pager class="custom_pager" #pagerCtrl [pager]="pager" (onLoadPage)="onLoadPageHandler()"></app-pager>
+    </div>
+	</div>
+  </mat-grid-list>
+</div> -->
+
+
+       
+    <div class="container"  *ngIf="usersaccess">
+      
+      <div class="row">
+      <div class="header-text col-md-12">
+          <h3 class="text-center">Users</h3> 
+      </div>
+      <div class="col-md-12 text-right list_button">
+          <a class="btn btn-success" [routerLink]="['/admin/users/adduser']">Add Administrator</a>
+          
+      </div>
+    </div>
+
+    <div class="row ">
+      
+<div class="table-responsive">
+         <table class="table table-striped portfolio-list-top">
+          <thead class="thead-light">
+  <tr>
+
+    <th>UserName</th>
+    <th>Email</th>
+    <th>Admin Status</th>
+    <th class="text-center">Action</th>
+  </tr>
+  </thead>
+<tbody>
+  <tr *ngFor="let application of pagedApplications">
+
+      <td>{{application.Username}} </td>
+      <td>{{application.email}} </td>
+      <td *ngIf="application.admin_status == 1">Administrator  - Full Control</td>
+      <td *ngIf="application.admin_status == 2">Supervisor - High Control</td>
+      <td *ngIf="application.admin_status == 3">Lead Engineer - Low Control</td>
+      <td *ngIf="application.admin_status == 4">Engineer - Basic Control</td>
+      <td *ngIf="application.admin_status == 5">Associate  - Basic Control</td>
+      <td class="text-center">
+        <a class="btn btn-success" [routerLink]="['/admin/users/edituser', application.UserId]"><i class="fa fa-edit"></i></a>
+        <a class="btn btn-danger"  (click)="deleteadminuser(application.UserId)"><i class="fa fa-trash"></i></a>
+        <a class="btn btn-success" [routerLink]="['/admin/users/rightsuser', application.UserId]">Rights</a>
+      </td>
+  </tr>
+</tbody>
+</table>
+</div>
+      
+     </div>
+  <div class="row">
+    <div class="col-md-12">
+   <app-pager class="custom_pager" #pagerCtrl [pager]="pager" (onLoadPage)="onLoadPageHandler()"></app-pager>
+    </div>
+  </div>
+  
+</div>
+ <div class="container" *ngIf="!usersaccess">
+
+  <div class="alert alert-danger">
+    <p>You are not authorized for this page. </p>
+  </div>
+ 
+</div>

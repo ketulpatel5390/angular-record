@@ -1,0 +1,138 @@
+<div class="login-form-popup edit-song-form-popup">
+
+<h2>Edit General Info</h2>
+
+<div *ngIf="error"> <div class="alert alert-danger">{{ error }}</div> </div> 
+    <div class="edit-song-data">
+    <form [formGroup] = "editgeneralform" class="form-horizontal" >
+      <input type="hidden" class="form-control" name = "appid" formControlName = "appid">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>FirstName</label>
+                <input type="text" class="form-control" name = "FirstName" placeholder = "Enter FirstName" formControlName = "FirstName">
+               <!--  <span class="error" *ngIf="!editgeneralform.controls['FirstName'].valid">Please Enter First Name.</span> -->
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>LastName</label>
+                <input type="text" class="form-control" name = "LastName" placeholder = "Enter LastName" formControlName = "LastName">
+               <!--  <span class="error" *ngIf="!editgeneralform.controls['LastName'].valid">Please Enter Last Name.</span> -->
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Date Of Birth</label>
+                <input type="text" class="form-control" name = "DOB" placeholder = "Enter Date Of Birth" formControlName = "DOB">
+                <span class="error" *ngIf="!editgeneralform.controls['DOB'].valid">Please Enter Date Of Birth.</span>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Email</label>
+              <input type="text" class="form-control" name = "Email" placeholder = "Enter Email" formControlName = "Email"> 
+                <span class="error" *ngIf="!editgeneralform.controls['Email'].valid">Please Enter Valid Email.</span>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Country</label>
+                <select id="Country" formControlName="Country" class="form-control">
+                    <option *ngFor="let c of countrylist" [ngValue]="c.key">{{ c.value }}</option>
+                  </select> 
+                <span class="error" *ngIf="!editgeneralform.controls['Country'].valid">Please Select Country.</span>
+               
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+               <!--  <input type="text" class="form-control" name = "StateOrProvince" placeholder = "Enter State Or Province" formControlName = "StateOrProvince"> -->
+               <label>State Or Province</label>
+               <select id="StateOrProvince" formControlName="StateOrProvince" class="form-control">
+                    <option *ngFor="let s of statelist" [ngValue]="s.key">{{ s.value }}</option>
+                  </select> 
+                <span class="error" *ngIf="!editgeneralform.controls['StateOrProvince'].valid">Please Enter State Or Province.</span>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group switch switch--horizontal"> 
+                
+      <input id="radio-c" type="radio" name="gender" formControlName = "gender" value="M" checked="checked"/>
+      <label for="radio-c">Male</label>
+      <input id="radio-d" type="radio" name="gender" value="F" formControlName = "gender"/>
+      <label for="radio-d">Female</label><span class="toggle-outside"><span class="toggle-inside"></span></span>
+    </div>
+              <!-- <div class="form-group">
+                <label class="radio-inline"><input type="radio" value="M" name="gender" formControlName = "gender" >Male</label>
+                <label class="radio-inline"><input type="radio" value="F" name="gender" formControlName = "gender" >Female</label>
+              
+              </div> -->
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Profile Picture</label>
+                <input type="file" class="form-control" name ="avatar"  formControlName = "avatar" (change)="onFileChanged($event)" #fileInput>
+                
+                 <input type="hidden" name="imageInput" formControlName="imageInput"/>
+                 <img style="height: 70px;" [src]="imageSource" alt="" class="img-responsive">
+              </div>
+            </div>
+           
+            <div class="col-md-6" *ngIf="inpromember">
+              <div class="form-group">
+                <label>Facebook Link</label>
+                <input type="text" class="form-control" name = "facebook" placeholder = "Enter Facebook Link" formControlName = "facebook">
+               <!--  <span class="error" *ngIf="!editgeneralform.controls['FirstName'].valid">Please Enter First Name.</span> -->
+              </div>
+            </div>
+            <div class="col-md-6" *ngIf="inpromember">
+              <div class="form-group">
+                <label>Twitter Link</label>
+                <input type="text" class="form-control" name = "twitter" placeholder = "Enter Twitter Link" formControlName = "twitter">
+               <!--  <span class="error" *ngIf="!editgeneralform.controls['LastName'].valid">Please Enter Last Name.</span> -->
+              </div>
+            </div>
+          
+            <div class="col-md-6" *ngIf="inpromember">
+              <div class="form-group">
+                <label>Instagram Link</label>
+                <input type="text" class="form-control" name = "instagram" placeholder = "Enter Instagram Link" formControlName = "instagram">
+               <!--  <span class="error" *ngIf="!editgeneralform.controls['FirstName'].valid">Please Enter First Name.</span> -->
+              </div>
+            </div>
+            <div class="col-md-6" *ngIf="inpromember">
+              <div class="form-group">
+                <label>Youtube Link</label>
+                <input type="text" class="form-control" name = "youtube" placeholder = "Enter Youtube Link" formControlName = "youtube">
+               <!--  <span class="error" *ngIf="!editgeneralform.controls['LastName'].valid">Please Enter Last Name.</span> -->
+              </div>
+            </div>
+          
+            <div class="col-md-12">
+              <div class="form-group">
+                <label>Description</label>
+                <textarea class="form-control" name ="description"  formControlName = "description" placeholder="Description"></textarea>
+              </div>
+            </div>
+          </div>
+          
+          
+          <div class="row">
+            <div class="col-md-12 text-center">
+               <button mat-button (click)="closeDialog()" class="btn-signin">Update</button>
+               <button mat-button (click)="cancelDialog()" class="btn-signin">Cancel</button>
+            </div>
+          </div>
+      
+     
+   </form>
+</div>
+
+
+    		  
+</div>

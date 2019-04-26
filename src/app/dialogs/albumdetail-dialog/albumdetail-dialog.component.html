@@ -1,0 +1,49 @@
+
+<div class="upload-song-dialog">
+
+<h2>Upload Type</h2>
+<div *ngIf="error"> <div class="alert alert-danger">{{ error }}</div> </div>
+   <form [formGroup]="albumform">
+    <div class="form-group">
+    <label>Upload Type</label>
+     <input type="text" class="form-control"  formControlName="albumtype" readonly="readonly">
+  
+  </div>
+  <div class="form-group">
+    <label> EP Name or Album Name</label>
+    <input type="text"  class="form-control" formControlName="albumName" placeholder="Enter EP Name or Album Name">
+    <span class="error" *ngIf="albumform.controls['albumName'].invalid && (albumform.controls['albumName']?.touched || submitted )">
+     Enter EP Name or Album Name
+    </span>
+    
+  </div>
+   <div class="form-group">
+    <label> Album Image</label>
+         <input type="file" class="form-control" name ="avatar"  formControlName = "avatar" (change)="onFileChanged($event)" #fileInput>
+         <span class="error" *ngIf="albumform.controls['imageInput'].invalid && (albumform.controls['imageInput']?.touched || submitted ) ">
+     Select Album Image
+    </span>
+         <input type="hidden" name="imageInput" formControlName="imageInput"/>
+  </div> 
+  <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label>Genre</label>
+                <!-- <select id="genre_id" formControlName="genre_id" class="form-control" >
+                    <option *ngFor="let c of genreslist" [ngValue]="c.key">{{ c.value }}</option>
+                  </select>  -->
+                   <ss-multiselect-dropdown class="miltiseletct-gener"  required  [options]="generslist" [settings]="mySettings" formControlName="genre_id"></ss-multiselect-dropdown>
+                <span class="error" *ngIf="!albumform.controls['genre_id'].valid && (albumform.controls['genre_id']?.touched || submitted )" >Please Select Genre.</span>
+               
+              </div>
+            </div>
+            
+            </div>                  
+  <div class="text-center">
+    <!-- Can optionally provide a result for the closing dialog. -->
+    <button  (click)="closeDialog()">Ok</button>
+    <button  (click)="cancelDialog()">Cancel</button>
+
+  </div>
+</form>
+</div>

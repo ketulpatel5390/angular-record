@@ -1,0 +1,179 @@
+
+     <div class="container" *ngIf="siteconfigaccess">
+      
+      <div class="row">
+      <div class="header-text col-md-12">
+          <h3 class="text-center">Edit Site Setting</h3> 
+      </div>
+    </div>
+    <div class="col-md-12 edit-song-data">
+    <form [formGroup] = "formdata" class="form-horizontal" (ngSubmit) = "onClickSubmit(formdata.value)" >
+      	
+          <div class="profile_box">
+            <h4>ALBUM SETTING</h4>
+            <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>EP Limit</label>
+                <input type="number" class="form-control" name="ep_limit" placeholder="Enter EP Limit" 
+                formControlName="ep_limit">
+                <span class="error" *ngIf="formdata.controls['ep_limit'].invalid  && formdata.controls['ep_limit'].touched">Please Enter EP Limit.</span>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>Album Limit</label>
+                <input type="number" class="form-control" name = "title" placeholder = "Enter Album Limit" formControlName = "album_limit"><span class="error" *ngIf="formdata.controls['album_limit'].invalid  && formdata.controls['album_limit'].touched">Please Enter Album Limit.</span>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>File Upload Size ( In MB)</label>
+                <input type="number" class="form-control" name = "fileuploadsize" placeholder = "Enter File Upload Size" formControlName = "fileuploadsize"><span class="error" *ngIf="formdata.controls['fileuploadsize'].invalid  && formdata.controls['fileuploadsize'].touched">Please Enter File Upload Size.</span>
+              </div>
+            </div>
+          </div>
+          </div>
+          <div class="profile_box">
+            <h4>Listening Room Configuration</h4>
+            <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Listening Room Configuration ( In Days)</label>
+                <input type="number" class="form-control" name = "listeningroomconfig" placeholder = "Listening Room Configuration ( In Days)" formControlName = "listeningroomconfig"><span class="error" *ngIf="formdata.controls['listeningroomconfig'].invalid  && formdata.controls['listeningroomconfig'].touched">Please Enter Listening Room Configuration (In Days).</span>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Distibution Limit Config (No. of Times)</label>
+                <input type="number" class="form-control" name = "set_distibution" placeholder = "Distibution Limit Config (No. of Times)" formControlName = "set_distibution"><span class="error" *ngIf="formdata.controls['set_distibution'].invalid  && formdata.controls['set_distibution'].touched">Please Enter Distibution Limit Config (No. of Times).</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="profile_box">
+            <h4>IDLE SETTING</h4>
+            <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label>Idle Time  (In Seconds)</label>
+                <input type="number" class="form-control" name = "title" placeholder = "Enter Idle Time" formControlName = "ideltime"> <span class="error" *ngIf="formdata.controls['ideltime'].invalid  && formdata.controls['ideltime'].touched">Please Enter Idle Time.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="profile_box">
+            <h4>PACKAGE AND REVIEW LIMIT SETTING</h4>
+            <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label> Default Package  <span class="error">*</span></label>
+                <select formControlName="defaultpackage"  class="form-control" >
+                  <option *ngFor="let opt of packagelist" [value]="opt.key">{{opt.value}}</option>
+                </select>
+                <span class="error" *ngIf="formdata.controls['defaultpackage'].invalid && formdata.controls['defaultpackage']?.touched">Please Select Package.</span>
+                
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Song Review Limit</label>
+                <input type="number" class="form-control" name = "title" placeholder = "Enter Song Review Limit" formControlName = "defaultreviewlimit"> <span class="error" *ngIf="formdata.controls['defaultreviewlimit'].invalid  && formdata.controls['defaultreviewlimit'].touched">Please Enter Song Review Limit.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="profile_box">
+            <h4>PAYPAL SETTING</h4>
+            <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label> Paypal Env  <span class="error">*</span></label>
+                <select formControlName="paypal_env"  class="form-control" >
+                  <option *ngFor="let opt of envtype" [value]="opt.value">{{opt.display}}</option>
+                </select>
+                <span class="error" *ngIf="formdata.controls['paypal_env'].invalid && formdata.controls['paypal_env']?.touched">Please Select Paypal Env.</span>
+                
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-group">
+                <label>Paypal Client ID  <span class="error">*</span></label>
+                <input type="text" class="form-control" name = "title" placeholder = "Enter Paypal Client ID" formControlName = "paypal_key"> <span class="error" *ngIf="formdata.controls['paypal_key'].invalid  && formdata.controls['paypal_key'].touched">Please Paypal Client ID.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="profile_box">
+            <h4>Tire SETTING</h4>
+            <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label> Tire2 Percentage  <span class="error">*</span></label>
+                <input type="number" formControlName="tire2_per"  class="form-control"  placeholder = "Enter Tire2 Percentage between 0 to 100"   min="0" max="100">
+                <span class="error" *ngIf="formdata.controls['tire2_per'].invalid && formdata.controls['tire2_per']?.touched">Please Enter Tire2 Percentage between 0 to 100.</span>
+                
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Tire2 Rating <span class="error">*</span></label>
+                <input type="number"  class="form-control" name = "title" placeholder = "Enter Tire2 Rating between 0 to 5" formControlName = "tire2_ret"   min="0" max="5">
+                <span class="error" *ngIf="formdata.controls['tire2_ret'].invalid  && formdata.controls['tire2_ret'].touched">Please Enter Tire2 Rating between 0 to 5.</span>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="form-group">
+                <label> Tire3 Percentage  <span class="error">*</span></label>
+                <input type="number" formControlName="tire3_per"  class="form-control"  placeholder = "Enter Tire3 Percentage between 0 to 100"   min="0" max="100">
+                <span class="error" *ngIf="formdata.controls['tire3_per'].invalid && formdata.controls['tire3_per']?.touched">Please Enter Tire3 Percentage between 0 to 100.</span>
+                
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Tire3 Rating <span class="error">*</span></label>
+                <input type="number"  class="form-control" name = "title" placeholder = "Enter Tire3 Rating between 0 to 5" formControlName = "tire3_ret"   min="0" max="5">
+                <span class="error" *ngIf="formdata.controls['tire3_ret'].invalid  && formdata.controls['tire3_ret'].touched">Please Enter Tire3 Rating between 0 to 5.</span>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="form-group">
+                <label> Tire4 Percentage  <span class="error">*</span></label>
+                <input type="number" formControlName="tire4_per"  class="form-control"  placeholder = "Enter Tire4 Percentage between 0 to 100"   min="0" max="100">
+                <span class="error" *ngIf="formdata.controls['tire4_per'].invalid && formdata.controls['tire4_per']?.touched">Please Enter Tire4 Percentage between 0 to 100.</span>
+                
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Tire4 Rating <span class="error">*</span></label>
+                <input type="number"  class="form-control" name = "title" placeholder = "Enter Tire4 Rating between 0 to 5" formControlName = "tire4_ret"   min="0" max="5">
+                <span class="error" *ngIf="formdata.controls['tire4_ret'].invalid  && formdata.controls['tire4_ret'].touched">Please Enter Tire3 Rating between 0 to 5.</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 text-center">
+               <input type = "submit" [disabled] = "!formdata.valid" class = "forsubmit" value = "Update SiteConfig">
+            </div>
+          </div>
+    </form>
+	</div>
+
+
+  
+</div>
+ <div class="container" *ngIf="!siteconfigaccess">
+
+  <div class="alert alert-danger">
+    <p>You are not authorized for this page. </p>
+  </div>
+ 
+</div>

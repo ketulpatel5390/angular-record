@@ -1,0 +1,46 @@
+
+<div class="login-form-popup">
+<h2>Edit Feedback</h2>
+    <div class="edit-song-data">
+    <form [formGroup] = "editfeedbackform" class="form-horizontal" >
+        <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <div class="rating-star-button">
+		        <star-rating-comp class="rating-star-new"  [starType]="'svg'" [rating]="data.OverallRating" (onRatingChange)="onRatingChangeHandler($event)" ></star-rating-comp>
+		      </div>
+              </div>
+            </div>
+           
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+               <textarea class="form-control" name = "Comment" placeholder = "Song Comment" formControlName = "Comment"></textarea>
+              </div>
+            </div>
+           
+          </div>
+
+          
+          
+          
+          
+          <div class="row">
+            <div class="col-md-12 text-center">
+               <button mat-button (click)="closeDialog()" class="btn-signin">Update</button>
+               <button mat-button (click)="cancelDialog()" class="btn-signin">Cancel</button>
+            </div>
+          </div>
+      
+     
+   </form>
+</div>
+<!-- <form novalidate>
+
+  <div class="btn-animate">
+    <button mat-button (click)="cancelDialog()" class="btn-signin">Ok</button>
+    
+  </div>
+ </form> -->
+</div>

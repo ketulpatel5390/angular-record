@@ -1,0 +1,29 @@
+<!--  <section class="inner-list"> -->
+       
+		<div class="container">
+		  
+			<div class="row">
+        <div class="header-text col-md-12">
+          <h3 class="text-center">Song Crate</h3> 
+      </div>
+      <div class="col-md-12 ">
+        <div *ngIf="error"> <div class="alert alert-danger">{{ error }}</div> </div>
+        <div *ngIf="successerror"> <div class="alert alert-success">{{ successerror }}</div> </div>
+          
+      </div>
+       <div class="col-md-12 sharemycrate">
+        <input type="text" class="form-control" #myInput  name="searchitem" placeholder="Enter User Name">
+          <span class="input-group-btn">
+             <button class="btn btn-default" type="button" (click)="sharemycrate(myInput.value)" >Share Song Crate</button>
+          </span>
+       </div>
+  <app-library-song-card  *ngFor="let song of pagedSongs" [song]="song"></app-library-song-card>
+    </div>
+  <div class="row">
+  	<div class="col-md-12">
+  <app-pager class="custom_pager" #pagerCtrl [pager]="pager" (onLoadPage)="onLoadPageHandler()"></app-pager>
+  	</div>
+  </div>
+  
+</div>
+<!-- </section> -->

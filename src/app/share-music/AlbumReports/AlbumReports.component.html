@@ -1,0 +1,106 @@
+<div class="container song-reports " >
+  <div id="exportreports">
+		<!-- <div class="row">
+				<div class="header-text col-md-12">
+            <h3 class="text-center">Album</h3> 
+        </div>
+    </div> -->
+    <div class="row">
+        <div class="text-right col-md-12">
+          <button class="main-btn" [routerLink]="['/shareMusic/portfolio']" >Back</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="header-text col-md-12">
+            <h4 class="text-left song_info_report">Album Information</h4>
+        </div>
+
+    </div>
+    <div class="row" *ngIf="albuminfo">
+        <div class="col-md-6">
+            <p><span>Album Type :</span> {{ albuminfo.album_type }} </p>
+        </div>
+        <div class="col-md-6">
+
+            <p><span>Album Name :</span> {{ albuminfo.album_name }} </p>
+        </div>
+    </div>
+    <div class="row" *ngIf="albuminfo && siteconfig">
+      <div class="col-md-8">
+        <p ><strong *ngIf="albuminfo.album_type === 'EP'">Your EP Uploads Limit 3 to 6 Songs. : 
+          <span  *ngIf="!albumcount" class="error"> Total Uploads - 0</span>
+          <span  *ngIf="albumcount"> Total Uploads : {{ albumcount }}</span>
+        </strong>
+          <strong *ngIf="albuminfo.album_type === 'Album'">Your Album Uploads Limit 3 to 10 Songs: 
+            <span  *ngIf="!albumcount" class="error"> Total Uploads - 0</span>
+            <span  *ngIf="albumcount"> Total Uploads : {{ albumcount }}  </span>
+          </strong>
+        </p>
+         <p><strong>Your Song Uploads Limit Remaining: <span  *ngIf="!totalsongcount" class="error">0 MB</span>
+                           <span  *ngIf="totalsongcount">{{ totalsongcount }} MB</span></strong></p>
+      </div>
+       <div class="col-md-4 text-right" *ngIf="albuminfo.album_type === 'EP'">
+        <button *ngIf="albumstatus == 'Inprocess'" class="main-btn" (click)="uploadSongss(albuminfo.album_id)"  >Add Song</button>
+        <!-- *ngIf="albuminfo && totalsongcount"   -->
+       </div>
+       <div class="col-md-4 text-right" *ngIf="albuminfo.album_type === 'Album' ">
+        <button *ngIf="albumstatus == 'Inprocess'" class="main-btn" (click)="uploadSongss(albuminfo.album_id)"  >Add Song</button>
+        <!-- *ngIf="albuminfo && totalsongcount" && totalsongcount && totalsongcount -->
+       </div>
+    </div>
+    <div *ngIf="error"> <div class="alert alert-danger">{{ error }}</div> </div> 
+  
+ <table class="table table-striped portfolio-list-top">
+  <tr>
+   <!--  <th>Action</th> -->
+    <th>SongTitle</th>
+    <th>ArtistName</th>
+    <th>Genre</th>
+    <!-- <th>Label</th>
+    <th>Website</th> -->
+    <th>Status</th>
+    <th>Reports</th>
+    <th class="text-center" *ngIf="albumstatus == 'Inprocess'">Action</th>
+  </tr>
+  <tr *ngFor="let song of pagedSongs" > 
+
+   
+    <!-- <td class="song_btn_play">
+        <button class="songplay_"  id="songplay_{{song.SongId}}" (click)="onPlayHandler(song)"><i class="fa fa-play-circle-o" aria-hidden="true"></i></button>
+        <button style="display: none;" class="songpause_" id="songpause_{{song.SongId}}" (click)="onStopHandler(song)"><i class="fa fa-pause-circle-o" aria-hidden="true"></i></button>
+    </td> -->
+    <td> <p> {{ song.SongTitle }}</p>
+    </td>
+    <td><p>{{ song.ArtistName }}</p>
+    <td><p>{{ song.Genre }}</p>
+    </td>
+    
+     <td><p *ngIf="song.Status === 'A'">Active</p><p *ngIf="song.Status === 'QA'">Pending</p>
+
+     <p *ngIf="song.Status === 'D'">Delete</p>
+     <p *ngIf="song.Status === 'Delete'">Delete</p>
+     <p *ngIf="song.Status === 'Inprocess'">InProcess</p></td>
+     <td>
+      <a  class="btn btn-success" [routerLink]="['/shareMusic/SongReports', song.SongId]"><i class="fa fa-file"></i></a>
+      
+     </td>
+    <td  class="text-center" *ngIf="albumstatus == 'Inprocess'">
+    <button class="btn btn-danger" (click)="deleteYourSong(song.SongId)"  ><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+    </td>
+    
+  </tr> 
+  <tr *ngIf="albumstatus == 'Inprocess'">
+    <td colspan="7" class="text-right" *ngIf="albumcount > 2"><button  class="main-btn" (click)="finishalbum(albuminfo.album_id)"  >Finish</button></td>
+   
+  </tr>
+</table> 
+
+  
+  <div class="row">
+    <div class="col-md-12">
+      <app-pager class="custom_pager" #pagerCtrl [pager]="pager" (onLoadPage)="onLoadPageHandler(nalbumid)"></app-pager>
+    </div>
+  </div>
+  
+</div>
+</div>

@@ -1,0 +1,28 @@
+<!--  <section class="inner-list"> -->
+       
+		<div class="container">
+       <div class="row album-music-review-info" *ngIf="albuminfo">
+         <div class="col-md-3 col-sm-4">
+            <p><img src="{{ imageSource }}"></p>
+        </div>
+        <div class="header-text col-md-9  col-sm-8">
+            <h4 class="text-left song_info_report"> {{ albuminfo.album_name }} </h4>
+            <p class="text-left"><span>Type : </span> {{ albuminfo.album_type }} </p>
+            <p class="text-left"><span>Genre : </span> {{ albuminfo.genre }} </p>
+        </div>
+      </div>
+		  
+			<div class="row">
+        <!-- <div class="header-text col-md-12">
+          <h3 class="text-center">Review Needed</h3> 
+      </div> -->
+  	<app-album-song-card  *ngFor="let song of pagedSongs" [song]="song" #pagerCtrl (onLoadPage)="onLoadPageHandler()"></app-album-song-card>
+  </div>
+  <div class="row">
+  	<div class="col-md-12">
+  		<app-pager class="custom_pager" #pagerCtrl [pager]="pager" (onLoadPage)="onLoadPageHandler()"></app-pager>
+  	</div>
+  </div>
+  
+</div>
+<!-- </section> -->

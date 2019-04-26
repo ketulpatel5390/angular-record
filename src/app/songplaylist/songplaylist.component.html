@@ -1,0 +1,36 @@
+ <section class="inner-list">
+       
+    <div class="container">
+      
+      <div class="row">
+      <div class="header-text col-md-8">
+          <h3 class="text-center">Play List</h3> 
+      </div> 
+      <div class="col-md-4 text-right">
+         <button class="main-btn " (click)="playall()">PlayAll</button> 
+          <button class="main-btn " (click)="historyback()">Back</button> 
+      </div>   
+      </div>
+
+  <div class="row ">
+<div  class="table-responsive">
+ <table  class="table table-striped ">
+  <tbody>
+    <tr *ngFor="let song of songplaylist" >
+    <td class="playlist_song_action">
+          <button class="songplay_" id="songplay_{{song.SongId}}" (click)="onPlayHandler(song)"><i class="fa fa-play-circle-o" aria-hidden="true"></i></button>
+          <button style="display: none;" class="songpause_" id="songpause_{{song.SongId}}" (click)="onStopHandler(song)"><i class="fa fa-pause-circle-o" aria-hidden="true"></i></button>
+    </td>
+    <td ><img src="{{ song.ImageSource }}" height="50px" width="50px"></td>
+    <td >{{ song.SongTitle }}</td>
+    
+    <td><button  class="btn btn-danger" (click)="onRemoveHandler(song)">Remove</button></td>
+  </tr>
+  
+</tbody></table>
+</div>
+</div>
+</div>
+</section>
+
+

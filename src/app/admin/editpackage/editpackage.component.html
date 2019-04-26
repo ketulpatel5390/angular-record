@@ -1,0 +1,67 @@
+
+
+
+       
+    <div class="container" *ngIf="usersaccess">
+      
+      <div class="row">
+      <div class="header-text col-md-12">
+          <h3 class="text-center">Edit User</h3> 
+      </div>
+
+    </div>
+
+    <div class="row ">
+ 	    	    <div *ngIf="msgstatus;" class="alert alert-success">
+		      <p>{{ msgstatus }}</p>
+		    </div>
+		    <div *ngIf="error;" class="alert alert-danger">
+		      <p>{{ error }}</p>
+		    </div>
+    	<div class="edit-song-data" >
+    		<form [formGroup] = "adminpackageform" (ngSubmit)="onSubmitHandler()" class="form-horizontal" >
+    			<input type="hidden" class="form-control" name = "PkgId" formControlName = "PkgId">
+    			<div class="row">
+		            <div class="col-md-12">
+		              <div class="form-group">
+		                <label>Price</label>
+		                <input type="number" class="form-control" name = "Price" placeholder = "Price" formControlName = "Price">
+		               <span class="error" *ngIf="!adminpackageform.controls['Price'].valid && ( adminpackageform.controls['Price']?.touched || submitted)">Please Enter Price.</span>
+		              </div>
+		            </div>
+		        </div>
+		        <div class="row">
+		            <div class="col-md-12">
+		              <div class="form-group">
+		                <label>MB</label>
+		                <input type="number" class="form-control" name = "mb" placeholder = "MB" formControlName = "mb">
+		                 <span class="error" *ngIf="!adminpackageform.controls['mb'].valid && (adminpackageform.controls['mb']?.touched || submitted)">Please Enter MB.</span>
+		               
+		              </div>
+		            </div>
+		        </div>  
+		       
+		       
+		        
+		        <div class="row">
+		            <div class="col-md-12 text-center">
+			            <button class="forsubmit">
+			              Update
+			            </button>
+		            </div>
+		        </div>
+    		</form>
+    	</div>
+
+      
+     </div>
+
+  
+</div>
+ <div class="container" *ngIf="!usersaccess">
+
+  <div class="alert alert-danger">
+    <p>You are not authorized for this page. </p>
+  </div>
+ 
+</div>

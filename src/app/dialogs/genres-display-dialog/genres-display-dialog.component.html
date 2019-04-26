@@ -1,0 +1,21 @@
+
+<div class="login-form-popup">
+<h2>Genres</h2>
+<form>
+	<ul class="list-unstyled gener_list_display">
+	<li  *ngFor="let song of generlist;">
+		<strong *ngIf="song.isLabel">{{  song.name  }}</strong>
+		<span *ngIf="!song.isLabel">{{  song.name  }}</span>
+	</li>	
+	</ul>
+	 
+	
+	<div class="text-center">
+	
+    <!-- Can optionally provide a result for the closing dialog. -->
+    <button (click)="cancelDialog()" class="btn-signin">Ok</button>
+    <!-- <button mat-button (click)="cancelDialog()">Cancel</button> -->
+  </div>
+	</form>
+
+</div>

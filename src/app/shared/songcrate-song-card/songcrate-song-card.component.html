@@ -1,0 +1,83 @@
+<div class="col-md-3 col-sm-6 customwidth_responsive">
+   <div class="list-img-detail new-list-img-thumb">
+
+<div class="list-img-play-time">
+  
+
+
+      <img [src]="imageSource" alt="" class="img-responsive">
+
+ <!--        <div class="list-song-duration">{{song.Duration}}</div>
+
+      <div class="play-stop-btn">
+
+   <button *ngIf="canPlay" (click)="onPlayHandler()"><i class="fa fa-play-circle-o" aria-hidden="true"></i></button>
+     <button *ngIf="canStop" (click)="onStopHandler()"><i class="fa fa-pause-circle-o" aria-hidden="true"></i></button>
+
+     </div> -->
+
+      </div>
+
+
+
+      <div class="thumbnail-disc">
+
+        <span class="btn_span">
+          <aside  class="song_action">
+            <button class="songplay_" id="songplay_{{song.SongId}}" (click)="onPlayHandler()"><i class="fa fa-play-circle-o" aria-hidden="true"></i></button>
+            <button  style="display: none;" class="songpause_" id="songpause_{{song.SongId}}" (click)="onStopHandler()"><i class="fa fa-pause-circle-o" aria-hidden="true"></i></button>
+          </aside>
+           <span class="website">
+            <a href="{{song.Website}}" target="_blank">
+            <!-- <img [src]="externalimage" alt="" class="img-responsive">-->
+            <i class="fa fa-globe"></i></a>
+          </span>
+          <aside class="song_time">{{song.Duration}}</aside>
+          <div class="clearfix"></div>
+      </span>
+          <span class="title">{{ song.SongTitle.substring(0, 45) }} </span>
+         <span class="artist">{{song.ArtistName.substring(0, 25) }}</span>
+         <span class="song-label" *ngIf="song.Label">{{song.Label.substring(0, 25)}}</span>
+           <span class="song-label" *ngIf="!song.Label">&nbsp;</span>
+          <span class="genre"><span>{{song.Genre}}</span><!-- <span *ngIf="song.SubGenre">{{song.SubGenre}}</span> --></span>
+                     
+          <button class="add_room_list" matButton (click)="addtolisteningroom()">Add To Listening Room</button>
+         <!--  <app-star-rater (onSubmit)="onSubmitHandler($event)"
+      [overallRating]="song.OverallRating"></app-star-rater> -->
+   
+
+</div>
+
+    </div>
+</div>
+
+<!-- <div class="col-md-3">
+<mat-card>
+  <mat-card-header>
+    <img mat-card-avatar [src]="imageSource">
+    <mat-card-title>{{song.SongTitle}} ({{song.Duration}})</mat-card-title>
+    <mat-card-subtitle>{{song.ArtistName}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content fxLayout="row wrap" fxLayout.lt-md="column">
+    <div fxFlex="100%">
+      <span>Genre: </span>{{song.Genre}} - {{song.SubGenre}}<br>
+      <span>Label: </span>{{song.Label}}<br>
+      <span>Website: </span>{{song.Website}}
+    </div>
+   
+    <app-star-rater (onSubmit)="onSubmitHandler($event)"
+      [overallRating]="song.OverallRating"></app-star-rater>
+  </mat-card-content>
+  <mat-card-actions>
+      <button matButton *ngIf="canPlay" (click)="onPlayHandler()">Play</button>
+      <button matButton *ngIf="canPause" (click)="onPauseHandler()">Pause</button>
+      <button matButton *ngIf="canStop" (click)="onStopHandler()">Stop</button>
+      <button matButton *ngIf="canSkip" (click)="onSkipHandler()">Skip</button>
+      <button matButton *ngIf="canQueue" (click)="onQueueHandler()">Queue</button>
+      <button matButton *ngIf="canDequeue" (click)="onDequeueHandler()">Dequeue</button>
+      <button matButton *ngIf="canMute" (click)="onMuteHandler()">Mute</button>
+      <button matButton *ngIf="canLoop" (click)="onLoopHandler()">Loop</button>
+  </mat-card-actions>
+  
+</mat-card>
+</div> -->

@@ -1,0 +1,33 @@
+
+<div class="upload-song-dialog">
+
+<h2>Upload Songs</h2>
+<div *ngIf="error"> <div class="alert alert-danger">{{ error }}</div> </div>
+  <mat-dialog-content>
+    <p-fileUpload #fileUpload name="myfile" accept=".mp3" maxFileSize="{{fileuploadsizeinbytes}}" showButtons="false"
+      customUpload="true" (onSelect)="selectSong($event)" showUploadButton="false" >
+      <!-- <p-fileUpload #fileUpload name="myfile[]" accept=".mp3" maxFileSize="10000000"
+      customUpload="true" (onSelect)="selectSong($event)"
+      multiple="true" showUploadButton="false">
+      <ng-template pTemplate="toolbar">
+        <div>Upload Music Files</div>
+      </ng-template>   -->
+      <ng-template pTemplate="content">
+          <div>Drag and drop files here to upload to server!</div>
+      </ng-template>  
+      <ng-template let-file pTemplate="file">
+        <div class="close_div">
+          <span >{{file.name}}</span>
+          <span ><strong>{{file.status}}</strong></span>
+          <!-- <button  [disabled]="file.status == 'Done'"><i class="fa fa-times"></i></button> -->
+        </div><br>
+    </ng-template> 
+    </p-fileUpload>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <!-- Can optionally provide a result for the closing dialog. -->
+    <button  (click)="closeDialog()">Ok</button>
+    <button  (click)="cancelDialog()">Cancel</button>
+
+  </mat-dialog-actions>
+</div>

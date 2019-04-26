@@ -1,0 +1,13 @@
+  <mat-card class="full-height" fxLayout="column"> 
+  <!-- <mat-card-title fxFlex="nogrow">Registration Form</mat-card-title> -->
+   <mat-card-content fxFlex="grow" class="scrollable">
+
+
+    <app-dynamic-form #form class="full-height" [questions]="questions" 
+      (onChangeLog)="onChangeLogHandler($event)"
+      (onSubmit)="onSubmitHandler($event)">
+    </app-dynamic-form>
+
+    
+  </mat-card-content>
+</mat-card>  

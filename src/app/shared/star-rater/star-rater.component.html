@@ -1,0 +1,4 @@
+<div class="rating-star-button">
+    <star-rating-comp class="rating-star-new" [starType]="'svg'" [rating]="overallRating" (onRatingChange)="onRatingChangeHandler($event)"></star-rating-comp> 
+    <button *ngIf="overallRating == null || overallRating == 0" matButton (click)="onSubmitHandler()"><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+</div>

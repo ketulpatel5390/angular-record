@@ -1,0 +1,25 @@
+<!--  <section class="inner-list"> -->
+       
+		<div class="container" *ngIf="songaccess">
+		  
+			<div class="row">
+        <div class="header-text col-md-12">
+          <h3 class="text-center">Album Song Approve</h3> 
+      </div>
+  <app-admin-album-song-card  *ngFor="let song of pagedSongs" [song]="song" #pagerCtrl (onLoadPage)="onLoadPageHandler()"></app-admin-album-song-card>
+    </div>
+  <div class="row">
+  	<div class="col-md-12">
+  <app-pager class="custom_pager" #pagerCtrl [pager]="pager" (onLoadPage)="onLoadPageHandler()"></app-pager>
+  	</div>
+  </div>
+  
+</div>
+<!-- </section> -->
+ <div class="container" *ngIf="!songaccess">
+
+  <div class="alert alert-danger">
+    <p>You are not authorized for this page. </p>
+  </div>
+ 
+</div>

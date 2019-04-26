@@ -1,0 +1,89 @@
+
+     <div class="container Current_Song_Crate">
+      
+      <div class="row">
+      <!-- <div class="header-text col-md-12">
+          <h3 class="text-center">Current Song Crate Friends</h3> 
+      </div> -->
+      <div class="col-md-12 ">
+        <div *ngIf="error"> <div class="alert alert-danger">{{ error }}</div> </div>
+        <div *ngIf="successerror"> <div class="alert alert-success">{{ successerror }}</div> </div>
+          
+      </div>
+       <div class="col-md-12 text-right sharemycrate">
+       <!--  <input type="text" class="form-control" #myInput  name="searchitem" placeholder="Enter User Name">
+          <span class="input-group-btn"> -->
+            <button class="main-btn " type="button" (click)="sharemycrate()" >Share my Song Crate </button>
+         <!--  </span> -->
+       </div>
+    </div>
+
+    <div class="row friendcrate hidden-xs">
+    	<!-- <h2 class="text-center"><strong>Comming Soon......</strong></h2> -->
+      <div class="left_side_Crate table-responsive">    
+        <table class="table table-striped portfolio-list-top">
+            <tr>
+              <th>Username</th>
+              <th>Action</th>
+            </tr>
+            <tr *ngFor="let cratefriendsinfo of Songcratefriendsinfo" class="songcrate_row_{{cratefriendsinfo.UserId}} songcratefriendsinfo">
+              <td><a class="user_link"  (click)="showdiv(cratefriendsinfo.UserId)">{{ cratefriendsinfo.Username }}</a></td>
+              <td>
+              <button  class="btn btn-danger" (click)="deleteYourCrate(cratefriendsinfo.UserId)"  ><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+            </td>
+            </tr>
+      </table>
+      <div class="row">
+        <div class="col-md-12">
+      <app-pager class="custom_pager" #pagerCtrl [pager]="pager" (onLoadPage)="onLoadPageHandler()"></app-pager>
+        </div>
+      </div> 
+      </div>
+      <div class="right_side_Crate">
+        
+          <div class="songcrate_data  animated slideInRight" id="songcrate_data_{{currentsongcrateuser}}" *ngIf="currentsongcrateuser">
+          <div class="row">
+            <div class="header-text col-md-12" *ngIf="crateuserinfo">
+                <h3 class="text-center">{{crateuserinfo.Username}}'s Crate Detail</h3> 
+                <a class="crate_close_btn"  (click)="hidediv()"><i class="fa fa-times" aria-hidden="true"></i></a>
+            </div>
+            <app-songcrate-song-list  *ngFor="let song of pagedSongs" [song]="song"></app-songcrate-song-list>
+    
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+            <app-pager class="custom_pager" #cratepagerCtrl [pager]="cratepager" (onLoadPage)="crateonLoadPageHandler(currentsongcrateuser)"></app-pager>
+            </div>
+          </div>
+         
+          </div>
+        
+      </div>
+ 
+       
+     </div>
+     <div class="row friendcrate visible-xs">
+      <!-- <h2 class="text-center"><strong>Comming Soon......</strong></h2> -->
+      <div class="left_side_Crate table-responsive">    
+        <table class="table table-striped portfolio-list-top">
+            <tr>
+              <th>Username</th>
+              <th>Action</th>
+            </tr>
+            <tr *ngFor="let cratefriendsinfo of Songcratefriendsinfo" class="songcrate_row_{{cratefriendsinfo.UserId}} songcratefriendsinfo">
+              <td><a routerLink="/mysongcratefriends/CurrentSongCrateFriends/{{cratefriendsinfo.UserId}}">{{ cratefriendsinfo.Username }}</a></td>
+              <td>
+              <button  class="btn btn-danger" (click)="deleteYourCrate(cratefriendsinfo.UserId)"  ><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+            </td>
+            </tr>
+      </table>
+      <div class="row">
+        <div class="col-md-12">
+      <app-pager class="custom_pager" #pagerCtrl [pager]="pager" (onLoadPage)="onLoadPageHandler()"></app-pager>
+        </div>
+      </div> 
+      </div>
+    </div>
+
+        
+</div>

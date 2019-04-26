@@ -1,0 +1,138 @@
+
+       
+		<div class="container">
+		  
+			<div class="row">
+				<div class="header-text col-md-12">
+                  <h3 class="text-center">Edit Song</h3> 
+         <div *ngIf="error"> <div class="alert alert-danger">{{ error }}</div> </div>          
+         </div>
+  	<div class="col-md-12 edit-song-data">
+    <form [formGroup] = "formdata" class="form-horizontal" (ngSubmit) = "onClickSubmit(formdata.value)" >
+      <input type="hidden" class="form-control" name = "songid" formControlName = "songid">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>Song Title</label>
+                <input type="text" class="form-control" name = "title" placeholder = "Enter Title" formControlName = "title">
+                <span class="error" *ngIf="!formdata.controls['title'].valid">Please Enter Title.</span>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>Artist Name</label>
+                <input type="text" class="form-control" name = "artistName" placeholder = "Enter Artist Name" formControlName = "artistName">
+                <span class="error" *ngIf="!formdata.controls['artistName'].valid">Please Artist Name.</span>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>Album Name</label>
+                <input type="text" class="form-control" name = "albumName" placeholder = "Enter Album Name" formControlName = "albumName">
+
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                 <label>Copyright Owner</label>
+                <input type="text" class="form-control" name = "copyrightOwner" placeholder = "Enter Copyright Owner" formControlName = "copyrightOwner">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                 <label>Copyright Year</label>
+                <input type="text" class="form-control" name = "copyrightYear" placeholder = "Enter Copyright Year" formControlName = "copyrightYear">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                 <label>Genre</label>
+                <select id="genre" formControlName="genre" class="form-control">
+                    <option *ngFor="let g of genreslist" [ngValue]="g.key">{{ g.value }}</option>
+                </select>
+                <span class="error" *ngIf="!formdata.controls['genre'].valid">Please Select Genre.</span>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                 <label>Label</label>
+                <input type="text" class="form-control" name = "label" placeholder = "Enter Label" formControlName = "label">
+                <span class="error" *ngIf="!formdata.controls['label'].valid">Please Enter Label.</span>
+              </div>
+            </div>
+            
+            <div class="col-md-4">
+              <div class="form-group">
+                 <label>Country</label>
+                <select id="artistCountry" formControlName="artistCountry" class="form-control">
+                    <option *ngFor="let c of countrylist" [ngValue]="c.key">{{ c.value }}</option>
+                </select> 
+                <span class="error" *ngIf="!formdata.controls['artistCountry'].valid">Please Select Country.</span>
+                </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                 <label>Artist City/State</label>
+                <input type="text" class="form-control" name = "artistCityState" placeholder = "Enter Artist City/State" formControlName = "artistCityState">
+                <span class="error" *ngIf="!formdata.controls['artistCityState'].valid">Please Enter Artist City/State.</span>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                 <label>Website</label>
+                <input type="text" class="form-control" name = "website" placeholder = "Enter Website" formControlName = "website">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                 <label> Where To Buy</label>
+                <input type="text" class="form-control" name = "whereToBuy" placeholder = "Enter Where To Buy" formControlName = "whereToBuy">
+              </div>
+            </div>
+             <div class="col-md-4">
+              <div class="form-group">
+                 <label>Facebook Link</label>
+                <input type="text" class="form-control" name = "Facebook_link" placeholder = "Enter Facebook Link" formControlName = "Facebook_link">
+              </div>
+             </div>
+            
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                 <label>Twitter Link</label>
+                <input type="text" class="form-control" name = "Twitter_link" placeholder = "Enter Twitter Link" formControlName = "Twitter_link">
+              </div>
+             </div>
+             <div class="col-md-4">
+              <div class="form-group">
+                 <label>Spotify Link</label>
+                <input type="text" class="form-control" name = "Spotify_link" placeholder = "Enter Spotify Link" formControlName = "Spotify_link">
+              </div>
+             </div>
+             <div class="col-md-4">
+              <div class="form-group">
+                 <label>iTunes Link</label>
+                <input type="text" class="form-control" name = "iTunes_link" placeholder = "Enter iTunes Link" formControlName = "iTunes_link">
+              </div>
+             </div>
+          </div>
+         
+          <div class="row">
+            <div class="col-md-12 text-center">
+               <input type = "submit" [disabled] = "!formdata.valid" class = "forsubmit" value = "Update Song">
+            </div>
+          </div>
+      
+     
+   </form>
+</div>
+
+</div>
+  </div>

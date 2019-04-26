@@ -1,0 +1,29 @@
+
+.inner-list {
+	
+}
+
+
+.list-img-detail {
+	background: #f1f1f1;
+	margin-bottom: 30px;
+	position: relative;
+}
+
+
+.list-img-detail a span {
+	padding: 10px 10px 0;
+	color: #666;
+	display: block;
+	
+}
+
+.list-img-detail a p {
+	padding: 0 10px 10px;
+	font-size: 18px;
+	font-weight: 400;
+	color: #3a3a3a;
+	
+	
+	
+}

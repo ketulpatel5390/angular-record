@@ -1,0 +1,100 @@
+<div *ngIf="isAuthenticated;" class="nav_div">
+  <div class="fix_topheader hidden-xs">
+    <i *ngIf="menushow;" class="fa fa-bars menu_bar_btn" (click)="menushows()"  aria-hidden="true"></i>
+    <i *ngIf="menuhide;" class="fa fa-bars menu_bar_btn"  (click)="menuhides()" aria-hidden="true"></i>
+    <div class="logo"><img [src]="footerlogo"  class="img-responsive" alt=""></div> 
+
+
+    <div class="dropdown dropdown_div">
+                  <a href="#" class="dropdown-toggle" type="button" data-toggle="dropdown">
+                  <span>{{username}}</span>       
+                  <img [src]="avtar">             
+                  </a>
+                  <ul class="dropdown-menu">
+                  <li><a (click)="userlogout()" >Logout</a></li> 
+                  </ul>
+                </div>
+                
+        <div class="search_box"  >
+         <!--  <input *ngIf="approvalstatus != 'P'"  #myInput placeholder="Search by SongTitle ,Genres , ArtistName ,AlbumName..." [(ngModel)]="searchitems" class="form-control" (input)="filterItem(myInput.value)"> -->
+
+        <!-- <input *ngIf="approvalstatus != 'P'" type="text" class="form-control" #myInput [(ngModel)]="searchitems"  placeholder="Search by SongTitle ,Genres , ArtistName ,AlbumName..." required> 
+         <button *ngIf="approvalstatus != 'P'" type="button" (click)="filterItem(searchitems)" class="fa fa-search" ></button>
+         <span *ngIf="mydisplayerrors" class="mydisplay_errors">Please Enter Value in Searchbox.</span> -->
+         <!-- <i class="fa fa-search"></i> -->
+         <form [formGroup]="searchform" *ngIf="approvalstatus != 'P'" (submit)="filterItem()">
+            <input class="form-control" formControlName="searchvalue" placeholder="Search by SongTitle ,Genres , ArtistName ,AlbumName...">
+
+          <span class="error" *ngIf="searchform.controls['searchvalue'].invalid && 
+          (searchform.controls['searchvalue']?.touched  || submitted)">
+            Please Enter Value in Searchbox.
+          </span>
+      <button *ngIf="approvalstatus != 'P'"  type="submit" (click)="filterItem()" class="fa fa-search" ></button>
+          </form>
+        </div>
+  </div>
+    <div class="fix_topheader visible-xs">
+    
+    <div class="row">
+      <div class="col-xs-2">
+         <i *ngIf="menushow;" class="fa fa-bars menu_bar_btn" (click)="menushows()"  aria-hidden="true"></i>
+    <i *ngIf="menuhide;" class="fa fa-bars menu_bar_btn"  (click)="menuhides()" aria-hidden="true"></i>
+      </div>
+      <div class="col-xs-8">
+        <div class="logo"><img [src]="footerlogo"  class="img-responsive" alt=""></div> 
+      </div>
+      <div class="col-xs-2">
+        <div class="dropdown dropdown_div">
+      <a (click)="mobilelogout()">                  
+        <img [src]="avtar">             
+      </a>      
+    </div>
+    <div class="mob_logout">
+      <a (click)="userlogout()" >Logout</a>
+    </div>
+      </div>
+    </div>
+
+   <div class="clearfix"></div>
+    
+
+
+    
+    
+                
+        <div class="search_box">
+          <!-- <input *ngIf="approvalstatus != 'P'"  #myInput placeholder="Search by SongTitle ,Genres , ArtistName ,AlbumName..." [(ngModel)]="searchitems" class="form-control" (input)="filterItem(myInput.value)"> -->
+         <!--  <input *ngIf="approvalstatus != 'P'" type="text" class="form-control" #myInput [(ngModel)]="searchitems"  placeholder="Search by SongTitle ,Genres , ArtistName ,AlbumName..." required> 
+         <button *ngIf="approvalstatus != 'P'" type="button" (click)="filterItem(searchitems)" class="fa fa-search" ></button>
+         <span *ngIf="mydisplayerrors" class="mydisplay_errors">Please Enter Value in Searchbox.</span> -->
+         <form [formGroup]="searchform" *ngIf="approvalstatus != 'P'" (submit)="filterItem()">
+            <input class="form-control" formControlName="searchvalue" placeholder="Search by SongTitle ,Genres , ArtistName ,AlbumName...">
+
+          <span class="error" *ngIf="searchform.controls['searchvalue'].invalid && 
+          (searchform.controls['searchvalue']?.touched  || submitted)">
+            Please Enter Value in Searchbox.
+          </span>
+            <button *ngIf="approvalstatus != 'P'"  type="submit" (click)="filterItem()" class="fa fa-search" ></button>
+          </form>
+        </div>
+</div>
+
+           
+       
+  <div class="fix_menu-new">
+    <nav class="navbar navbar-default menubar"> 
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <app-menu [navLinks]="navLinks" *ngIf="isAuthenticated" (onLoadPage)="menuhidesonmobile()"></app-menu>
+      </div>
+    </nav>
+  </div>
+</div>
+
+
+
+
+
+
+    
+   
+

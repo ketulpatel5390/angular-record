@@ -1,0 +1,6 @@
+<mat-error *ngIf="hasError('required')">{{question.label}} is required</mat-error>
+<mat-error *ngIf="hasError('email')">{{question.label}} is not a valid email</mat-error>
+<mat-error *ngIf="hasError('maxlength')">{{question.label}} exceeds maximum length of {{control.errors['maxlength'].requiredLength}} characters </mat-error>
+<mat-error *ngIf="hasError('minlength')">{{question.label}} must be at least {{control.errors['minlength'].requiredLength}} characters</mat-error>
+<mat-error *ngIf="hasError('sameas')">{{question.label}} does not match {{control.errors['sameas'].label}}</mat-error>
+<mat-error *ngIf="hasError('min')">{{question.label}} is less than the minimumn {{control.errors['min'].minimumn}}</mat-error>

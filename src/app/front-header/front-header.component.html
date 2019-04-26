@@ -1,0 +1,47 @@
+<header *ngIf="!isAuthenticated;" [ngStyle]="{ 'background-image': 'url(' + bgimageName + ')'}">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="logo"><a [routerLink]="['/home']"><img [src]="imageName" alt=""></a></div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12 pull-right">
+    
+                <div class="login" >
+                   
+                     <a  (click)="userlogin()">Sign in</a>
+                    <a [routerLink]="['/register']" id="register_scroll">Sign Up</a>
+                   
+                </div>
+              </div>
+          
+        </div>
+         
+            <div class="banner-caption" >
+            
+              <p>Connect on RecordDrop</p>
+              <span>Discover, stream, and share a constantly expanding mix of music from emerging and major artists around the world.</span>
+                
+            
+                <div class="social-header-button">
+                
+                
+                    <button class="fb" (click)="socialSignIn('facebook')"><i class="fa fa-facebook hidden-xs" aria-hidden="true"></i> Join Friends</button>
+                    <button class="start" (click)="userlogin()">Start Listening</button>
+                    
+                    <span class="hidden-xs">OR Sign up with your email</span>
+                
+                </div>
+            
+            </div>
+           
+            <ul class="numbers hidden-xs" >
+            
+                <li><i class="fa fa-music" aria-hidden="true"></i><p>{{ allsongcount }}+</p><span>songs</span></li>
+                <li><i class="fa fa-heart" aria-hidden="true"></i><p>{{ allartistcount }}+</p><span>artists</span></li>
+                <li><i class="fa fa-star" aria-hidden="true"></i><p>{{ allusercount }}+</p><span>users</span></li>
+            
+            </ul>
+        </div>
+    </header>
+    
+   

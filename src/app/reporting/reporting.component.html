@@ -1,0 +1,51 @@
+ <section class="inner-list">
+       
+    <div class="container">
+      
+      <div class="row">
+      <div class="header-text col-md-12">
+          <h3 class="text-center">Error Reporting</h3> 
+      </div>    
+      </div>
+
+  <div class="row ">
+
+
+<div class="upload-song-dialog">
+
+<h2>Send Email </h2>
+
+   <form [formGroup]="errorreportform">
+   
+  <div class="form-group">
+    <label> Description <span style="color: red;">*</span></label>
+     <textarea class="form-control" formControlName="description" placeholder="Enter Description" cols="80" rows="10"></textarea>
+   <!--  <input type="text"  class="form-control" formControlName="description" placeholder="Enter EP Name or Album Name"> -->
+    <span class="error" *ngIf="errorreportform.controls['description'].invalid && errorreportform.controls['description']?.touched || submitted">
+     Enter Description
+    </span>
+    
+  </div>
+   <div class="form-group">
+    <label> File Attachment</label>
+         <input type="file" class="form-control" name ="avatar"  formControlName = "avatar" (change)="onFileChanged($event)" #fileInput>
+        <!--  <span class="error" *ngIf="errorreportform.controls['avatar'].invalid && errorreportform.controls['avatar']?.touched || submitted">
+     Select File Attachment
+    </span> -->
+         <input type="hidden" name="imageInput" formControlName="imageInput"/>
+  </div> 
+                
+  <div class="text-center">
+    <!-- Can optionally provide a result for the closing dialog. -->
+    <button  (click)="onSubmitHandler()">Send E-mail</button>
+    <button  (click)="reset()">Reset</button>
+
+  </div>
+</form>
+
+</div>
+</div>
+</div>
+</section>
+
+

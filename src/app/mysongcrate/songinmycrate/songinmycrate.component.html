@@ -1,0 +1,73 @@
+<!-- 
+     <div class="container">
+      
+      <div class="row">
+      <div class="header-text col-md-12">
+          <h3 class="text-center">All Songs in my Crate</h3> 
+      </div>
+    </div>
+    <div class="row">
+
+      <h2 class="text-center"><strong>Comming Soon......</strong></h2>
+     </div>
+
+  
+</div> -->
+<!--  <section class="inner-list"> -->
+       
+    <div class="container">
+      
+      <div class="row mar_bottom">
+       <!--  <div class="header-text col-md-12">
+          <h3 class="text-center">All Songs in my Crate</h3> 
+      </div> -->
+      <div class="col-md-6  col-sm-6 ">
+        <label>Sort By Genre</label>
+        <select id="genre" class="form-control" [ngModel]="singleSelect" (ngModelChange)="GenreonChange($event)"  name="singleSelect">
+               <option [ngValue]="null">All Crate Songs</option>
+              <option *ngFor="let g of generlist"  [ngValue]="g.key" >{{ g.value }}</option>
+        </select>
+        
+      </div>
+      <div class="col-md-6  col-sm-6 ">
+        <div class="sort_res_center">
+        <span class="sort-by-app">Sort By </span>
+        <a class="usr_link" (click)="sort('SongTitle')">SongTitle
+          <i class="fa " *ngIf="key =='SongTitle'" [ngClass]="{'fa-arrow-up':reverse,'fa-arrow-down':!reverse}"></i>
+        </a>
+        <a  class="usr_link" (click)="sort('ArtistName')">ArtistName
+        <i class="fa " *ngIf="key =='ArtistName'" [ngClass]="{'fa-arrow-up':reverse,'fa-arrow-down':!reverse}"></i>
+        </a>
+        <a  class="usr_link" (click)="sort('FeedbackGivenDate')">Date
+        <i class="fa " *ngIf="key =='FeedbackGivenDate'" [ngClass]="{'fa-arrow-up':reverse,'fa-arrow-down':!reverse}"></i>
+        </a>
+
+        
+    </div>
+      </div>
+      <div class="col-md-12  col-sm-12">
+        <div *ngIf="error"> <div class="alert alert-danger">{{ error }}</div> </div>
+        <div *ngIf="successerror"> <div class="alert alert-success">{{ successerror }}</div> </div>
+          
+      </div>
+    </div>
+       <!-- <div class="col-md-12 sharemycrate">
+        <input type="text" class="form-control" #myInput  name="searchitem" placeholder="Enter User Name">
+          <span class="input-group-btn">
+             <button class="btn btn-default" type="button" (click)="sharemycrate(myInput.value)" >Share Song Crate</button>
+          </span>
+       </div> -->
+   <div class="row lib_song_cls" *ngIf="totolcount > 0">
+  <app-library-song-card  *ngFor="let song of pagedSongs" [song]="song" [inpromember]="inpromember" (onLoadPage)="onLoadPageHandler(sortbygener,sortkey,sortreverse)" ></app-library-song-card>
+    </div>
+    <div class="row" *ngIf="totolcount <= 0">
+    <div class="col-md-12"><h3> No Records Founds</h3></div>
+    </div>
+  <div class="row">
+    <div class="col-md-12">
+  <app-pager class="custom_pager" #pagerCtrl [pager]="pager" (onLoadPage)="onLoadPageHandler(sortbygener,sortkey,sortreverse)"></app-pager>
+    </div>
+  </div>
+  
+</div>
+<!-- </section> -->

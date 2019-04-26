@@ -1,0 +1,14 @@
+<!-- <div fxLayout="column" class="full-height">
+  <div fxFlex="nogrow" *ngIf="sd.headerIsVisible.onPropertyChanged | async">
+    <app-header></app-header>
+  </div>
+  <div fxFlex="grow" style="overflow: hidden;"> -->
+  	
+  	<app-header></app-header>
+  	
+    <router-outlet></router-outlet>
+    <app-footer></app-footer>
+<ng4-loading-spinner> </ng4-loading-spinner>
+  <!-- </div>
+</div>
+<app-progress-bar *ngIf="progressBarMessage != null" [message]="progressBarMessage"></app-progress-bar> -->

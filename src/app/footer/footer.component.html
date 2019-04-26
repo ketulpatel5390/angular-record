@@ -1,0 +1,31 @@
+
+<div style="clear:both; "> 
+<div *ngIf="isAuthenticated;">
+    <app-audio-player  [audioSource]="audioSource" ></app-audio-player>
+    <div class="container">
+       <div class="row">
+         <div class="col-md-12 text-center">
+          <p>Version - {{ version }}</p>
+         </div>
+      </div>
+    </div>
+</div>
+
+<footer  *ngIf="!isAuthenticated;">
+     <div class="container">
+       <div class="row">
+         <div class="col-md-12">
+            <img [src]="footerlogo"  alt="">
+             <ul>
+                <li><a [routerLink]="['/home']">Home</a></li>
+               <li><a [routerLink]="['/aboutus']">About us</a></li>
+               <li><a [routerLink]="['/help']">Help</a></li>
+               <li><a [routerLink]="['/legal']">Legal</a></li>
+               <li><a [routerLink]="['/privacy']">Privacy</a></li>
+            </ul> 
+            <p>2018 © RecordDrop.</p>
+          </div>
+        </div>
+        </div>
+</footer>
+</div>

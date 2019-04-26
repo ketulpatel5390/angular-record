@@ -1,0 +1,35 @@
+<div class="login-form-popup">
+
+<h2>Send Message Based On Geographical Location</h2>
+
+<div *ngIf="error"> <div class="alert alert-danger">{{ error }}</div> </div> 
+<div class="edit-song-data">
+<form  [formGroup]="messageform"  >
+  <div class="form-group">
+    <label for="title">State or Provinance</label>
+  <ss-multiselect-dropdown class="multiseletct-State-message"  [options]="StateorProvinancelist" [texts]="myTexts" 
+   [settings]="mySettings" formControlName="region"></ss-multiselect-dropdown>
+   <span class="error" *ngIf="!messageform.controls['region'].valid  && messageform.controls['region'].touched">Please Enter Subject.</span> 
+ </div>
+   	<div class="form-group">
+    <label for="title">Subject</label>
+    <input type="text" class="form-control form-styling" placeholder="Enter Subject" formControlName="title" >
+    <span class="error" *ngIf="!messageform.controls['title'].valid  && messageform.controls['title'].touched">Please Enter Subject.</span>
+
+  	</div>
+  	<div class="form-group">
+    <label for="message">Message</label>
+    <textarea class="form-control form-styling" formControlName="message" required></textarea>
+    <span class="error" *ngIf="!messageform.controls['message'].valid  && messageform.controls['message'].touched">Please Enter Message.</span>
+  	</div>
+    <div class="btn-animate">
+		<!-- <a class="btn-signin">Sign in</a> -->
+		<button mat-button (click)="closeDialog()" class="btn-signin">Send Message</button>
+		<button mat-button (click)="cancelDialog()" class="btn-signin">Close</button>
+
+	</div>
+       
+</form>
+</div>
+    		       
+</div>

@@ -1,0 +1,214 @@
+<header class="inner-without-login" *ngIf="!isAuthenticated;" [ngStyle]="{ 'background-image': 'url(' + bgimageName + ')'}">
+  <!-- [ngStyle]="{ 'background-image': 'url(' + bgimageName + ')'}" -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="logo"><a [routerLink]="['/home']"><img [src]="imageName" alt=""></a></div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12 pull-right">
+    
+                <div class="login" >
+                   
+                   <!--   <a  (click)="userlogin()">Sign in</a>
+                    <a [routerLink]="['/register']" id="register_scroll">Sign Up</a> -->
+                   
+                </div>
+              </div>
+          
+        </div>
+
+        </div>
+    </header>
+
+
+<alert></alert>
+<section class="registration-secton-form" id="register_scroller">
+<div class="container">
+	<div class="row">
+    <div *ngIf="msgstatus;" class="alert alert-success">
+      <p>{{ msgstatus }}</p>
+    </div>
+		<div class="col-md-8 col-md-offset-2">
+
+      <div class="row">
+        <div class="col-md-12 text-center">
+      <h3>Registration Form</h3>
+</div>
+
+       </div>
+    <div class="registration-form-app" >
+  
+ <!-- <mat-card-content class="full-height"> -->
+   <!--  <app-dynamic-form #form  [questions]="questions" 
+      (onChangeLog)="onChangeLogHandler($event)"
+      (onSubmit)="onSubmitHandler($event)">
+    </app-dynamic-form> -->
+<!-- </mat-card-content> -->
+    <form [formGroup] = "registrationform" (ngSubmit)="onSubmitHandler()" class="form-horizontal" >
+      <input type="hidden" class="form-control" name = "appid" formControlName = "facebookid">
+          <div class="row">
+            <div class="col-md-3">
+              <div class="form-group">
+                <label>FirstName</label>
+                <input type="text" class="form-control" name = "firstName" placeholder = "First Name" formControlName = "firstName">
+                <!-- <span class="error" *ngIf="!registrationform.controls['SongsReview'].valid">Please Enter First Name.</span> -->
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label>LastName</label>
+                <input type="text" class="form-control" name = "lastName" placeholder = "Last Name" formControlName = "lastName">
+                <!-- <span class="error" *ngIf="!registrationform.controls['SongsReview'].valid">Please Enter First Name.</span> -->
+              </div>
+            </div>
+             
+               
+            <div class="col-md-6">
+              <div class="form-group" style="margin-bottom: 0px !important;">
+                <label>Date Of Birth <span class="error">*</span></label>
+                   <my-date-picker  [options]="myDatePickerOptions" [placeholder]="placeholder"  (dateChanged)="onDateChanged($event)"  formControlName = "dob" id="my-date-picke"></my-date-picker>
+                    <!--
+                    [options]="myDatePickerOptions" [position]="top-left" 
+                    <input matInput [matDatepicker]="picker" placeholder="Date Of Birth" formControlName = "dob" class="form-control" id="dob"  [options]="myDatePickerOptions">
+                     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker> -->
+                    <span class="error" *ngIf="!registrationform.controls['dob'].valid && (registrationform.controls['dob']?.touched || submitted )">Please Enter Valid Date Of Birth Formate mm-dd-yyyy.</span>
+                <!-- <input type="text" class="form-control" name = "dob" placeholder = "Date Of Birth" formControlName = "dob"> -->
+               
+              </div>
+            </div>
+           </div>
+         
+
+           <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Email  <span class="error">*</span></label>
+                <input type="email" class="form-control" name = "email" placeholder = "Enter Email" formControlName = "email">
+                 <span class="error" *ngIf="!registrationform.controls['email'].valid && (registrationform.controls['email']?.touched || submitted )">Please Enter valid Email.</span>
+              </div>
+            </div>
+         
+           
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>User Name  <span class="error">*</span></label>
+                <input type="text" class="form-control" name = "username" placeholder = "User Name" formControlName = "username">
+                 <span class="error" *ngIf="!registrationform.controls['username'].valid && (registrationform.controls['username']?.touched || submitted )">Please Enter User Name.</span>
+              </div>
+            </div>
+          </div>
+           <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Password  <span class="error">*</span></label>
+                <input type="password" class="form-control" name = "password" placeholder = "Password" formControlName = "password">
+                 <span class="error" *ngIf="!registrationform.controls['password'].valid && (registrationform.controls['password']?.touched || submitted )">Please Enter Password.</span>
+              </div>
+            </div>
+       
+         
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Confirm Password  <span class="error">*</span></label>
+                <input type="password" class="form-control" name = "confirmPassword" placeholder = "Enter ConfirmPassword" formControlName = "confirmPassword">
+                <span class="error" *ngIf="!registrationform.controls['confirmPassword'].valid && (registrationform.controls['confirmPassword']?.touched || submitted )">Please Confirm Password.</span>
+              </div>
+            </div>
+          </div>
+           <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Country  <span class="error">*</span></label>
+                <select formControlName="country"  class="form-control" >
+                  <option>Select Country</option>
+                  <option *ngFor="let opt of countrylist" [value]="opt.key">{{opt.value}}</option>
+                </select>
+                <span class="error" *ngIf="!registrationform.controls['country'].valid && (registrationform.controls['country']?.touched || submitted )">Please Select Country.</span>
+                
+              </div>
+            </div>
+        
+            <div class="col-md-3">
+              <div class="form-group">
+                <label>State  <span class="error">*</span></label>
+                <select formControlName="state"  class="form-control" >
+                  <option *ngFor="let opt of statelist" [value]="opt.key">{{opt.value}}</option>
+                </select>
+                 <span class="error" *ngIf="!registrationform.controls['state'].valid && (registrationform.controls['state']?.touched || submitted )">Please Select State.</span>
+              </div>
+            </div>
+           
+         
+
+         
+            <div class="col-md-3">
+              <div class="form-group">
+                <label>City  <span class="error">*</span></label>
+                <input type="text" class="form-control" name = "city" placeholder = "Enter city" formControlName = "city">
+                <span class="error" *ngIf="!registrationform.controls['city'].valid && (registrationform.controls['city']?.touched || submitted )">Please Enter City.</span> 
+              </div>
+            </div>
+          </div>
+           <div class="row">
+            <div class="col-md-3">
+              <div class="form-group">
+                <label>Song Review Limit  <span class="error">*</span></label>
+                <input type="text" class="form-control" name = "songReviewLimit" placeholder = "Enter Song ReviewLimit" formControlName = "songReviewLimit">
+               <span class="error" *ngIf="!registrationform.controls['songReviewLimit'].valid && (registrationform.controls['songReviewLimit']?.touched || submitted )">Please Enter Song Review Limit.</span> 
+              </div>
+            </div>
+
+              <div class="col-md-3">
+              <div class="form-group">
+                <label>Package  <span class="error">*</span></label>
+                <select formControlName="package"  class="form-control" >
+                  <option *ngFor="let opt of packagelist" [value]="opt.key">{{opt.value}}</option>
+                </select>
+                <span class="error" *ngIf="!registrationform.controls['package'].valid && (registrationform.controls['package']?.touched || submitted )">Please Select Package.</span>
+              </div>
+            </div>
+     
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Genres  <span class="error">*</span></label>
+                 <!-- <select formControlName="genre"  class="form-control" data-role="multiselect"  multiple>
+                  <option *ngFor="let opt of generslist" [value]="opt.key">{{opt.value}}</option>
+                </select>  -->
+                <ss-multiselect-dropdown class="miltiseletct-gener"  required  [options]="generslist" [texts]="myTexts" [settings]="mySettings" formControlName="genre"></ss-multiselect-dropdown>
+              <span class="error" *ngIf="!registrationform.controls['genre'].valid && (registrationform.controls['genre']?.touched || submitted )">
+                <div [hidden]="!registrationform.controls['genre'].errors.required && (registrationform.controls['genre']?.touched || submitted )">Please Select Genres.</div></span> 
+              </div>
+            </div>
+           </div>
+         
+      <!-- <div class="row">
+          <div class="col-md-12 text-center">       
+               <re-captcha
+                formControlName="captcha"
+                name="captcha"
+                required
+                siteKey="6LcOuyYTAAAAAHTjFuqhA52fmfJ_j5iFk5PsfXaU"
+                 ></re-captcha>
+              <div [hidden]="registrationform.controls['captcha'].valid || registrationform.controls['captcha'].pristine" class="error">Captcha must be solved</div>
+                 
+          </div>
+      </div> [disabled]="!registrationform.valid"  -->
+
+          <div class="row">
+           <div class="col-md-12 text-center">
+            <button  class="form-submit-buttons">
+              Submit
+            </button>
+            <a class="form-submit-buttons" [routerLink]="['/home']">Cancel</a>
+            </div>
+        </div>
+
+     
+   </form>
+</div>
+		</div>
+	</div>
+</div>
+</section>
+

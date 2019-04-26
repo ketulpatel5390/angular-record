@@ -1,0 +1,29 @@
+<!--  <section class="inner-list"> -->
+       
+		<div class="container" *ngIf="songaccess">
+		  
+			<div class="row">
+        <div class="header-text col-md-12 songaprove">
+        <!--   <h3 class="text-center">Song Approve</h3>  -->
+        <label>Filter</label> 
+        <select class="form-control " (change)="selectOption($event.target.value)" [(ngModel)]="selected">
+        <option [value]="item.id" *ngFor="let item of items">{{item.name}}</option>
+         </select>
+      </div>
+  <app-admin-song-card  *ngFor="let song of pagedSongs" [song]="song"  [filter]="selected" (onLoadPage)="onloadfuntion()"></app-admin-song-card>
+    </div>
+  <div class="row">
+  	<div class="col-md-12">
+  <app-pager class="custom_pager" #pagerCtrl [pager]="pager" (onLoadPage)="onLoadPageHandler(selected)"></app-pager>
+  	</div>
+  </div>
+  
+</div>
+<!-- </section> -->
+ <div class="container" *ngIf="!songaccess">
+
+  <div class="alert alert-danger">
+    <p>You are not authorized for this page. </p>
+  </div>
+ 
+</div>

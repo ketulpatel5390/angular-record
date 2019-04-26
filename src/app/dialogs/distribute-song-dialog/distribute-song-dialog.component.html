@@ -1,0 +1,53 @@
+
+<div class="feedback-form-popup distribute_song">
+
+<h2>Distribute Song {{ titlepayload }}</h2>
+<form  [formGroup]="feedbackform"  >
+    
+<div class="form-group">
+    <label for="radio-c" >
+    <input id="radio-c" #YesaddLink type="radio" name="addLink" formControlName="addLink" value="Yes" (click)="show1()"/>
+    Fan Favorites </label>
+     <label for="radio-d">
+    <input id="radio-d" type="radio" name="addLink" formControlName="addLink" value="No" checked="checked" (click)="show2()"/>
+     All Record drop members </label>
+</div>
+
+<div class="displayfavourite" style="display: none;">
+  <div class="form-group">
+    <label for="radio-a" >
+    <input id="radio-a" type="radio" name="favourite" formControlName="favourite" value="Individual" (click)="show3()"/>
+    Selected Fans </label>
+    <label for="radio-b" >
+    <input id="radio-b" type="radio" name="favourite" formControlName="favourite"  value="Allfans" (click)="show4()"/>
+    All fans </label>
+    <label for="radio-e" >
+    <input id="radio-e" type="radio" name="favourite" formControlName="favourite"  value="Regions" (click)="show5()"/>
+    State or Town  </label>
+</div>
+
+</div>
+<div class="form-group getFavouriteMember"  style="display: none;">
+
+   <ss-multiselect-dropdown class="miltiseletct-gener"  [options]="Applicationlist" [texts]="myTexts" 
+   [settings]="mySettings" formControlName="fav"></ss-multiselect-dropdown> 
+</div>
+<div class="form-group getregion"  style="display: none;">
+
+   <ss-multiselect-dropdown class="miltiseletct-gener"  [options]="StateorProvinancelist" [texts]="myTexts" 
+   [settings]="mySettings" formControlName="region"></ss-multiselect-dropdown> 
+</div>
+
+
+ 
+    <div class="btn-animate">
+
+    <button mat-button (click)="closeDialog()" class="btn-signin">Distribute Song</button>
+    
+
+  </div>
+       
+</form>
+
+</div>
+

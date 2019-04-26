@@ -1,0 +1,58 @@
+<div class="col-md-3 col-sm-6 customwidth_responsive">
+<div class="list-img-detail new-list-img-thumb">
+
+    <div class="list-img-play-time">
+    <img [src]="imageSource" alt="" class="img-responsive">
+    </div>
+
+    <div class="thumbnail-disc thumbnail_disc">
+
+        <span class="btn_span">
+            <aside  class="song_action">
+            <button class="songplay_" id="songplay_{{song.SongId}}" (click)="onPlayHandler()"><i class="fa fa-play-circle-o" aria-hidden="true"></i></button>
+            <button style="display: none;" class="songpause_" id="songpause_{{song.SongId}}" (click)="onStopHandler()"><i class="fa fa-pause-circle-o" aria-hidden="true"></i></button>
+            <button *ngIf="canAdd"  class="songadd_" id="songadd_{{song.SongId}}"  (click)="onQueueHandler(song)"><i class="fa fa-plus" aria-hidden="true"></i></button>
+            <button *ngIf="canRemove" class="songremove_" id="songremove_{{song.SongId}}"  (click)="onRemoveHandler(song)"><i class="fa fa-minus" aria-hidden="true"></i></button>
+             <button  matButton  (click)="downloadsong()"  title="Download Song"><i class="fa fa-download" aria-hidden="true"></i></button>
+            </aside>
+            <!-- <span class="website" >
+            <a href="{{song.Website}}" target="_blank"><i class="fa fa-globe"></i></a>
+            </span> -->
+            <aside class="song_time" >{{song.Duration}}</aside>
+            <div class="clearfix"></div>
+        </span>
+        <span class="title" title="{{song.SongTitle }}">{{ song.SongTitle.substring(0, 45) }} </span>
+        
+        <span class="artist" title="{{song.ArtistName }}">{{song.ArtistName.substring(0, 25) }}</span>
+        
+        <span class="song-label" *ngIf="song.Label" title="{{song.Label }}">Label: {{song.Label.substring(0, 25)}}</span>
+        <span class="song-label" *ngIf="!song.Label">&nbsp;</span>
+        
+         <span class="song-user" >Uploaded By: <a [routerLink]="['/PublicProfile',song.UserId]" title="{{song.Username }}">{{song.Username }}</a></span>
+        <span class="genre"><span>{{song.Genre}}</span><!-- <span *ngIf="song.SubGenre">{{song.SubGenre}}</span> --></span>
+        
+        <span class="social_icon custom_icons_button" >
+        <a *ngIf="song.Facebook_link" href="{{song.Facebook_link}}" target="_blank"><i class="fa fa-facebook-square"></i></a> <a *ngIf="song.Twitter_link" href="{{ song.Twitter_link }}" target="_blank" ><i class="fa fa-twitter-square"></i></a>
+        <a *ngIf="song.Spotify_link" href="{{ song.Spotify_link }}" target="_blank" ><i class="fa fa-youtube"></i></a>
+        <a *ngIf="song.iTunes_link" href="{{ song.iTunes_link }}" target="_blank" ><i class="fa fa-instagram"></i></a>
+        <a *ngIf="song.Website" href="{{song.Website}}" target="_blank"><i class="fa fa-globe"></i></a>
+        <a *ngIf="song.wheretobuy" href="{{song.wheretobuy}}" target="_blank"><i class="fa fa-shopping-cart"></i></a>
+       
+       <!--  <button matButton  (click)="downloadsong()"  title="Download Song"><i class="fa fa-download" aria-hidden="true"></i></button> -->
+        <button matButton  (click)="sendmesage()" title="Send Message"><i class="fa fa-envelope" aria-hidden="true"></i></button>
+        </span>
+
+
+
+        <div class="rating-star-button" >
+        <star-rating-comp class="rating-star-new" [readOnly]="true" [starType]="'svg'" [rating]="song.OverallRating" ></star-rating-comp> 
+        <!-- <button matButton  (click)="editfeedback()"  title="Edit Feedback"><i class="fa fa-edit" aria-hidden="true"></i></button>
+ -->
+        </div>
+       
+
+
+    </div>
+
+</div>
+</div>

@@ -1,0 +1,70 @@
+<header class="inner-without-login"  [ngStyle]="{ 'background-image': 'url(' + bgimageName + ')'}">
+  <!-- [ngStyle]="{ 'background-image': 'url(' + bgimageName + ')'}" -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="logo"><a [routerLink]="['/home']"><img [src]="imageName" alt=""></a></div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12 pull-right">
+    
+                <div class="login" >
+                   
+                     <!-- <a  (click)="userlogin()">Sign in</a>
+                    <a [routerLink]="['/register']" id="register_scroll">Sign Up</a> -->
+                   
+                </div>
+              </div>
+          
+        </div>
+
+        </div>
+    </header>
+<section class="checkout_section">
+       
+    <div class="container">
+      
+      <div class="row">
+      <div class="header-text col-md-12">
+          <h3 class="text-center">Select Package</h3> 
+      </div>    
+      <div *ngIf="error"> <div class="alert alert-success">{{ error }}</div> </div>
+    </div>
+
+  <div class="row ">
+
+
+
+
+      <div class="col-md-12">
+        <div class="profile_box checkout_payment">
+       <p> Thank you for selecting one of our subscription plans. <br>To complete your application please setup payment via PayPal.</p>
+         
+          <form [formGroup] = "renewpackageform" class="form-horizontal" >
+
+           <div class="form-group"> 
+        <div class="radio" *ngFor="let opt of packagelist"> 
+          <label><input type="radio" formControlName="packageid" (click)="getValue(opt.key)" [value]="opt.key"
+            [checked]="opt.key == selectedOption">{{opt.value}}</label>
+        </div>
+
+         <span class="error" *ngIf="!renewpackageform.controls['packageid'].valid && renewpackageform.controls['packageid']?.touched">Please Select Any Subscription Plan </span> 
+       </div>
+        <div class="text-center">
+              <div id="paypal-button"></div>
+              <button id="simulatePayment" *ngIf="finalAmount <= 0" matButton [disabled]="!renewpackageform.valid" (click)="simulatePayment()">Submit</button>
+              <button matButton (click)="cancelPayment()">Cancel Payment</button>
+        </div>
+        <div class="clearfix"></div>
+        
+      <!-- <app-paypal></app-paypal> -->
+      </form>
+      
+      </div>
+      </div>
+
+      
+  </div>  
+
+</div>
+</section>
+

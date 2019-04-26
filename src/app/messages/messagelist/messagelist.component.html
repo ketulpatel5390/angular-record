@@ -1,0 +1,36 @@
+<div class="container">
+      
+     <div class="row">
+      <div class="header-text col-md-12">
+          <h3 class="text-center">Message</h3> 
+      </div>    
+      </div>
+    <div class="row">
+    	<div class="col-md-12">
+	        <ul class="list-unstyled gener_list_display2">
+		        <li  *ngFor="let message of messagelist;">
+		          <strong >{{  message.SongTitle  }}</strong>
+		          <!-- <app-message-list   [song_id]="message.song_id"></app-message-list>  -->
+		          <div class="user_receiver message_{{ message.message_status }}" *ngIf="message.messagestatus === 'receiver'">
+		          	<a [routerLink]="['/messages/messageslistbysong',message.song_id]" class="pull-right">View Messages</a> 
+					<p><b>{{ message.subject }}</b></p>
+					<p>{{ message.message_content }}</p>
+					<span class="fromusername" ><b>{{ message.fromusername }}</b></span>
+					<span class="datetime"><b>{{ message.send_date}}</b></span>
+					
+				</div>
+				<div class="user_sender message_{{ message.message_status }}" *ngIf="message.messagestatus === 'sender'">
+					<a [routerLink]="['/messages/messageslistbysong',message.song_id]" class="pull-right">View Messages</a>
+					<p><b>{{ message.subject }}</b></p>
+					<p>{{ message.message_content }}</p>
+					<span class="datetime"><b>{{ message.send_date}}</b></span>
+					<span class="fromusername" ><b>{{ message.fromusername }}</b></span>
+					
+				</div>	
+		        </li> 
+	        </ul>
+      	</div>
+	</div>
+</div>
+
+

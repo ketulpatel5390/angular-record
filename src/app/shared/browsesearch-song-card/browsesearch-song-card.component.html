@@ -1,0 +1,55 @@
+<div class="col-md-3 col-sm-6 customwidth_responsive">
+    <div class="list-img-detail new-list-img-thumb">
+        <div class="list-img-play-time">
+             <span  class="lisnig_chechbox" *ngIf="!song.albumId && !inyourcrate && !inyourroom && !availableisChecked">
+                    <input type="checkbox" style="display: block;" value="song.SongId" [(ngModel)]="isChecked" (change)="onFilterChange($event)" > 
+            </span>
+            <span  class="lisnig_chechbox" *ngIf="availableisChecked && !song.albumId && !inyourcrate && !inyourroom">
+                    <input type="checkbox" style="display: block;" value="song.SongId" [(ngModel)]="isChecked" (change)="onFilterChange($event)" > 
+            </span>
+        <img *ngIf="!song.albumId" [src]="imageSource" alt="" class="img-responsive">
+        <img *ngIf="song.albumId" [src]="albumimageSource" alt="" class="img-responsive art">
+        </div>
+        <div class="thumbnail-disc">
+            <span class="btn_span">
+                <aside  class="song_action">
+                <button *ngIf="!song.albumId" class="songplay_" id="songplay_{{song.SongId}}" (click)="onPlayHandler()"><i class="fa fa-play-circle-o" aria-hidden="true"></i></button>
+                <button *ngIf="!song.albumId" style="display: none;" class="songpause_" id="songpause_{{song.SongId}}" (click)="onStopHandler()"><i class="fa fa-pause-circle-o" aria-hidden="true"></i></button>
+                </aside>
+            <span class="website" *ngIf="!song.albumId">
+                <a href="{{song.Website}}" target="_blank">
+                <i class="fa fa-globe"></i></a>
+            </span>
+            <aside class="song_time" *ngIf="!song.albumId">{{song.Duration}}</aside>
+            <div class="clearfix"></div>
+            </span>
+            <span class="title" *ngIf="!song.albumId" title="{{song.SongTitle }}">{{ song.SongTitle.substring(0, 45) }} </span>
+            <span class="title" *ngIf="song.album_type">{{ song.album_type }} </span>
+
+            <span class="artist" *ngIf="!song.albumId" title="{{song.ArtistName }}">{{song.ArtistName.substring(0, 25) }}</span>
+            <span class="artist" *ngIf="song.album_name">{{ song.album_name }} </span>
+
+            <span class="song-label" *ngIf="!song.albumId" title="{{song.Label }}">Label: {{song.Label.substring(0, 25) }}</span>
+              <span class="song-label" *ngIf="song.album_name">&nbsp;</span>
+            <span class="song-user" >Uploaded By: <a [routerLink]="['/PublicProfile',song.UserId]" title="{{song.Username }}">{{song.Username }}</a></span>
+              
+            <span class="genre" *ngIf="!song.albumId"><span>{{song.Genre}}</span><!-- <span *ngIf="song.SubGenre">{{song.SubGenre}}</span> --></span>
+             <span class="genre" *ngIf="song.album_name">&nbsp;</span>
+
+            <!-- <button *ngIf="inyourcrate" class="add_room_list" matButton [routerLink]="['/mysongcrate/songinmycrate']" >AllReady In Your Crate</button> -->
+            <button *ngIf="!song.albumId && inyourcrate && ( inyourcratecount == '1' ||  inyourcratecount == '2')" class="add_room_list" matButton >Already In Your Crate</button>
+            <button *ngIf="!song.albumId && inyourcrate && inyourcratecount == '3'" class="add_room_list" matButton >Already Reviewed</button>
+            <!-- <div class="rating-star-button" *ngIf="inyourcrate && !song.albumId">
+                <star-rating-comp class="rating-star-new" [readOnly]="true" [starType]="'svg'" [rating]="song.OverallRating" ></star-rating-comp> 
+            </div> -->
+
+            <button class="add_room_list" *ngIf="inyourroom && !song.albumId && !inyourcrate">
+              Already In Your Room
+            </button>
+            <button *ngIf="!song.albumId && !inyourcrate && !inyourroom" class="add_room_list" matButton (click)="addtolisteningroom()">Add To Listening Room</button>
+
+            <button *ngIf="song.albumId " class="admin_song_list View-album-list" [routerLink]="['/getMusic/AlbumMusic', song.albumId]" >View Songs</button>
+
+        </div>
+    </div>
+</div>

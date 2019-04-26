@@ -1,0 +1,100 @@
+
+
+
+       
+    <div class="container" *ngIf="usersaccess">
+      
+      <div class="row">
+      <div class="header-text col-md-12">
+          <h3 class="text-center">Edit User</h3> 
+      </div>
+
+    </div>
+
+    <div class="row ">
+ 	    	    <div *ngIf="msgstatus;" class="alert alert-success">
+		      <p>{{ msgstatus }}</p>
+		    </div>
+		    <div *ngIf="error;" class="alert alert-danger">
+		      <p>{{ error }}</p>
+		    </div>
+    	<div class="registration-form-app" >
+    		<form [formGroup] = "adminuserform" (ngSubmit)="onSubmitHandler()" class="form-horizontal" >
+    			<input type="hidden" class="form-control" name = "userId" formControlName = "userId">
+    			<div class="row">
+		            <div class="col-md-12">
+		              <div class="form-group">
+		                <label>User Name</label>
+		                <input type="text" class="form-control" name = "username" placeholder = "User Name" formControlName = "username">
+		               <span class="error" *ngIf="!adminuserform.controls['username'].valid && adminuserform.controls['username']?.touched">Please Enter User Name.</span>
+		              </div>
+		            </div>
+		        </div>
+		        <div class="row">
+		            <div class="col-md-12">
+		              <div class="form-group">
+		                <label>New Password <span>leave blank if you don't want to change it</span></label>
+		                <input type="password" class="form-control" name = "password" placeholder = "New Password" formControlName = "password">
+		               
+		              </div>
+		            </div>
+		        </div>  
+		        <div class="row">
+		            <div class="col-md-12">
+		              <div class="form-group">
+		                <label>Confirm Password <span>leave blank if you don't want to change it</span></label>
+		                <input type="password" class="form-control" name = "confirmPassword" placeholder = "Confirm Password" formControlName = "confirmPassword">
+		                
+		              </div>
+		            </div>
+
+		        </div>
+		        <div class="row">
+		            <div class="col-md-12">
+		              <div class="form-group">
+		                <label>Email</label>
+		                <input type="text" class="form-control" name = "email" placeholder = "Email" formControlName = "email">
+		               <span class="error" *ngIf="!adminuserform.controls['email'].valid && adminuserform.controls['email']?.touched">Please Enter Email Address.</span>
+		              </div>
+		            </div>
+		        </div>
+		        <div class="row">
+		            <div class="col-md-12">
+		              <div class="form-group">
+		                <label>Admin Status</label>
+		                <select name = "admin_status" formControlName = "admin_status">
+		                	<option value="1">Administrator  - Full Control</option>
+							<option value="2">Supervisor - High Control</option>
+							<option value="3">Lead Engineer - Low Control</option>
+							<option value="4">Engineer - Basic Control</option>
+							<option value="5">Associate  - Basic Control</option>
+		                </select>
+		                <span class="error" *ngIf="!adminuserform.controls['admin_status'].valid && adminuserform.controls['admin_status']?.touched">Please Select Admin Status.</span>
+		                
+		              </div>
+		            </div>
+
+		        </div>
+		        
+		        <div class="row">
+		            <div class="col-md-12 text-center">
+			            <button [disabled]="!adminuserform.valid" class="form-submit-button">
+			              Submit
+			            </button>
+		            </div>
+		        </div>
+    		</form>
+    	</div>
+
+      
+     </div>
+
+  
+</div>
+ <div class="container" *ngIf="!usersaccess">
+
+  <div class="alert alert-danger">
+    <p>You are not authorized for this page. </p>
+  </div>
+ 
+</div>

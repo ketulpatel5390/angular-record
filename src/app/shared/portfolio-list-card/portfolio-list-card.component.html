@@ -1,0 +1,42 @@
+<!-- 
+    <td>
+        <button *ngIf="canPlay" (click)="onPlayHandler()"><i class="fa fa-play-circle-o" aria-hidden="true"></i></button>
+        <button *ngIf="canStop" (click)="onStopHandler()"><i class="fa fa-pause-circle-o" aria-hidden="true"></i></button>
+    </td>
+    <td>{{ song.SongTitle }}</td>
+    <td>{{ song.ArtistName }}</td>
+    <td>{{ song.Genre }}</td>
+    <td>{{ song.Label }}</td>
+    <td>{{ song.Website }}</td>
+     <td><p *ngIf="song.Status === 'A'">Active</p><p *ngIf="song.Status === 'QA'">Pending</p>
+
+     <p *ngIf="song.Status === 'D'">Delete</p>
+     <p *ngIf="song.Status === 'Delete'">Delete</p></td>
+     <td><a class="btn btn-success" [routerLink]="['/shareMusic/SongReports', song.SongId]">Reports</a></td>
+    <td *ngIf="inpromember" class="text-center">
+
+    
+      <button class="btn btn-danger" (click)="deleteYourSong(song.SongId)"  ><i class="fa fa-trash-o" aria-hidden="true"></i></button></td> -->
+
+
+      <li>
+        <span  class="song_action"> <button *ngIf="canPlay" (click)="onPlayHandler()"><i class="fa fa-play-circle-o" aria-hidden="true"></i></button>
+        <button *ngIf="canStop" (click)="onStopHandler()"><i class="fa fa-pause-circle-o" aria-hidden="true"></i></button>
+    </span>
+       <span>{{ song.SongTitle }}</span>
+    <span>{{ song.ArtistName }}</span>
+    <span>{{ song.Genre }}</span>
+    <!-- albumId<span>{{ song.Label }}</span>
+    <span>{{ song.Website }}</span> -->
+     <span><p *ngIf="song.Status === 'A'">Active</p><p *ngIf="song.Status === 'QA'">Pending</p>
+
+     <p *ngIf="song.Status === 'D'">Delete</p>
+     <p *ngIf="song.Status === 'Delete'">Delete</p></span>
+     <span><a class="btn btn-success" [routerLink]="['/shareMusic/SongReports', song.SongId]"><i class="fa fa-file"></i></a></span>
+    <span *ngIf="inpromember" class="text-center">
+        <button class="btn btn-danger" (click)="deleteYourSong(song.SongId)"  ><i class="fa fa-trash-o"></i></button></span>
+        <span *ngIf="song.albumId" class="text-center">
+        <button *ngIf="song.albumId" class="btn btn-danger" (click)="uploadSong(song.albumId)"  >Upload Song</button></span>
+        
+      <div class="clearfix"></div>
+      </li>

@@ -1,0 +1,44 @@
+
+     <div class="container">
+      
+     <!--  <div class="row">
+      <div class="header-text col-md-12">
+          <h3 class="text-center">Friends Song Crate Detail</h3> 
+      </div>
+    </div> -->
+    <div class="row" *ngIf="crateuserinfo">
+      <div class="header-text col-md-12">
+          <h3 class="text-center">{{crateuserinfo.Username}}'s Crate Detail</h3> 
+      </div>
+    </div>
+    <!-- <div class="row" *ngIf="crateuserinfo">
+    <div class="col-md-4">
+        <p><span>UserName : </span>{{crateuserinfo.Username}}</p>
+   <div class="col-md-4">
+        <p *ngIf="crateuserinfo.Gender == 'M'"><span>Gender : </span>Male</p>
+        <p *ngIf="crateuserinfo.Gender == 'F'"><span>Gender : </span>Female</p>
+    </div>
+    <div class="col-md-4">
+        <p><span>country_name : </span>{{crateuserinfo.country_name}}</p>    
+    </div>
+    <div class="col-md-12">
+        <p><span>MusicServed : </span>{{crateuserinfo.MusicServed}}</p>    
+    </div>
+    </div> -->
+    <div class="row">
+      <div class="col-md-12">
+          <h4 class="text-left">Song Crate List</h4> 
+      </div>
+  </div>
+  <div class="row">
+    <app-songcrate-song-list  *ngFor="let song of pagedSongs" [song]="song"></app-songcrate-song-list>
+    <!-- <app-songcrate-song-card  *ngFor="let song of pagedSongs" [song]="song"></app-songcrate-song-card> -->
+    </div>
+  <div class="row">
+    <div class="col-md-12">
+    <app-pager class="custom_pager" #pagerCtrl [pager]="pager" (onLoadPage)="onLoadPageHandler()"></app-pager>
+    </div>
+  </div>
+
+
+</div>

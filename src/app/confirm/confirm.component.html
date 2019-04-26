@@ -1,0 +1,26 @@
+
+
+<section class="inner-list">
+<div class="container">
+      
+      <div class="row">
+      <div class="header-text col-md-12">
+          <h3 class="text-center">Application Status</h3> 
+      </div>    
+     
+    </div>
+<div class="row">
+      <div class="col-md-12" >
+	<p style="color: red;" *ngIf="!comfirmmessage">Please Wait! Admin will approve your Application. Please Contact to Admin.
+</p>
+<p style="color: red;" *ngIf="!comfirmmessage">
+  Checking for approve your Application in {{seconds}} second(s).
+</p>
+<p style="color: red;" id="approvesuccess"  *ngIf="comfirmmessage">
+ Your Application has approved Please logout then login Again.
+</p>
+
+</div>
+</div>
+</div>
+</section>

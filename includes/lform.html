@@ -1,0 +1,38 @@
+<?
+
+if(strstr($_SERVER['REQUEST_URI'],'/admin/'))
+  $action_page = "index.php?f=login";
+
+else if(strstr($_SERVER['REQUEST_URI'],'/login.php'))
+  $action_page = "index.php?f=login";
+else
+	$action_page = $_SERVER['REQUEST_URI'];
+
+
+
+?>
+
+
+
+<form method="post" action="<?= $action_page; ?>" name="frmLogin">
+
+<table border="0" align="center">
+
+<tr><th colspan="2" align="center">&nbsp;</th></tr>
+<tr><th colspan="2" align="center">ADMIN LOGIN</th></tr>
+<tr><th colspan="2" align="center">&nbsp;</th></tr>
+<tr><td class="fieldname" width="40%">Username : </td><td class="td_left"><input type="text" size="20" name="uname"></td></tr>
+
+<tr><td class="fieldname" width="40%">Password : </td><td class="td_left"><input type="password" size="20" name="upwd"></td></tr>
+
+<tr><td colspan="2" align="center">&nbsp;</td></tr>
+<tr><td colspan="2" align="center">
+
+<input type="submit" name="task" value="Login"></td></tr>
+
+</table>
+
+</form>
+
+
+

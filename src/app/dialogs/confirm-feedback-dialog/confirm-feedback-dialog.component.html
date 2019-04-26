@@ -1,0 +1,76 @@
+
+<div class="feedback-form-popup">
+
+<h2>Thank you for your feedback!</h2>
+<form  [formGroup]="feedbackform"  >
+    <div class="form-group">
+    <label for="comment">Comments</label>
+      <textarea class="form-control form-styling"
+           formControlName="comment"></textarea>
+      <span class="error" *ngIf="feedbackform.controls['comment'].invalid && (feedbackform.controls['comment']?.touched || submitted )">
+     Enter Comments
+    </span>
+
+    </div>
+<!--     <div class="form-group radio-feedback">
+    <p>Would you like to add the song to your Song Crate?</p>
+
+    <label for="Yes">Yes</label>
+    <input type="radio" name="addLink" id="Yes" value="Yes">
+    <label for="No">No</label>
+    <input type="radio" name="addLink" id="No" value="No">
+    </div> -->
+
+<div><strong>Would you like to add the song to your Song Crate?</strong></div>
+
+ <div class="switch switch--horizontal">   
+      <input id="radio-a" #YesaddLink type="radio" name="addLink" formControlName="addLink" value="Yes" (click)="show1()"/>
+      <label for="radio-a">Yes</label>
+      <input id="radio-b" type="radio" name="addLink" formControlName="addLink" value="No" checked="checked" (click)="show2()"/>
+      <label for="radio-b">No</label><span class="toggle-outside"><span class="toggle-inside"></span></span>
+    </div>
+<div *ngIf="displayfavourite">
+<div><strong>Would you like to add the song as a “Favorite”?</strong></div>
+
+ <div class="switch switch--horizontal">   
+      <input id="radio-c" type="radio" name="favourite" formControlName="favourite" checked="checked" value="Yes"/>
+      <label for="radio-c">Yes</label>
+      <input id="radio-d" type="radio" name="favourite" formControlName="favourite" value="No"/>
+      <label for="radio-d">No</label><span class="toggle-outside"><span class="toggle-inside"></span></span>
+    </div>
+</div>
+    <!-- <div class="form-group radio-feedback">      
+    <p>Would you like to add the song as a “Favorite”?</p>
+
+    <label for="Yes">Yes</label>
+    <input type="radio" name="favourite" id="Yes" value="Yes">
+    <label for="No">No</label>
+    <input type="radio" name="favourite" id="No" value="No">
+
+    </div> -->
+
+
+    <div class="btn-animate">
+    <!-- <a class="btn-signin">Sign in</a> -->
+    <button mat-button (click)="closeDialog()" class="btn-signin">Ok</button>
+    <button mat-button (click)="cancelDialog()" class="btn-signin">Cancel</button>
+
+  </div>
+       
+</form>
+<!-- <mat-dialog-content>
+  <mat-checkbox [checked]="addLink"
+    (change)="addLink = $event.checked ? true : false">Add a link to the song to my collection</mat-checkbox><br>
+  <mat-checkbox [checked]="download"
+  (change)="download = $event.checked ? true : false">Download song</mat-checkbox><br>
+   <mat-checkbox [checked]="artist"
+  (change)="artist = $event.checked ? true : false">Add Artist to favorites</mat-checkbox><br>
+  
+</mat-dialog-content>
+<mat-dialog-actions>
+ <div class="btn-animate">
+  <button mat-button (click)="closeDialog()"  class="btn-signin">Ok</button>
+  <button mat-button (click)="cancelDialog()"  class="btn-signin">Cancel</button>
+</div>
+</mat-dialog-actions> -->
+</div>

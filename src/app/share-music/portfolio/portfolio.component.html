@@ -1,0 +1,216 @@
+
+<!-- <div  class="container">
+  <app-song-card  *ngFor="let song of pagedSongs" [song]="song"></app-song-card>
+  <app-pager class="custom_pager" #pagerCtrl [pager]="pager" (onLoadPage)="onLoadPageHandler()"></app-pager>
+</div> -->
+
+       
+    <div class="container">
+      
+      <!-- <div class="row">
+        <div class="header-text col-md-12">
+                  <h3 class="text-center">Portfolio</h3> 
+        </div>
+        </div> -->
+        <div class="row">
+      <div class="col-md-8">
+        <p><strong>Your Song Uploads Limit Remaining: <span  *ngIf="!totalsongcount" class="error">0 MB</span>
+                           <span  *ngIf="totalsongcount">{{ totalsongcount }} MB</span></strong></p>
+      </div>
+       <div class="col-md-4 text-right" *ngIf="inpromember">
+        <button  matButton class="main-btn" (click)="uploadMusic()">Upload Songs</button>
+       </div>
+       <div class="col-md-4 text-right" *ngIf="!inpromember">
+        <button  matButton class="main-btn" (click)="uploadMusicsingle()">Upload Songs</button>
+       </div>
+    </div>
+    
+
+<div *ngIf="error"> <div class="alert alert-danger">{{ error }}</div> </div> 
+  
+  <div class="accordion" id="accordionExample">
+  <div class="card" *ngIf="pagedSongs?.length > 0">
+    <div class="card-header" id="headingOne">
+      <h5 class="mb-0">
+        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+          Singles
+        </button>
+      </h5>
+    </div>
+
+    <div id="collapseOne" class="collapse in" aria-labelledby="headingOne" data-parent="#accordionExample">
+      <div class="card-body">
+         <div class="table-responsive">
+ <table class="table table-striped portfolio-list-top">
+  <tr>
+    <th>SongTitle</th>
+    <th>ArtistName</th>
+    <th>Genre</th>
+    <th>Status</th>
+    <th>Reports</th>
+    <th  class="text-center">Action</th>
+  </tr>
+  <tr *ngFor="let song of pagedSongs" > 
+    <td> <p *ngIf="song.albumId"> {{ song.album_type }} </p>
+        <p *ngIf="!song.albumId"> {{ song.SongTitle }}</p>
+    </td>
+    <td><p *ngIf="!song.albumId">{{ song.ArtistName }}</p>
+     <p *ngIf="song.albumId">{{ song.album_name }} </p></td>
+    <td><p *ngIf="!song.albumId">{{ song.Genre }}</p>
+     <p *ngIf="song.albumId"> -  </p></td>
+     <td><p *ngIf="song.Status === 'A'">Active</p><p *ngIf="song.Status === 'QA'">Pending</p>
+
+     <p *ngIf="song.Status === 'D'">Deleted</p>
+     <p *ngIf="song.Status === 'Delete'">Deleted</p></td>
+     <td>
+      <a *ngIf="!song.albumId" class="btn btn-success" [routerLink]="['/shareMusic/SongReports', song.SongId]"><i class="fa fa-file"></i></a>
+      <a *ngIf="song.albumId" class="btn btn-success" [routerLink]="['/shareMusic/getAlbumbyId', song.albumId]">View Songs</a>
+     </td>
+    <td  class="text-center" *ngIf="song.Status === 'A' || song.Status === 'QA' ||  song.Status === 'Inprocess'">
+
+    
+      <button *ngIf="!song.albumId" class="btn btn-danger" (click)="deleteYourSong(song.SongId,song.Status)"  ><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+      <!-- <button *ngIf="song.albumId" class="btn btn-danger" (click)="deleteSongByAlbum(song.albumId)"  ><i class="fa fa-trash-o" aria-hidden="true"></i></button> -->
+    </td>
+     <td  class="text-center" *ngIf="song.Status === 'D' || song.Status === 'Delete'">
+      -
+     </td>
+  </tr> 
+  
+</table>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="card" *ngIf="pagedSongsEp?.length > 0">
+    <div class="card-header" id="headingTwo">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          EPs
+        </button>
+      </h5>
+    </div>
+    <div id="collapseTwo" class="collapse in" aria-labelledby="headingTwo" data-parent="#accordionExample">
+      <div class="card-body">
+        <div class="table-responsive">
+      <table class="table table-striped portfolio-list-top" *ngIf="pagedSongsEp?.length > 0">
+ 
+  <tr>
+    <th>Album Type</th>
+    <th>Album Name</th>
+    <th>Genre</th>
+    <th>Status</th>
+    <th>Reports</th>
+    <th  class="text-center">Action</th>
+   
+  </tr>
+  <tr *ngFor="let song of pagedSongsEp" > 
+
+    <td> <p *ngIf="song.albumId"> {{ song.album_type }} </p>
+        <p *ngIf="!song.albumId"> {{ song.SongTitle }}</p>
+    </td>
+    <td><p *ngIf="!song.albumId">{{ song.ArtistName }}</p>
+     <p *ngIf="song.albumId">{{ song.album_name }} </p>
+   </td>
+    <td><p *ngIf="!song.albumId">{{ song.Genre }}</p>
+     <p *ngIf="song.albumId"> {{ song.album_gener }} </p>
+   </td>
+    
+     <td><p *ngIf="song.Status === 'A'">Active</p><p *ngIf="song.Status === 'QA'">Pending</p>
+
+     <p *ngIf="song.Status === 'D'">Deleted</p>
+     <p *ngIf="song.Status === 'Delete'">Deleted</p>
+   </td>
+     <td>
+      <a *ngIf="!song.albumId" class="btn btn-success" [routerLink]="['/shareMusic/SongReports', song.SongId]"><i class="fa fa-file"></i></a>
+      <a *ngIf="song.albumId" class="btn btn-success" [routerLink]="['/shareMusic/getAlbumbyId', song.albumId]">View Songs</a>
+     </td>
+    <td  class="text-center" *ngIf="song.Status === 'A' || song.Status === 'QA' ||  song.Status === 'Inprocess'">
+
+    
+     <!--  <button *ngIf="!song.albumId" class="btn btn-danger" (click)="deleteYourSong(song.SongId)"  ><i class="fa fa-trash-o" aria-hidden="true"></i></button> -->
+      <button *ngIf="song.albumId" class="btn btn-danger" (click)="deleteSongByAlbum(song.albumId)"  ><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+    </td>
+     <td  class="text-center" *ngIf="song.Status === 'D' || song.Status === 'Delete'">
+      -
+     </td>
+    
+    
+  </tr> 
+  
+</table> 
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="card" *ngIf="pagedSongsAlbum?.length > 0">
+    <div class="card-header" id="headingThree">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          ALBUMs
+        </button>
+      </h5>
+    </div>
+    <div id="collapseThree" class="collapse in" aria-labelledby="headingThree" data-parent="#accordionExample">
+      <div class="card-body">
+        <div class="table-responsive">
+       <table class="table table-striped portfolio-list-top" *ngIf="pagedSongsAlbum?.length > 0">
+  <tr>
+    <th>Album Type</th>
+    <th>Album Name</th>
+    <th>Genre</th>
+    <th>Status</th>
+    <th>Reports</th>
+    <th  class="text-center">Action</th>
+   
+  </tr>
+  <tr *ngFor="let song of pagedSongsAlbum" > 
+
+    <td> <p *ngIf="song.albumId"> {{ song.album_type }} </p>
+        <p *ngIf="!song.albumId"> {{ song.SongTitle }}</p>
+    </td>
+    <td><p *ngIf="!song.albumId">{{ song.ArtistName }}</p>
+     <p *ngIf="song.albumId">{{ song.album_name }} </p>
+   </td>
+    <td><p *ngIf="!song.albumId">{{ song.Genre }}</p>
+     <p *ngIf="song.albumId"> {{song.album_gener}}  </p>
+   </td>
+    
+     <td><p *ngIf="song.Status === 'A'">Active</p><p *ngIf="song.Status === 'QA'">Pending</p>
+
+     <p *ngIf="song.Status === 'D'">Deleted</p>
+     <p *ngIf="song.Status === 'Delete'">Deleted</p>
+   </td>
+     <td>
+      <a *ngIf="!song.albumId" class="btn btn-success" [routerLink]="['/shareMusic/SongReports', song.SongId]"><i class="fa fa-file"></i></a>
+      <a *ngIf="song.albumId" class="btn btn-success" [routerLink]="['/shareMusic/getAlbumbyId', song.albumId]">View Songs</a>
+     </td>
+    <td  class="text-center" *ngIf="song.Status === 'A' || song.Status === 'QA' ||  song.Status === 'Inprocess'">
+
+    
+     <!--  <button *ngIf="!song.albumId" class="btn btn-danger" (click)="deleteYourSong(song.SongId)"  ><i class="fa fa-trash-o" aria-hidden="true"></i></button> -->
+      <button *ngIf="song.albumId" class="btn btn-danger" (click)="deleteSongByAlbum(song.albumId)"  ><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+    </td>
+     <td  class="text-center" *ngIf="song.Status === 'D' || song.Status === 'Delete'">
+      -
+     </td>
+    
+    
+  </tr> 
+  
+</table> 
+</div>
+      </div>
+    </div>
+  </div>
+</div>
+ 
+</div>
+  
+  <!-- <div class="row">
+    <div class="col-md-12">
+      <app-pager class="custom_pager" #pagerCtrl [pager]="pager" (onLoadPage)="onLoadPageHandler()"></app-pager>
+    </div>
+  </div> -->
+<!-- 
+</div> -->

@@ -1,0 +1,39 @@
+     <div class="container" *ngIf="usersaccess">
+      
+      <div class="row">
+      <div class="header-text col-md-12">
+          <h3 class="text-center">Package List</h3> 
+      </div>
+    </div>
+    <div class="row">
+    	<div class="table-responsive">
+    		<table class="table table-striped portfolio-list-top">
+			  <tr>
+			    <th>PkgType</th>
+			    <th>PkgDetail</th>
+			    <th>Price</th>
+			    <th class="text-center">MB</th>
+			    <th class="text-center">Action</th>
+			  </tr>
+			  <tr *ngFor="let Package of PackageList">
+			      <td>{{Package.PkgType}} </td>
+			      <td>{{Package.PkgDetail}} </td>
+			      <td>{{Package.Price}}</td>
+			      <td>{{Package.Songs}}</td>
+			      <td class="text-center">
+			        <a class="btn btn-success" [routerLink]="['/admin/packagesetting/editpackage', Package.PkgId]"><i class="fa fa-edit"></i></a>
+			       </td>
+			  </tr>
+			</table>
+    	</div>
+    	
+    </div>
+</div>
+
+ <div class="container" *ngIf="!usersaccess">
+
+  <div class="alert alert-danger">
+    <p>You are not authorized for this page. </p>
+  </div>
+ 
+</div>

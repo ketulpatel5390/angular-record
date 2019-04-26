@@ -1,0 +1,45 @@
+<div class="col-md-12">
+
+  <div class="list_div">
+          <aside  class="song_action">
+            <button class="songplay_" id="songplay_{{song.SongId}}"  (click)="onPlayHandler()"><i class="fa fa-play-circle-o" aria-hidden="true"></i></button>
+            <button  style="display: none;" class="songpause_" id="songpause_{{song.SongId}}" (click)="onStopHandler()"><i class="fa fa-pause-circle-o" aria-hidden="true"></i></button>
+             <span class="title">{{ song.SongTitle }} </span>
+             <span class="Username"><label>Username : </label>{{song.Username}}</span>
+          </aside>
+          <div class="clearfix"></div>
+          <p class="two_row">
+              <span class="artist"><label>ArtistName : </label>{{song.ArtistName }}</span>
+              <span class="genre"><label>Genre : </label>{{song.Genre}}</span>
+              <!-- <button class="add_room_list" matButton (click)="addtolisteningroom()">Add To Listening Room</button> -->
+              <button *ngIf="inyourcrate && ( inyourcratecount == '1' ||  inyourcratecount == '2')" class="add_room_list" matButton >Already In Your Crate</button>
+            <button *ngIf="inyourcrate && inyourcratecount == '3'" class="add_room_list" matButton >Already Reviewed</button>
+            <button class="add_room_list" *ngIf="inyourroom && !inyourcrate">
+              Already In Your Room
+            </button>
+            <button *ngIf="!inyourcrate && !inyourroom" class="add_room_list" matButton (click)="addtolisteningroom()">Add To Listening Room</button>
+          </p>
+  </div>
+
+
+
+   <!-- <div class="list-img-detail new-list-img-thumb">
+   <div class="thumbnail-disc"> -->
+   <!--  <span class="btn_span">
+          <aside  class="song_action">
+            <button *ngIf="canPlay" (click)="onPlayHandler()"><i class="fa fa-play-circle-o" aria-hidden="true"></i></button>
+            <button *ngIf="canStop" (click)="onStopHandler()"><i class="fa fa-pause-circle-o" aria-hidden="true"></i></button>
+          </aside>
+          
+          
+          
+    </span> -->
+    
+    
+<!--     <span class="song-label" *ngIf="!song.Label">&nbsp;</span>
+    
+    
+       
+</div>
+</div> -->
+</div>

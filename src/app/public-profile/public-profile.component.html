@@ -1,0 +1,49 @@
+ <section class="inner-list">
+     <div class="container">
+      
+      <div class="row">
+      <div class="header-text col-md-12">
+          <h3 class="text-center">Profile Info</h3> 
+      </div>
+    </div>
+    <div class="row">
+    
+
+    </div>
+    <div class="row" *ngIf="crateuserinfo">
+    <div class="col-md-4">
+        <p><span><strong>UserName :</strong> </span>{{crateuserinfo.Username}}</p>
+    </div>
+   <!--  <div class="col-md-4">
+        <p><span>FirstName : </span>{{ crateuserinfo.FirstName}}</p>    
+    </div>
+    <div class="col-md-4">
+        <p><span>LastName : </span>{{crateuserinfo.LastName}}</p>    
+    </div> -->
+    <div class="col-md-4">
+        <p *ngIf="crateuserinfo.Gender == 'M'"><span><strong>Gender :</strong> </span>Male</p>
+        <p *ngIf="crateuserinfo.Gender == 'F'"><span><strong>Gender :</strong> </span>Female</p>
+    </div>
+    <!-- <div class="col-md-4">
+        <p><span>Email : </span>{{ crateuserinfo.Email}}</p>    
+    </div> -->
+    <div class="col-md-4">
+        <p><span><strong>country_name :</strong> </span>{{crateuserinfo.country_name}}</p>    
+    </div>
+    <div class="col-md-12">
+        <p><span><strong>Genres :</strong>  </span></p> 
+        <ul class="list-unstyled gener_list_display2 gener_list_display3">
+        <li *ngFor="let song of generlist;">
+            <strong *ngIf="song.isLabel">{{  song.name  }}</strong>
+
+            <span *ngFor="let subgenres of song.subcategory;">{{  subgenres.name  }}</span>
+        </li>    
+        </ul>   
+    </div>
+    </div>
+
+
+
+
+</div>
+</section>

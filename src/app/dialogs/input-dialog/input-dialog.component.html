@@ -1,0 +1,35 @@
+<div class="login-form-popup change-pass-popup">
+
+  <h2 mat-dialog-title>{{data.title}}</h2>
+   
+   <div *ngIf="error"> <div class="alert alert-danger">{{ error }}</div> </div>
+   <div *ngIf="successerror"> <div class="alert alert-success">{{ successerror }}</div> </div>
+
+   <form [formGroup]="forgotform">
+    <div class="form-group">
+    <label>
+      {{data.prompt}}</label>
+    <input matInput class="form-control" formControlName="valueCtrl" [placeholder]="data.placeholder">
+    <span class="error" *ngIf="forgotform.controls['valueCtrl'].invalid && 
+    (forgotform.controls['valueCtrl']?.touched  || submitted)">
+      Enter User Name
+    </span>
+  </div>
+   <div class="form-group">
+    <input matInput class="form-control" formControlName="email"  placeholder="Email Address">
+    <span class="error" *ngIf="forgotform.controls['email'].invalid && 
+    (forgotform.controls['email']?.touched || submitted)">
+      Enter Email  Address
+    </span>
+  </div> 
+    <!--   <re-captcha formControlName="captcha"   name="captcha" required siteKey="6LcOuyYTAAAAAHTjFuqhA52fmfJ_j5iFk5PsfXaU"
+                 ></re-captcha> -->
+      <!-- <div [hidden]="captcha.invalid && (captcha.dirty || captcha.touched)" class="error">Captcha must be solved</div>
+      </div>  [formControl]="valueCtrl"  [formControl]="email" -->
+  <div class="btn-animate">
+    <!-- Can optionally provide a result for the closing dialog. -->
+    <button mat-button (click)="closeDialog()">Ok</button>
+    <button mat-button (click)="cancelDialog()">Cancel</button>
+  </div>
+</form>
+</div>

@@ -1,0 +1,102 @@
+ <div [formGroup]="form" *ngIf="question.isVisible">
+  <div [ngSwitch]="question.controlType">
+    <div *ngSwitchCase="'textbox'">
+      <label *ngIf="question.type != 'hidden'">{{ question.label }}</label>
+      <input  [placeholder]="question.label"
+        [formControlName]="question.key"
+              [id]="question.key" [type]="question.type" [(value)]="question.value" class="form-control">
+    </div> 
+    
+    <div *ngSwitchCase="'dropdown'">
+      <!-- <mat-select [formControlName]="question.key" [placeholder]="question.label" class="form-control" cdk-connected-overlay >
+        <mat-option *ngFor="let opt of question.options" [value]="opt.key">{{opt.value}}</mat-option>
+      </mat-select> -->
+      <label>{{ question.label }}</label>
+       <select [formControlName]="question.key"  class="form-control" >
+        <option *ngFor="let opt of question.options" [value]="opt.key">{{opt.value}}</option>
+      </select>
+    </div>
+     <!-- <div *ngSwitchCase="'dropdown'">
+      <select [formControlName]="question.key"  class="form-control" >
+        <option *ngFor="let opt of question.options" [value]="opt.key">{{opt.value}}</option>
+      </select>
+    </div> -->
+<!--       <div cdk-focus-region-start class="form-group" *ngSwitchCase="'dropdowncheckbox'">
+  <md-input-container>
+    <input mdInput type="text"  [formControlName]="question.key" [mdAutocomplete]="question.key" [placeholder]="question.label">
+  </md-input-container>
+  <md-autocomplete #project="mdAutocomplete" >
+    <md-option *ngFor="let opt of question.options" [value]="opt.key">
+            {{ opt.value}}
+  </md-option>
+</md-autocomplete>
+</div> -->
+
+       <div *ngSwitchCase="'dropdowncheckbox'">
+        <label>{{ question.label }}</label>
+          <mat-select [formControlName]="question.key" [placeholder]="question.label" class="form-control" multiple>
+            <mat-option  *ngFor="let opt of question.options" [value]="opt.key">
+              {{opt.value}}
+            </mat-option>
+          </mat-select>
+      </div>
+      <!--  <div *ngSwitchCase="'dropdowncheckbox'">
+        <label>{{ question.label }}</label>
+        <select [formControlName]="question.key" data-role="multiselect" class="form-control" multiple>
+            <option  *ngFor="let opt of question.options" [value]="opt.key">
+              {{opt.value}}
+            </option>
+          </select>
+
+         
+      </div> -->
+
+      
+      <div *ngSwitchCase="'datetime'">
+        <label>{{ question.label }}</label>
+        <input matInput [matDatepicker]="picker" [placeholder]="question.label"
+          [formControlName]="question.key" class="form-control"
+                [id]="question.key" [(value)]="question.value">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </div> 
+      <app-validation-message [control]="control" [question]="question"></app-validation-message>
+    </div>
+<br>
+</div> 
+<!-- 
+<div [formGroup]="form" *ngIf="question.isVisible">
+
+  <div [ngSwitch]="question.controlType">
+    <div *ngSwitchCase="'textbox'">
+      <input  [placeholder]="question.label"
+        [formControlName]="question.key"
+              [id]="question.key" [type]="question.type" [(value)]="question.value" class="form-control">
+    </div> 
+    
+    <div *ngSwitchCase="'dropdown'">
+      <select [formControlName]="question.key"  class="form-control" >
+        <option *ngFor="let opt of question.options" [value]="opt.key">{{opt.value}}</option>
+      </select>
+    </div>
+      
+      <div *ngSwitchCase="'dropdowncheckbox'">
+          <select [formControlName]="question.key" data-role="multiselect" class="form-control" multiple>
+            <option  *ngFor="let opt of question.options" [value]="opt.key">
+              {{opt.value}}
+            </option>
+          </select>
+      </div>
+      
+      <div *ngSwitchCase="'datetime'">
+        <input matInput [matDatepicker]="picker"  [placeholder]="question.label"
+          [formControlName]="question.key" [id]="question.key" [(value)]="question.value" >
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+       
+      </div> 
+      <app-validation-message [control]="control" [question]="question"></app-validation-message>
+    </div>
+
+</div>
+ -->

@@ -1,0 +1,22 @@
+<!--  <section class="inner-list"> -->
+       
+		<div class="container">
+		  
+			 <div class="row">
+
+       <div class="col-md-12 addto-listen-mybtn">
+        <button class="mat-tab-link" matButton (click)="clearallselection()">Clear all selections</button>
+      <button class="mat-tab-link" matButton (click)="browssongclass()">Add To Listening Room</button>
+      </div>
+     </div>
+    <div class="row">
+    <app-browsesearch-album-song-card  *ngFor="let song of pagedSongs" [song]="song" (onLoadPage)="onLoadPageHandler()"></app-browsesearch-album-song-card>
+    </div>
+  <div class="row">
+  	<div class="col-md-12">
+    <app-pager class="custom_pager" #pagerCtrl [pager]="pager" (onLoadPage)="onLoadPageHandler()"></app-pager>
+  	</div>
+  </div>
+  
+</div>
+<!-- </section> -->

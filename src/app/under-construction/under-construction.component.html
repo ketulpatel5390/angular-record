@@ -1,0 +1,36 @@
+<div class="main" style="background-image: url('/assets/images/turntable.jpg')">
+      <div class="cover black" data-color="black"></div>
+  
+  <!--   You can change the black color for the filter with those colors: blue, green, red, orange       -->
+  
+      <div class="container">
+            <img src="/assets/images/RecordDrop_180x60.jpg">
+            <h1 class="logo cursive">
+                Site Under Construction
+          </h1>
+  <!--  H1 can have 2 designs: "logo" and "logo cursive"           -->
+  
+          <div class="content">
+              <h4 class="motto">Music is life.</h4>
+              <div class="subscribe">
+                  <h5 class="info-text">
+                      Join the waiting list for the beta. We'll keep you posted.
+                  </h5>
+                  <div fxLayout="column">
+                      <div fxFlexAlign="center">
+                          <form #f class="form-inline" role="form">
+                            <div class="form-group">
+                              <label class="sr-only" for="exampleInputEmail2">Email address</label>
+                              <input matInput class="form-control transparent" type="email" placeholder="Your email here..." 
+                              [(ngModel)]="email" name="email" email #myEmail="ngModel">
+                            </div>
+                            <button class="btn btn-danger btn-fill" [ngClass]="{'disabled':!myEmail.valid}" matButton 
+                              [disabled]="!myEmail.valid" (click)="requestNotification()">Notify Me</button>
+                          </form>
+  
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+   </div>

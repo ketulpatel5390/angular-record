@@ -1,0 +1,46 @@
+<header class="inner-without-login"  [ngStyle]="{ 'background-image': 'url(' + bgimageName + ')'}">
+  <!-- [ngStyle]="{ 'background-image': 'url(' + bgimageName + ')'}" -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="logo"><a [routerLink]="['/home']"><img [src]="imageName" alt=""></a></div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12 pull-right">
+    
+                <div class="login" >
+                   
+                     <a  (click)="userlogin()">Sign in</a>
+                    <a [routerLink]="['/register']" id="register_scroll">Sign Up</a>
+                   
+                </div>
+              </div>
+          
+        </div>
+
+        </div>
+    </header>
+<section class="checkout_section">
+	<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="checkout_payment">
+			<p> Thank you for selecting one of our subscription plans. <br>To complete your application please setup payment via PayPal.</p>
+			<ul class="list-unstyled">
+				<li>Subscription <span>{{package.PkgDetail}}</span></li>
+				<li>Cost Per Month <span>{{package.Price}}</span></li>
+				<li>Maximum Song Uploads <span>{{package.Songs}}</span></li>
+			</ul>
+			<div class="clearfix"></div>
+			<div class="text-center">
+			<div id="paypal-button"></div>
+			<button matButton (click)="cancelPayment()">Cancel Payment</button>
+			</div>
+			<div class="clearfix"></div>
+			<!-- <app-paypal></app-paypal> -->
+		</div>
+		</div>
+	</div>
+	</div>
+</section>
+
+

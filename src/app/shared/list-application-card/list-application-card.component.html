@@ -1,0 +1,61 @@
+<!-- <div class="col-md-3">
+<mat-card>
+    <mat-card-header>
+      <mat-card-title>
+        Name: {{application.LastName}}, {{application.FirstName}} ({{application.AppId}})
+      </mat-card-title>
+      <mat-card-subtitle>Status: {{application.Approval_Status}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content fxLayout="row wrap" fxLayout.lt-md="column">
+      <div>
+        <span>Date: </span>{{application.AppDate}}<br>
+        <span>Confirmed: </span>{{application.AppConfirmed == '1' ? 'Yes' : 'No'}}<br>
+        <span>Email: </span>{{application.Email}}<br>
+        <span>Username: </span>{{application.Username}}
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <ng-template [ngIf]="application.Approval_Status == 'P'">
+        <button matButton (click)="approveApplication()">Approve</button>
+        <button matButton (click)="rejectApplication()">Reject</button>
+      </ng-template>
+      <ng-template [ngIf]="application.Approval_Status == 'A'">
+          <button matButton (click)="closeApplication()">Close</button>
+      </ng-template>
+      <ng-template [ngIf]="application.Approval_Status == 'D'">
+          <button matButton (click)="undoApplication()">Undo</button>
+      </ng-template>
+      <ng-template [ngIf]="application.Approval_Status == 'C'">
+          <button matButton (click)="reopenApplication()">Reopen</button>
+      </ng-template>
+    </mat-card-actions>
+  </mat-card>
+</div> {{application.AppId}}- -->
+
+<div class="app-card-grid col-md-12">
+        <div class="application_box">
+          <h4>{{application.FirstName}} {{application.LastName}} <span>({{application.UserId}})</span></h4>
+          <ul class="list-unstyled">
+            <li>Status: <span>{{application.Approval_Status}}</span></li>
+            <li>Date: <span>{{application.AppDate}}</span></li>
+            <li>Confirmed: <span>{{application.AppConfirmed == '1' ? 'Yes' : 'No'}}</span></li>
+            <li>Email: <span>{{application.Email}}</span></li>
+            <li>Username: <span>{{application.Username}}</span></li>
+          </ul> 
+          <div *ngIf="application.Approval_Status == 'P'">
+            <button matButton (click)="approveApplication()">Approve</button>
+            <button matButton (click)="rejectApplication()">Reject</button>
+          </div>
+          <div *ngIf="application.Approval_Status == 'A'">
+              <button matButton (click)="closeApplication()">Close</button>
+          </div>
+          <div *ngIf="application.Approval_Status == 'D'">
+              <button matButton (click)="undoApplication()">Undo</button>
+              <button matButton (click)="deleteApplication()">Delete</button>
+          </div>
+           
+          <div *ngIf="application.Approval_Status == 'C'">
+              <button matButton (click)="reopenApplication()">Reopen</button>
+          </div>
+      </div>
+    </div>

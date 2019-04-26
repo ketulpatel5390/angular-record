@@ -1,0 +1,115 @@
+
+
+
+       
+    <div class="container" *ngIf="usersaccess">
+      
+      <div class="row">
+      <div class="header-text col-md-12">
+          <h3 class="text-center">User Rights</h3> 
+      </div>
+
+    </div>
+
+    <div class="row ">
+ 	    	    <div *ngIf="msgstatus;" class="alert alert-success">
+		      <p>{{ msgstatus }}</p>
+		    </div>
+		    <div *ngIf="error;" class="alert alert-danger">
+		      <p>{{ error }}</p>
+		    </div>
+    	<div class="registration-form-app admin-rights" >
+    		<form [formGroup] = "adminuserform" (ngSubmit)="onSubmitHandler()" class="form-horizontal" >
+    			<input type="hidden" class="form-control" name = "userId" formControlName = "userId">
+    			<div class="row">
+		            <div class="col-md-4">
+		              <div class="form-group">
+		                <label>
+		                <input type="checkbox" class="form-control" name = "applications" formControlName = "applications" >
+		                Applications</label>
+		              </div>
+		            </div>
+		            <div class="col-md-4">
+		              <div class="form-group">
+		                <label>
+		                <input type="checkbox" class="form-control" name = "music" formControlName = "music" >
+		                Music</label>
+		              </div>
+		            </div>
+		            <div class="col-md-4">
+		              <div class="form-group">
+		                <label>
+		                <input type="checkbox" class="form-control" name = "siteconfig" formControlName = "siteconfig" >
+		                Site Setting</label>
+		              </div>
+		            </div>
+		        </div>
+		        <div class="row">
+		            <div class="col-md-4">
+		              <div class="form-group">
+		                <label>
+		                <input type="checkbox" class="form-control" name = "users" formControlName = "users">
+		                Users</label>
+		              </div>
+		            </div>
+		            <div class="col-md-4">
+		              <div class="form-group">
+		                <label>
+		                <input type="checkbox" class="form-control" name = "auditlogs" formControlName = "auditlogs" >
+		                Audit Logs</label>
+		              </div>
+		            </div>
+		            <div class="col-md-4">
+		              <div class="form-group">
+		                <label>
+		                <input type="checkbox" class="form-control" name = "logs" formControlName = "logs" >
+		                Logs</label>
+		              </div>
+		            </div>
+		        </div>
+		        <div class="row">
+		            <div class="col-md-4">
+		              <div class="form-group">
+		                <label>
+		                <input type="checkbox" class="form-control" name = "mediadistribution" formControlName = "mediadistribution">
+		                Media Distribution</label>
+		              </div>
+		            </div>
+		            <div class="col-md-4">
+		            	<div class="form-group">
+		                <label>
+		                <input type="checkbox" class="form-control" name = "packagesetting" formControlName = "packagesetting">
+		                Package Settings</label>
+		              </div>
+		             
+		            </div>
+		            <div class="col-md-4">
+		              
+		            </div>
+		        </div>
+		        
+		        
+		        
+		        
+		        <div class="row">
+		            <div class="col-md-12 text-center">
+			            <button [disabled]="!adminuserform.valid" class="form-submit-button">
+			              Submit
+			            </button>
+		            </div>
+		        </div>
+    		</form>
+    	</div>
+
+      
+     </div>
+
+  
+</div>
+ <div class="container" *ngIf="!usersaccess">
+
+  <div class="alert alert-danger">
+    <p>You are not authorized for this page. </p>
+  </div>
+ 
+</div>

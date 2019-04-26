@@ -1,0 +1,25 @@
+ 
+<div class="inner-messagelist"  *ngFor="let messages of messagelist;">
+<div class="user_receiver" *ngIf="messages.messagestatus === 'receiver'">
+	<p>{{ messages.subject }}</p>
+	<p>{{ messages.message_content }}</p>
+	<span class="fromusername" >{{ messages.fromusername }}</span>
+	<span class="datetime">{{ messages.send_date}}</span>
+	
+</div>
+<div class="user_sender" *ngIf="messages.messagestatus === 'sender'">
+	<p>{{ messages.subject }}</p>
+	<p>{{ messages.message_content }}</p>
+	<span class="datetime">{{ messages.send_date}}</span>
+	<span class="fromusername" >{{ messages.fromusername }}</span>
+	
+</div>	
+
+
+	  
+<div class="clearfix"></div>
+ </div>
+	
+
+
+

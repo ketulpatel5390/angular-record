@@ -1,0 +1,65 @@
+
+     <div class="container" *ngIf="logaccess">
+      
+      <!-- <div class="row">
+      <div class="header-text col-md-12">
+          <h3 class="text-center">Audit</h3> 
+      </div>
+    </div> -->
+    <div class="row">
+      <div class="col-md-12 text-right">
+          <button class="btn btn-primary" (click)="refreshpage()"><i class="fa fa-refresh"></i></button>
+      </div>
+    </div>
+    <div class="row">
+       <div class="table-responsive">
+            <div class="col-md-12 auditlog-table-style">
+                <table class="table table-striped portfolio-list-top">
+                  <thead class="thead-light">
+                <tr>
+
+                  <th style="width: 10%;">Id</th>
+                  <th style="width: 10%;">Timestamp</th>
+                  <th style="width: 10%;">UserId</th>
+                  <th style="width: 15%;">Username</th>
+                  <th style="width: 15%;">Title</th>
+                  <th style="width: 10%;">Category</th>
+                  <th style="width: 30%;">LogData</th>
+                  
+                  
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let log of pagedlog">
+
+                    <td>{{log.Id}} </td>
+                    <td>{{log.Timestamp}} </td>
+                    <td>{{log.UserId}} </td>
+                    <td>{{log.Username}} </td>
+                    <td>{{log.Title}} </td>
+                    <td>{{log.Category}} </td>
+                    <td><p class="alog_td_break">{{log.LogData}} </p></td>
+                    
+                </tr> 
+               </tbody> 
+              </table>
+            </div>
+
+          <div class="col-md-12">
+              <app-pager class="custom_pager" #pagerCtrl [pager]="pager" (onLoadPage)="onLoadPageHandler()"></app-pager>
+          </div>
+
+      </div>
+    </div>
+
+     
+
+  
+</div>
+ <div class="container" *ngIf="!logaccess">
+
+  <div class="alert alert-danger">
+    <p>You are not authorized for this page. </p>
+  </div>
+ 
+</div>

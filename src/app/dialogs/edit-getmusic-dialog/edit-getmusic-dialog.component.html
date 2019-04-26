@@ -1,0 +1,50 @@
+<div class="login-form-popup">
+
+<h2>Edit Get Music Settings</h2>
+
+<div *ngIf="error"> <div class="alert alert-danger">{{ error }}</div> </div> 
+    <div class="edit-song-data">
+    <form [formGroup] = "editgeneralform" class="form-horizontal" >
+      <input type="hidden" class="form-control" name = "appid" formControlName = "appid">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label>Song Review Limit<span class="error">*</span></label>
+                <input type="text" class="form-control" name = "SongsReview" placeholder = "Song Review Limit" formControlName = "SongsReview">
+                <span class="error" *ngIf="!editgeneralform.controls['SongsReview'].valid">Please Enter Song Review Limit.</span>
+              </div>
+            </div>
+           
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group getmusic-select-gener">
+                <label>Genre<span class="error">*</span></label>
+               <!--  <select id="MusicServed" formControlName="MusicServed" class="form-control" multiple>
+                    <option *ngFor="let c of genreslist" [ngValue]="c.key">{{ c.value }}</option>
+                  </select>  -->
+                  <ss-multiselect-dropdown class="miltiseletct-gener"  required  [options]="generslist" [texts]="myTexts" [settings]="mySettings" formControlName="MusicServed"></ss-multiselect-dropdown>
+                <span class="error" *ngIf="!editgeneralform.controls['MusicServed'].valid">Please Select Genre.</span>
+               
+              </div>
+            </div>
+            
+            </div>
+          
+          
+          
+          <div class="row">
+            <div class="col-md-12 text-center">
+               <button mat-button (click)="closeDialog()" class="btn-signin">Update</button>
+               <button mat-button (click)="cancelDialog()" class="btn-signin">Cancel</button>
+            </div>
+          </div>
+      
+     
+   </form>
+</div>
+
+
+    		  
+</div>
