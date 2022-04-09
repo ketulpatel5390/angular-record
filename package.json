@@ -53,7 +53,7 @@
     "jspdf": "^1.4.1",
     "lodash": "^4.17.5",
     "md2": "0.0.29",
-    "moment": "^2.20.1",
+    "moment": "^2.29.2",
     "mydatepicker": "^2.6.6",
     "ng-recaptcha": "^4.2.1",
     "ng4-loading-spinner": "^1.2.3",
